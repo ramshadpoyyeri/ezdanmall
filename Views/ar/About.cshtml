@@ -1,0 +1,66 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    ViewData["Title"] = "About";
+    ViewData["Page"] = "About";
+    Layout = "~/Views/Shared/_ARLayout.cshtml";
+
+    DataSet ds = Model;
+    DataTable? dtFullData = new DataTable();
+    string discription = "", Ardiscription = "";
+
+    DataTable dtData = ds.Tables[0];
+    //DataTable dtAbouts = ds.Tables[1];
+    DataTable dtMapData;
+    String LOC_Embed_URL = "";
+
+    String Title = dtData.Rows[0]["ABT_BannerHeading_Arabic"].ToString();
+    String Description = dtData.Rows[0]["ABT_Description_Arabic"].ToString();
+
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_Web_CompanyParameter", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        discription = dtFullData.Rows[0]["COMPAR_Description"].ToString();
+        Ardiscription = dtFullData.Rows[1]["COMPAR_Description"].ToString();
+
+        dtMapData = db.SqlDataSetResult("USP_Web_GetMap", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        String LOC_Latitude = dtMapData.Rows[0]["LOC_Latitude"].ToString();
+        String LOC_Longitude = dtMapData.Rows[0]["LOC_Longitude"].ToString();
+        LOC_Embed_URL = dtMapData.Rows[0]["LOC_Embed_URL"].ToString();
+    }
+}
+
+
+<div class="aboutsection">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@dtData.Rows[0]["ABT_Image"]" onerror="this.src='/web_assets/images/contat.png'" alt="">
+                <div class="label top-left">
+                    <div class="content">@*@Ardiscription*@</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-wrap">
+                    <span>@Title</span>
+                    <p>@Html.Raw(dtData.Rows[0]["ABT_Description_Arabic"])</p>
+                </div>
+            </div>
+        </div>
+        <div class="logotext">إزدان مول</div>
+    </div>
+</div>
+<div class="mt-4 pt-4 mb-4 pb-4">
+    <div class="container">
+        <div class="row justify-content-center mt-4 pt-4">
+            <div class="col-md-10">
+                <div class="mapsection hlgt">
+                    <img src="/web_assets/images/maptitleAr.png" class="maptitle" alt="">
+                    <iframe src="@LOC_Embed_URL" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

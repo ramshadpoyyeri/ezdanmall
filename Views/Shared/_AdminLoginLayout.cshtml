@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezdan Mall - @ViewData["Title"]</title>
+    <link rel="shortcut icon" type="image/png" href="/admin_assets/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin_assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/admin_assets/css/style.css" asp-append-version="true">
+    <script src="~/admin_assets/js/jquery.min.js"></script>
+    <script src="~/admin_assets/js/jquery.validate.min.js"></script>
+</head>
+@{
+if (TempData["Message"] != null)
+    {
+    <div class="alert-positive" id="ToastMessage"><span class="fa fa-check" style="margin-right:5px;"></span>@TempData["Message"]</div>
+    <script>
+                    setTimeout(function () { $("#ToastMessage").fadeIn(); }, 1);
+                    setTimeout(function () { $("#ToastMessage").fadeOut(); }, 4000);
+    </script>
+    }
+    if (TempData["EMessage"] != null)
+    {
+    <div class="alert-negetive" id="ToastMessage"><span class="fa fa-times" style="margin-right:5px;"></span>@TempData["EMessage"]</div>
+    <script>
+                    setTimeout(function () { $("#ToastMessage").fadeIn(); }, 1);
+                    setTimeout(function () { $("#ToastMessage").fadeOut(); }, 4000);
+    </script>
+    }
+}
+<body>
+    @RenderBody()
+    <!------------main-content-end---------->
+    <script src="/admin_assets/js/main.js "></script>
+    <style>
+        div.error{
+            color:green;
+            text-align:center;
+        }
+    </style>
+</body>
+</html>

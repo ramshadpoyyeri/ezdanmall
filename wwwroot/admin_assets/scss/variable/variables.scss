@@ -1,0 +1,21 @@
+///colors
+$bg-dark:#000000;
+$bg-grey:#707070;
+$white:#fff;
+$primary-color:#926248;
+//fonts
+$main-font: 'Open Sans',
+sans-serif !important;
+$sub-font: 'DM Serif Display',
+serif !important;
+//break-points
+$small-phone: 320px;
+$large-phone: 768px;
+$tablet: 992px;
+$desktop: 1200px;
+$large-desktop:1550px;
+///mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}

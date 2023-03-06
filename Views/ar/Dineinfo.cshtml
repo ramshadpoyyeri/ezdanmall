@@ -1,0 +1,227 @@
+﻿@using System.Data;
+@{
+    ViewData["Page"] = "dine-info";
+    Layout = "~/Views/Shared/_ARLayout.cshtml";
+
+    DataSet ds = Model;
+
+    DataTable dtData = ds.Tables[0];
+    DataTable dtAllimgdata = ds.Tables[1];
+}
+
+<div class="storedetails">
+    @{
+        foreach (DataRow row in dtData.Rows)
+        {
+            String DNM_Name_Arabic = row["DNM_Name_Arabic"].ToString();
+            ViewData["Title"] = DNM_Name_Arabic;
+            String DNM_AboutShop_Arabic = row["DNM_AboutShop"].ToString();
+            String mob1 = row["DNM_PhoneNumber"].ToString();
+            String DNM_Address_Arabic = row["DNM_Address_Arabic"].ToString();
+            String DNM_Timing_Arabic = row["DNM_Timing_Arabic"].ToString();
+            String DNM_Logo = row["DNM_Logo"].ToString();
+            String DNM_BannerImage = row["DNM_BannerImage"].ToString();
+            String imageURL1 = row["DNM_GalleryImage1"].ToString();
+            String imageURL2 = row["DNM_GalleryImage2"].ToString();
+            String imageURL3 = row["DNM_GalleryImage3"].ToString();
+            String imageURL4 = row["DNM_GalleryImage4"].ToString();
+            String imageURL5 = row["DNM_GalleryImage5"].ToString();
+            String imageURL6 = row["DNM_GalleryImage6"].ToString();
+            String DNM_InstagramLink = row["DNM_InstagramLink"].ToString();
+            if (!Uri.IsWellFormedUriString(DNM_InstagramLink, UriKind.Absolute))
+            {
+                if (String.IsNullOrEmpty(DNM_InstagramLink)) { }
+                else
+                {
+                    DNM_InstagramLink = "http://" + DNM_InstagramLink;
+                }
+            }
+            String DNM_FacebookLink = row["DNM_FacebookLink"].ToString();
+            if (!Uri.IsWellFormedUriString(DNM_InstagramLink, UriKind.Absolute))
+            {
+                if (String.IsNullOrEmpty(DNM_FacebookLink)) { }
+                else
+                {
+                    DNM_FacebookLink = "http://" + DNM_FacebookLink;
+                }
+            }
+            String urlKey = row["DNM_URL_Key"] + "-" + row["DNM_DocNo"];
+
+            <div class="storeminimaldetails">
+                <ul>
+                    <li class="firstch">
+                        <div class="storelogoindetails">
+                            <img src="@DNM_Logo" alt="">
+                        </div>
+                    </li>
+                    <li class="lastl">
+                        <div class="d-flex">
+                            <div>
+                                <h1>@DNM_Name_Arabic</h1>
+                                <span>تفاصيل المتجر</span>
+                            </div>
+                            @{
+                                if (String.IsNullOrEmpty(DNM_FacebookLink) && String.IsNullOrEmpty(DNM_InstagramLink))
+                                {
+
+                                }
+                                else
+                                {
+                                    <div class="social-icons">
+                                        <span>تابعنا</span>
+                                        <ul>
+                                            @{
+                                                if (!String.IsNullOrEmpty(DNM_FacebookLink))
+                                                {
+                                                    <li class="fb"><a href="@DNM_FacebookLink"><i class="fab fa-facebook-f"></i></a></li>
+                                                }
+                                                if (!String.IsNullOrEmpty(DNM_InstagramLink))
+                                                {
+                                                    <li class="insta"><a href="@DNM_InstagramLink"><i class="fab fa-instagram"></i></a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <ul class="contacts">
+                            <li>
+                                <img src="/web_assets/images/p1.png">
+                                <div dir="ltr"><span>هاتف </span><a href="tel:+974 @mob1"> +974 @mob1</a></div>
+                            </li>
+                            <li>
+                                <img src="/web_assets/images/t1.png">
+                                <div><span>مواعيد العمل </span> <a href="#">@Html.Raw(dtData.Rows[0]["DNM_Timing_Arabic"])</a></div>
+                            </li>
+                            <li>
+                                <img src="/web_assets/images/l1.png">
+                                <div><span>موقع </span><a href="#"> @DNM_Address_Arabic</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="storegalleryimages">
+                <div class="owl-carousel shopgallerycar" id="Gallery">
+                    @{
+                        //changes by Ragi
+                        for (int i = 1; i <= 6; i++)
+                        {
+                            string data = "DNM_GalleryImage" + i;
+                            if (row[data] != "")
+                            {
+                                <div class="galleryimage"><img style="object-fit:cover;height:500PX" src="@row[data]"></div>
+                            }
+
+                        }
+                        //<div class="galleryimage"><img src="@imageURL1"></div>
+                        //<div class="galleryimage"><img src="@imageURL2"></div>
+                        //<div class="galleryimage"><img src="@imageURL3"></div>
+                        //<div class="galleryimage"><img src="@imageURL4"></div>
+                        //<div class="galleryimage"><img src="@imageURL5"></div>
+                        //<div class="galleryimage"><img src="@imageURL6"></div>
+                    }
+
+                </div>
+            </div>
+            <div class="shopmoredetails">
+                <p>@Html.Raw(dtData.Rows[0]["DNM_AboutShop_Arabic"])</p>
+            </div>
+        }
+    }
+</div>
+@{
+    if (dtAllimgdata.Rows.Count > 0)
+    {
+        <div class="youmayalsolike">
+            <h2>قد يعجبك هذا أيضًا</h2>
+            <div class="owl-carousel owl-loaded owl-drag" id="SimilarStores">
+
+                @{
+                    foreach (DataRow row in dtAllimgdata.Rows)
+                    {
+                        String BannerImage = row["DNM_BannerImage"].ToString();
+                        String urlKey = row["DNM_URL_Key"] + "-" + row["DNM_DocNo"];
+                        <a href="/ar/dine-info/@urlKey" class="storelogo">
+                            <div class="shopimageforlist">
+                                <img src="@BannerImage">
+                            </div>
+                            <div class="logo">
+                                <img src="@row["DNM_Logo"]" alt="">
+                            </div>
+                            <div class="storename">
+                                <h3>@row["DNM_Name_Arabic"]</h3>
+                                <span href="/ar/dine-info/@urlKey" class="viewstoredetails">عرض التفاصيل</span>
+                            </div>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    }
+}
+
+<script src="/web_assets/js/owl.js"></script>
+<script>
+    $(document).ready(function() {
+    //changes by Ragi
+    var numItems = $('.galleryimage').length;
+    if (numItems < 4) {
+        $('#Gallery').owlCarousel({
+            dots: false,
+        });
+    }
+        $('#Gallery').owlCarousel({
+            rtl: $('body').hasClass('rtl'),
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5500,
+            loop: true,
+            smartSpeed: 1050,
+            items: 3,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:3
+              }
+          }
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#SimilarStores').owlCarousel({
+            rtl: $('body').hasClass('rtl'),
+            navigation : true,
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            loop: false,
+            smartSpeed: 1050,
+            items: 4,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:4
+              }
+          }
+        });
+    });
+</script>

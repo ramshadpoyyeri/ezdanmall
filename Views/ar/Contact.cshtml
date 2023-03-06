@@ -1,0 +1,145 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    ViewData["Title"] = "Contact";
+    ViewData["Page"] = "Contact";
+    Layout = "~/Views/Shared/_ARLayout.cshtml";
+
+    DataSet ds = Model;
+    DataTable? dtFullData = new DataTable();
+
+    string discription = "", Ardiscription = "", fblink = "", instalink = "", twitterlink = "", linkedlink = "";
+    DataTable dtMapData;
+    String LOC_Embed_URL = "";
+    DataTable dtData = ds.Tables[0];
+    //DataTable dtContacts = ds.Tables[1];
+
+    String Title = dtData.Rows[0]["CON_FormTitle_Arabic"].ToString();
+    String mob1 = dtData.Rows[0]["CON_MobileNumber1"].ToString();
+    String mob2 = dtData.Rows[0]["CON_MobileNumber2"].ToString();
+    String imageURL = dtData.Rows[0]["CON_ContactImage"].ToString();
+    String Email1 = dtData.Rows[0]["CON_EmailAddress1"].ToString();
+    String Email2 = dtData.Rows[0]["CON_EmailAddress2"].ToString();
+    String CON_InstagramLink = dtData.Rows[0]["CON_InstagramLink"].ToString();
+    if (!Uri.IsWellFormedUriString(CON_InstagramLink, UriKind.Absolute))
+    {
+        CON_InstagramLink = "http://" + CON_InstagramLink;
+    }
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_Web_CompanyParameter", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        discription = dtFullData.Rows[0]["COMPAR_Description"].ToString();
+        Ardiscription = dtFullData.Rows[1]["COMPAR_Description"].ToString();
+
+        dtMapData = db.SqlDataSetResult("USP_Web_GetMap", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        String LOC_Latitude = dtMapData.Rows[0]["LOC_Latitude"].ToString();
+        String LOC_Longitude = dtMapData.Rows[0]["LOC_Longitude"].ToString();
+        LOC_Embed_URL = dtMapData.Rows[0]["LOC_Embed_URL"].ToString();
+    }
+
+    
+    fblink = dtData.Rows[0]["CON_FacebookLink"].ToString();
+    instalink = dtData.Rows[0]["CON_InstagramLink"].ToString();
+    twitterlink = dtData.Rows[0]["CON_TwitterLink"].ToString();
+    linkedlink = dtData.Rows[0]["CON_LinkedinLink"].ToString();
+
+}
+<section class="banner" styel="object-fit: cover;">
+    <img src="@imageURL" alt="">
+    <div class="banner-overlay">
+        <span>ازدان مول - @Ardiscription</span>
+        <h1>اتصل بنا</h1>
+    </div>
+</section>
+
+<div class="contact-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <span>تواصل معنا</span>
+
+                <h2>@Title</h2>
+                <p>ملاحظاتك مهمة بالنسبة لنا، مما يمكننا من خدمتك بشكل أفضل. قدم لنا ملاحظاتك أو اقتراحاتك، أو اطرح سؤالاً حول أحد مولاتنا أو الفعاليات المرتقبة.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>متجر</h5>
+                        <address>إزدان مول ، شارع الجوثي ، <br> الدوحة قطر</address>
+                        @{
+                            String telmob1 = "tel:+974" + mob1;
+                            String telmob2 = "+974" + mob2;
+                        }
+                        <a href="@telmob1"><p dir="ltr">+974 @mob1</p></a>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>اجتماعي</h5>
+                         <div class="social-icons">                           
+                            <ul>
+                                <li class="insta"><a target="_blank" href="@instalink"><i class="fab fa-instagram"></i></a></li>
+                                <li class="fb"><a target="_blank" href="@fblink"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="fb"><a target="_blank" href="@twitterlink"><i class="fab fa-twitter"></i></a></li>
+                                <li class="linkedin"><a target="_blank" href="@linkedlink"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                        @*<a href="@CON_InstagramLink" class="inst">                            
+                            <i class="fab fa-instagram"></i><span>
+                                الانستغرام
+                                <br><i>@@إزدان مول</i>
+                            </span>
+                        </a>*@
+                        <br /><a href="@telmob2"><p dir="ltr">+974 @mob2</p></a>
+                        @*<a href="@telmob2"><i class="fab fa-whatsapp"></i><span>الواتساب<br><p dir="ltr">+974 @mob2</p></span></a>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="formwrap">
+                    <form action="/ar/SendEnquiryEmail" class="contact-form">
+                        <div class="field" for="Name">
+                            <input type="text" name="Name" id="Name" autocomplete="off" maxlength="50" required="" placeholder="اسمك">
+                        </div>
+                        <div class="field" for="Email">
+                            <input type="email" name="Email" id="Email" autocomplete="off" required="" maxlength="50" placeholder="عنوان البريد الالكترونى">
+                        </div>
+                        <div class="field" for="Message">
+                            <textarea name="Message" id="Message" maxlength="500" required="" placeholder="رسالة"></textarea>
+                        </div>
+                        <div class="btn-sub">
+                            <input type="submit" value="ارسل الان">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4 pt-4">
+            <div class="col-md-10">
+                <div class="mapsection hlgt">
+                    <img src="/web_assets/images/maptitleAr.png" class="maptitle" alt="">
+                    <iframe style="border: 0;" src="@LOC_Embed_URL" width="100%" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $("#contact-form").validate({
+            rules: {
+                Name: { required: true },
+                Email: { required: true },
+                Message: { required: true },
+            },
+            messages: {
+                Name: { required: "please Enter Your Name" },
+                Email: { required: "Please Enter valid email_ID" },
+                Message: { required: "Please Enter" },
+            },
+        });
+    });
+</script>
+<style>
+    .contact-wrap h2, .contact-wrap p {
+        word-break: break-all;
+    }
+</style>

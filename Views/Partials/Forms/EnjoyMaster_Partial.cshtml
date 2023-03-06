@@ -1,0 +1,662 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    Layout = null;
+    String docno = Context.Request.Query["docno"];
+    DataTable? dtCategories = new DataTable();
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    String EJY_Name = "", EJY_Name_Arabic = "", EJY_CAT_DocNo = "",
+    EJY_AboutShop = "", EJY_AboutShop_Arabic = "",
+    EJY_PhoneNumber = "", EJY_Address = "", EJY_Timing = "", EJY_Address_Arabic = "",
+    EJY_Logo = "", EJY_BannerImage = "", EJY_WorkingStatus = "", EJY_Timing_Arabic = "",
+    EJY_InstagramLink = "", EJY_FacebookLink = "",
+    EJY_GalleryImage1 = "", EJY_GalleryImage2 = "",
+    EJY_GalleryImage3 = "", EJY_GalleryImage4 = "",
+    EJY_GalleryImage5 = "", EJY_GalleryImage6 = "";
+
+    String Logo_Url = "", BannerImage_Url = "", GalleryImage1_Url = "",
+    GalleryImage2_Url = "", GalleryImage3_Url = "", GalleryImage4_Url = "",
+    GalleryImage5_Url = "", GalleryImage6_Url = "", EJY_IsFeatured = "";
+
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        EJY_Name = dtData.Rows[0]["EJY_Name"].ToString();
+        EJY_Name_Arabic = dtData.Rows[0]["EJY_Name_Arabic"].ToString();
+        EJY_CAT_DocNo = dtData.Rows[0]["EJY_CAT_DocNo"].ToString();
+        EJY_AboutShop = dtData.Rows[0]["EJY_AboutShop"].ToString();
+        EJY_AboutShop_Arabic = dtData.Rows[0]["EJY_AboutShop_Arabic"].ToString();
+        EJY_PhoneNumber = dtData.Rows[0]["EJY_PhoneNumber"].ToString();
+        EJY_Address = dtData.Rows[0]["EJY_Address"].ToString();
+        EJY_Address_Arabic = dtData.Rows[0]["EJY_Address_Arabic"].ToString();
+        EJY_Timing = dtData.Rows[0]["EJY_Timing"].ToString();
+        EJY_Timing_Arabic = dtData.Rows[0]["EJY_Timing_Arabic"].ToString();
+        //EJY_Timing_To = dtData.Rows[0]["EJY_Timing_To"].ToString();
+        EJY_WorkingStatus = dtData.Rows[0]["EJY_WorkingStatus"].ToString();
+        EJY_InstagramLink = dtData.Rows[0]["EJY_InstagramLink"].ToString();
+        EJY_FacebookLink = dtData.Rows[0]["EJY_FacebookLink"].ToString();
+
+        EJY_Logo = dtData.Rows[0]["EJY_Logo"].ToString();
+        Logo_Url = "background-image:url(" + EJY_Logo + ")";
+
+        EJY_BannerImage = dtData.Rows[0]["EJY_BannerImage"].ToString();
+        BannerImage_Url = "background-image:url(" + EJY_BannerImage + ")";
+
+        EJY_GalleryImage1 = dtData.Rows[0]["EJY_GalleryImage1"].ToString();
+
+        GalleryImage1_Url = String.IsNullOrEmpty(EJY_GalleryImage1) ? "" : "background-image:url(" + EJY_GalleryImage1 + ");background-size: cover;";
+
+        EJY_GalleryImage2 = dtData.Rows[0]["EJY_GalleryImage2"].ToString();
+
+        GalleryImage2_Url = String.IsNullOrEmpty(EJY_GalleryImage2) ? "" : "background-image:url(" + EJY_GalleryImage2 + ");background-size: cover;";
+
+        EJY_GalleryImage3 = dtData.Rows[0]["EJY_GalleryImage3"].ToString();
+        GalleryImage3_Url = String.IsNullOrEmpty(EJY_GalleryImage3) ? "" : "background-image:url(" + EJY_GalleryImage3 + ");background-size: cover;";
+
+        EJY_GalleryImage4 = dtData.Rows[0]["EJY_GalleryImage4"].ToString();
+        GalleryImage4_Url = String.IsNullOrEmpty(EJY_GalleryImage4) ? "" : "background-image:url(" + EJY_GalleryImage4 + ");background-size: cover;";
+
+        EJY_GalleryImage5 = dtData.Rows[0]["EJY_GalleryImage5"].ToString();
+        GalleryImage5_Url = String.IsNullOrEmpty(EJY_GalleryImage5) ? "" : "background-image:url(" + EJY_GalleryImage5 + ");background-size: cover;";
+
+        EJY_GalleryImage6 = dtData.Rows[0]["EJY_GalleryImage6"].ToString();
+        GalleryImage6_Url = String.IsNullOrEmpty(EJY_GalleryImage6) ? "" : "background-image:url(" + EJY_GalleryImage6 + ");background-size: cover;";
+
+        EJY_IsFeatured = dtData.Rows[0]["EJY_IsFeatured"].ToString();
+    }
+
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtCategories = db.SqlDataSetResult("USP_CAT_List", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+    }
+}
+
+<div class="row ">
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_Name">Shop Name</label>
+            <input type="text" name="EJY_Name" placeholder="Shop Name" maxlength="100" value="@EJY_Name">
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_Name_Arabic">Shop Name (Arabic)</label>
+            <input type="text" name="EJY_Name_Arabic" placeholder="Shop Name (Arabic)" maxlength="100" value="@EJY_Name_Arabic">
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_AboutShop">About Shop</label>
+            @*<div id="editor" class="editor"></div>*@
+            <textarea id="editor" name="EJY_AboutShop" class="editor">@EJY_AboutShop</textarea>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_AboutShop_Arabic">About Shop (Arabic)</label>
+            @* <div id="editor1" class="editor"></div>*@
+            <textarea id="editor1" name="EJY_AboutShop_Arabic" class="editor">@EJY_AboutShop_Arabic</textarea>
+        </div>
+    </div>
+
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_PhoneNumber">Phone Number*</label>
+            <input type="text" class="pd-65" name="EJY_PhoneNumber" placeholder="Phone Number" @*maxlength="9" onkeypress='return restrictAlphabets(event)'*@ value="@EJY_PhoneNumber">
+            <div class="ic-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12.668" height="12.668" viewBox="0 0 12.668 12.668">
+                    <path id="noun-phone-4778644" d="M149.775,76.24a1.384,1.384,0,0,0-1.957,0l-1.007,1.007a3.34,3.34,0,0,0-.679,3.743,14.525,14.525,0,0,0,7.213,7.213,3.34,3.34,0,0,0,3.743-.679l1.007-1.007a1.384,1.384,0,0,0,0-1.957l-1.355-1.355a1.383,1.383,0,0,0-1.6-.259l-.752.376a1.138,1.138,0,0,1-1.314-.213l-1.853-1.853a1.138,1.138,0,0,1-.213-1.314l.376-.752a1.383,1.383,0,0,0-.259-1.6Z" transform="translate(-145.833 -75.834)" fill="#727272" fill-rule="evenodd"></path>
+                </svg>
+                <span class="countrycode">+974</span>
+                <input type="hidden" name="EJY_CountryCode" value="+974" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_Address">Shop Address</label>
+            <input type="text" class="pd-37" name="EJY_Address" maxlength="500" placeholder="Floor No/ Room No." value="@EJY_Address">
+            <div class="ic-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12.84" height="16.617" viewBox="0 0 12.84 16.617">
+                    <g id="_2216335_location_map_map_pin_marker_pin_icon" data-name="2216335_location_map_map pin_marker_pin_icon" transform="translate(-26.1 -21.4)">
+                        <path id="Path_9684" data-name="Path 9684" d="M38.94,27.82a6.42,6.42,0,1,0-12.84,0c0,3.556,6.42,10.2,6.42,10.2S38.94,31.376,38.94,27.82Zm-9.41-.126a2.99,2.99,0,1,1,2.99,2.99A3.009,3.009,0,0,1,29.53,27.694Z" transform="translate(0 0)" fill="#727272"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_Address_Arabic">Shop Address(Arabic)</label>
+            <input type="text" class="pd-37" name="EJY_Address_Arabic" maxlength="500" placeholder="Floor No/ Room No." value="@EJY_Address_Arabic">
+            <div class="ic-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12.84" height="16.617" viewBox="0 0 12.84 16.617">
+                    <g id="_2216335_location_map_map_pin_marker_pin_icon" data-name="2216335_location_map_map pin_marker_pin_icon" transform="translate(-26.1 -21.4)">
+                        <path id="Path_9684" data-name="Path 9684" d="M38.94,27.82a6.42,6.42,0,1,0-12.84,0c0,3.556,6.42,10.2,6.42,10.2S38.94,31.376,38.94,27.82Zm-9.41-.126a2.99,2.99,0,1,1,2.99,2.99A3.009,3.009,0,0,1,29.53,27.694Z" transform="translate(0 0)" fill="#727272"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_Timing">Shop Timing (From-To)</label>
+            @* <div id="editor1" class="editor"></div>*@
+            <textarea id="editor3" name="EJY_Timing" class="editor">@EJY_Timing</textarea>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_Timing_Arabic">Shop Timing Arabic (From-To)</label>
+            @* <div id="editor1" class="editor"></div>*@
+            <textarea id="editor4" name="EJY_Timing_Arabic" class="editor">@EJY_Timing_Arabic</textarea>
+        </div>
+    </div>
+    @*<div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+        <label for=" ">Shop Timing</label>
+        <textarea type="text" class="pd-37" id="editor" name="EJY_Timing" placeholder="Shop Timing">@EJY_Timing</textarea>
+        @*<div class="ic-input">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17.323" height="17.323" viewBox="0 0 17.323 17.323">
+        <path id="_3671880_time_icon" data-name="3671880_time_icon" d="M8.661,17.323a8.661,8.661,0,1,1,8.661-8.661A8.661,8.661,0,0,1,8.661,17.323Zm0-1.732A6.929,6.929,0,1,0,1.732,8.661,6.929,6.929,0,0,0,8.661,15.59ZM7.8,9.016V3.465H9.528V8.306l3.421,3.421-1.221,1.221Z" fill="#727272"/>
+        </svg>
+
+        </div>
+        </div>
+        </div>*@
+    @*<div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+        <label for="EJY_Timing">Shop Timing (From-To)</label>
+        <input type="time" style="width:49%" name="EJY_Timing_From" placeholder="Shop Timing" value="@EJY_Timing_From">
+        <input type="time" style="width:49.5%" name="EJY_Timing_To" placeholder="Shop Timing" value="@EJY_Timing_To">
+        @*<div class="ic-input">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17.323" height="17.323" viewBox="0 0 17.323 17.323">
+        <path id="_3671880_time_icon" data-name="3671880_time_icon" d="M8.661,17.323a8.661,8.661,0,1,1,8.661-8.661A8.661,8.661,0,0,1,8.661,17.323Zm0-1.732A6.929,6.929,0,1,0,1.732,8.661,6.929,6.929,0,0,0,8.661,15.59ZM7.8,9.016V3.465H9.528V8.306l3.421,3.421-1.221,1.221Z" fill="#727272"></path>
+        </svg>
+        </div>
+        </div>
+        </div>*@
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_Logo">Shop Logo(Size:500x500)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@Logo_Url"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="EJY_Logo" name="EJY_Logo" class="profileimg">
+                    <input type="hidden" id="EJY_Logo1" value="@EJY_Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="EJY_BannerImage">Shop List Image(Size :600x400)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@BannerImage_Url"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="EJY_BannerImage" name="EJY_BannerImage" class="profileimg">
+                    <input type="hidden" id="EJY_BannerImage1" value="@EJY_BannerImage">
+                </div>
+            </div>
+        </div>
+    </div>
+    @{
+        String workingNow = (EJY_WorkingStatus == "Working Now") ? "checked='checked'" : "";
+        String notWorkingNow = (EJY_WorkingStatus == "Not Working Now") ? "checked='checked'" : "";
+
+        String featured = (EJY_IsFeatured.ToString().ToLower() == "true") ? "checked='checked'" : "";
+        String notfeatured = (EJY_IsFeatured.ToString().ToLower() == "false") ? "checked='checked'" : "";
+
+        if (featured == notfeatured)
+        {
+            featured = "checked='checked'";
+        }
+    }
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for=" ">Working Status</label>
+            <div class="radio-btns">
+                <div class="form-group">
+                    <input type="radio" class="EJY_WorkingStatus" @workingNow id="workingnow" name="EJY_WorkingStatus" value="Working Now">
+                    <label for="workingnow">Enable</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" class="EJY_WorkingStatus" id="notworkingnow" @notWorkingNow name="EJY_WorkingStatus" value="Not Working Now">
+                    <label for="notworkingnow">Disable</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 sub-head">
+            <h4>Social Media Links</h4>
+        </div>
+        <div class="col-md-6 ">
+            <div class="form-wrap half-field ">
+                <label for="EJY_InstagramLink">instagram</label>
+                <input type="text" id="EJY_InstagramLink" name="EJY_InstagramLink" placeholder="instagram" value="@EJY_InstagramLink">
+                <div class="ic-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19.294" height="19.294" viewBox="0 0 19.294 19.294">
+                        <g id="_1161953_instagram_icon_1_" data-name="1161953_instagram_icon (1)" transform="translate(-3.4 -4.8)">
+                            <path id="Path_9550" data-name="Path 9550" d="M20.379,16.7a4.979,4.979,0,1,0,4.979,4.979A4.989,4.989,0,0,0,20.379,16.7Zm0,8.169a3.19,3.19,0,1,1,3.19-3.19A3.2,3.2,0,0,1,20.379,24.869Z" transform="translate(-7.332 -7.271)" fill="#727272"></path>
+                            <circle id="Ellipse_33" data-name="Ellipse 33" cx="1.128" cy="1.128" r="1.128" transform="translate(17.093 8.184)" fill="#727272"></circle>
+                            <path id="Path_9551" data-name="Path 9551" d="M21.138,6.395A5.54,5.54,0,0,0,17.054,4.8H9.04A5.329,5.329,0,0,0,3.4,10.44v7.974a5.6,5.6,0,0,0,1.634,4.162,5.677,5.677,0,0,0,4.046,1.517h7.936A5.744,5.744,0,0,0,21.1,22.577a5.569,5.569,0,0,0,1.595-4.123V10.44A5.576,5.576,0,0,0,21.138,6.395Zm-.156,12.059a3.8,3.8,0,0,1-1.128,2.84,4.021,4.021,0,0,1-2.84,1.011H9.079a4.021,4.021,0,0,1-2.84-1.011,3.91,3.91,0,0,1-1.05-2.879V10.44A3.878,3.878,0,0,1,6.24,7.6a3.956,3.956,0,0,1,2.84-1.011h8.013a3.878,3.878,0,0,1,2.84,1.05,4.014,4.014,0,0,1,1.05,2.8v8.013Z" fill="#727272"></path>
+                        </g>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-wrap half-field ">
+                <label for="EJY_FacebookLink">Facebook</label>
+                <input type="text" id="EJY_FacebookLink" name="EJY_FacebookLink" placeholder="Facebook" " value="@EJY_FacebookLink">
+                <div class="ic-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9.034" height="16.201" viewBox="0 0 9.034 16.201">
+                        <path id="_2959749_facebook_icon" data-name="2959749_facebook_icon" d="M39.795,17.93v2.446H37.11V23.4h2.685v6.8h3.177V23.4h2.707L46,20.378s-2.273.612-3.031,0,0-2.448,0-2.448a1.038,1.038,0,0,1,.486-.781A4.336,4.336,0,0,1,44.94,16.9h1.2V14.162A15.109,15.109,0,0,0,44.251,14C39.7,14,39.795,17.93,39.795,17.93Z" transform="translate(-37.11 -14)" fill="#727272"></path>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for=" ">Choose Category</label>
+            <select name="EJY_CAT_DocNo" id="EJY_CAT_DocNo">
+                <option value="" disabled="" selected="">Choose Category</option>
+            @{
+                foreach (DataRow row in dtCategories.Rows)
+                {
+                        <option value="@row["CAT_DocNo"]">@row["CAT_Description"]</option>
+                }
+            }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field ">
+            <label for=" ">Featured</label>
+            <div class="radio-btns">
+                <div class="form-group">
+                    <input type="radio" class="EJY_IsFeatured" @featured id="Featured" name="EJY_IsFeatured" value="1">
+                    <label for="Featured">Featured</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" class="EJY_IsFeatured" id="NotFeatured" @notfeatured name="EJY_IsFeatured" value="0">
+                    <label for="NotFeatured">Not Featured</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for=" ">Gallery Images</label>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-2">
+                    <div class="file-upload gallery-upload">
+                        <div class="file-select">
+                            <div class="imagePreview" style="@GalleryImage1_Url"></div>
+                            <button class="btn btn-secondary">Choose Image</button>
+                            <input type="file" id="EJY_GalleryImage1" name="EJY_GalleryImage1" class="profileimg EJY_GalleryImage1">
+                            <input type="hidden" id="EJY_GalleryImage_1" value="@EJY_GalleryImage1">
+                            <!-- <div class="file-select-name">No File Chosen</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-2">
+                    <div class="file-upload gallery-upload">
+                        <div class="file-select">
+                            <div class="imagePreview" style="@GalleryImage2_Url"></div>
+                            <button class="btn btn-secondary">Choose Image</button>
+                            <input type="file" id="EJY_GalleryImage2" name="EJY_GalleryImage2" class="profileimg">
+                            <input type="hidden" id="EJY_GalleryImage_2" value="@EJY_GalleryImage2">
+                            <!-- <div class="file-select-name">No File Chosen</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-2">
+                    <div class="file-upload gallery-upload">
+                        <div class="file-select">
+                            <div class="imagePreview" style="@GalleryImage3_Url"></div>
+                            <button class="btn btn-secondary">Choose Image</button>
+                            <input type="file" id="EJY_GalleryImage3" name="EJY_GalleryImage3" class="profileimg">
+                            <input type="hidden" id="EJY_GalleryImage_3" value="@EJY_GalleryImage3">
+                            <!-- <div class="file-select-name">No File Chosen</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-2">
+                    <div class="file-upload gallery-upload">
+                        <div class="file-select">
+                            <div class="imagePreview" style="@GalleryImage4_Url"></div>
+                            <button class="btn btn-secondary">Choose Image</button>
+                            <input type="file" id="EJY_GalleryImage4" name="EJY_GalleryImage4" class="profileimg">
+                            <input type="hidden" id="EJY_GalleryImage_4" value="@EJY_GalleryImage4">
+                            <!-- <div class="file-select-name">No File Chosen</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-2">
+                    <div class="file-upload gallery-upload">
+                        <div class="file-select">
+                            <div class="imagePreview" style="@GalleryImage5_Url"></div>
+                            <button class="btn btn-secondary">Choose Image</button>
+                            <input type="file" id="EJY_GalleryImage5" name="EJY_GalleryImage5" class="profileimg">
+                            <input type="hidden" id="EJY_GalleryImage_5" value="@EJY_GalleryImage5">
+                            <!-- <div class="file-select-name">No File Chosen</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-2">
+                    <div class="file-upload gallery-upload">
+                        <div class="file-select">
+                            <div class="imagePreview" style="@GalleryImage6_Url"></div>
+                            <button class="btn btn-secondary">Choose Image</button>
+                            <input type="file" id="EJY_GalleryImage6" name="EJY_GalleryImage6" class="profileimg">
+                            <input type="hidden" id="EJY_GalleryImage_6" value="@EJY_GalleryImage6">
+                            <!-- <div class="file-select-name">No File Chosen</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <input type="submit" value="Save Changes" class="submit">
+        </div>
+    </div>
+</div>
+
+<script>
+    ClassicEditor.create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor1'))
+        .catch(error => {
+            console.error(error);
+        });
+        ClassicEditor.create(document.querySelector('#editor3'))
+        .catch(error => {
+            console.error(error);
+        });
+         ClassicEditor.create(document.querySelector('#editor4'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+     $("#editor,#editor1,#editor3,#editor4").parent().find(".ck-content").on('blur keyup paste input', function() {
+
+         var editor = $(this).parent().parent().parent().find(".editor");
+         var textID = $(editor).attr("id");// + "_text";
+
+         var default_Html = '<p><br data-cke-filler="true"></p>';
+         var rich_Html = $(this).html();
+         if (rich_Html == default_Html) {
+             $("#" + textID).val("");
+         } else {
+             $("#" + textID).val(rich_Html);
+         }
+     });
+     $("#editor").parent().find(".ck-content").html('@EJY_AboutShop');
+     $("#editor1").parent().find(".ck-content").html('@EJY_AboutShop_Arabic');
+     $("#editor3").parent().find(".ck-content").html('@EJY_Timing');
+     $("#editor4").parent().find(".ck-content").html('@EJY_Timing_Arabic');
+     var editMode = '@editMode'.toLowerCase();
+     if(editMode == "true"){
+         $("#EJY_CAT_DocNo").val('@EJY_CAT_DocNo');
+     }
+     //if ('docno' == "0") {
+     //            $("#workingnow").prop("disabled", true);
+     //        }
+    $('#workingnow').prop('checked', true);
+     $("#form").validate({
+         rules: {
+             EJY_Name: {
+                 required: true,
+             },
+             EJY_Name_Arabic: {
+                 required: true
+             },
+             EJY_AboutShop: {
+                 required: true,
+             },
+             EJY_AboutShop_Arabic: {
+                 required: true,
+             },
+             EJY_PhoneNumber: {
+                 required: true,
+             },
+             EJY_Address: {
+                 required: true,
+             },
+             EJY_Timing: {
+                 required: true,
+             },
+             EJY_Address_Arabic: {
+                 required: true,
+             },
+             EJY_Timing_Arabic: {
+                 required: true,
+             },
+             //EJY_Timing_To: {
+             //    required: true,
+             //},
+             EJY_Logo: {
+                 required: editMode == "true" ? false : true,
+                 extension: "jpg|jpeg|png|bmp"
+             },
+             EJY_BannerImage: {
+                 required: editMode == "true" ? false : true,
+                 extension: "jpg|jpeg|png|bmp"
+             },
+             EJY_WorkingStatus: {
+                 required: true,
+             },
+             CON_InstagramLink: {
+             //      required: true,
+                    url: true,
+               },
+               CON_FacebookLink: {
+             //      required: true,
+                   url: true,
+               },
+             EJY_CAT_DocNo: {
+                 required: true,
+             },
+             EJY_GalleryImage1:  {
+                 extension: "jpg|jpeg|png|bmp"
+             },
+             EJY_GalleryImage2:  {
+                 extension: "jpg|jpeg|png|bmp"
+             },
+             EJY_GalleryImage3:  {
+                 extension: "jpg|jpeg|png|bmp"
+             },
+             EJY_GalleryImage4:  {
+                 extension: "jpg|jpeg|png|bmp"
+             },
+             EJY_GalleryImage5:  {
+                 extension: "jpg|jpeg|png|bmp"
+             },
+             EJY_GalleryImage6:  {
+                 extension: "jpg|jpeg|png|bmp"
+             },
+         },
+         messages: {
+             EJY_Name: {
+                 required: "*Required",
+             },
+             EJY_Name_Arabic: {
+                 required: "*Required",
+             },
+             EJY_AboutShop: {
+                 required: "*Required",
+             },
+             EJY_AboutShop_Arabic: {
+                 required: "*Required ",
+             },
+             EJY_PhoneNumber: {
+                 required: "<b>Phone number</b> required.!",
+             },
+             EJY_Address: {
+                required: "<b>Address</b> required.!",
+             },
+             EJY_Timing: {
+                 required: "*Required",
+             },
+             EJY_Address_Arabic: {
+                required: "<b>Address</b> required.!",
+             },
+             EJY_Timing_Arabic: {
+                 required: "*Required",
+             },
+             // EJY_Timing_To: {
+             //    required: "*Required",
+             //},
+             EJY_Logo: {
+                 required: "<b>Logo</b> required.!",
+                 extension: "Logo Type <b>(jpg/png/bmp)</b>"
+             },
+             EJY_BannerImage: {
+                 required: "<b>Banner Image</b> required.!",
+                 extension: "Image Type <b>(jpg/png/bmp)</b>"
+             },
+             EJY_WorkingStatus: {
+                 required: "*Required",
+             },
+             CON_InstagramLink: {
+              //     required: "<b>URL</b> required.!",
+                   url: "<b>URL</b> required.!",
+               },
+               CON_FacebookLink: {
+                 //   required: "<b>URL</b> required.!",
+                    url: "<b>URL</b> required.!",
+               },
+             EJY_CAT_DocNo: {
+                 required: "*Category Required",
+             },
+             EJY_GalleryImage1:{
+
+                 extension: "Image Type <b>(jpg/png/bmp)</b>"
+             },
+             EJY_GalleryImage2:{
+                 extension: "Image Type <b>(jpg/png/bmp)</b>"
+             },
+             EJY_GalleryImage3:{
+                 extension: "Image Type <b>(jpg/png/bmp)</b>"
+             },
+             EJY_GalleryImage4:{
+                 extension: "Image Type <b>(jpg/png/bmp)</b>"
+             },
+             EJY_GalleryImage5:{
+                 extension: "Image Type <b>(jpg/png/bmp)</b>"
+             },
+             EJY_GalleryImage6:{
+                 extension: "Image Type <b>(jpg/png/bmp)</b>"
+             },
+         },
+         submitHandler: function(form) {
+             debugger;
+             if (editMode == "true") {
+                 debugger;
+                 if ($("#EJY_Logo").val().length == 0) {
+                     $("#EJY_Logo1").attr("name", "EJY_Logo");
+                     $("#EJY_Logo").removeAttr("name");
+                     $("#EJY_Logo").remove();
+                 }
+                 if ($("#EJY_BannerImage").val().length == 0) {
+                     $("#EJY_BannerImage1").attr("name", "EJY_BannerImage");
+                     $("#EJY_BannerImage").remove();
+                 }
+                 if ($("#EJY_GalleryImage1").val().length == 0) {
+                     $("#EJY_GalleryImage_1").attr("name", "EJY_GalleryImage1");
+                     $("#EJY_GalleryImage1").remove();
+                 }
+                 if ($("#EJY_GalleryImage2").val().length == 0) {
+                     $("#EJY_GalleryImage_2").attr("name", "EJY_GalleryImage2");
+                     $("#EJY_GalleryImage2").remove();
+                 }
+                 if ($("#EJY_GalleryImage3").val().length == 0) {
+                     $("#EJY_GalleryImage_3").attr("name", "EJY_GalleryImage3");
+                     $("#EJY_GalleryImage3").remove();
+                 }
+                 if ($("#EJY_GalleryImage4").val().length == 0) {
+                     $("#EJY_GalleryImage_4").attr("name", "EJY_GalleryImage4");
+                     $("#EJY_GalleryImage4").remove();
+                 }
+                 if ($("#EJY_GalleryImage5").val().length == 0) {
+                     $("#EJY_GalleryImage_5").attr("name", "EJY_GalleryImage5");
+                     $("#EJY_GalleryImage5").remove();
+                 }
+                 if ($("#EJY_GalleryImage6").val().length == 0) {
+                     $("#EJY_GalleryImage_6").attr("name", "EJY_GalleryImage6");
+                     $("#EJY_GalleryImage6").remove();
+                 }
+             }
+
+             $("#form button[type=submit]").attr("disabled", "disabled");
+             form.submit();
+         }
+     });
+      function restrictAlphabets(e) {
+                 var x = e.which || e.keycode;
+                 if ((x >= 48 && x <= 57))
+                     return true;
+                 else
+                     return false;
+             }
+</script>
+
+<style>
+    .editor_hidden {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+</style>
+<style>
+
+    .main_content .inner_content .main-form .form-wrap .ic-input {
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 10px;
+    }
+
+    .editor_hidden {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .main_content .inner_content .main-form .form-wrap input {
+        height: 40px;
+        background: #fff;
+        border: 1px solid #dcdcdc;
+        border-radius: 5px;
+        width: 100%;
+        color: #d21018;
+        -webkit-transition: 0.5s ease-out;
+        transition: 0.5s ease-out;
+        outline: none !important;
+        padding: 10px 30px;
+    }
+
+    path[Attributes Style] {
+        d: path("M 149.775 76.24 a 1.384 1.384 0 0 0 -1.957 0 l -1.007 1.007 a 3.34 3.34 0 0 0 -0.679 3.743 a 14.525 14.525 0 0 0 7.213 7.213 a 3.34 3.34 0 0 0 3.743 -0.679 l 1.007 -1.007 a 1.384 1.384 0 0 0 0 -1.957 l -1.355 -1.355 a 1.383 1.383 0 0 0 -1.6 -0.259 l -0.752 0.376 a 1.138 1.138 0 0 1 -1.314 -0.213 l -1.853 -1.853 a 1.138 1.138 0 0 1 -0.213 -1.314 l 0.376 -0.752 a 1.383 1.383 0 0 0 -0.259 -1.6 Z");
+        transform: translate(-145.833, -75.834);
+        fill: rgb(114, 114, 114);
+        fill-rule: evenodd;
+    }
+</style>

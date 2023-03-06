@@ -1,0 +1,462 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    ViewData["Title"] = "Home";
+    ViewData["Page"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    DataSet ds = Model;
+    DataTable? dtFullData = new DataTable();
+    DataTable? dtLogosData = new DataTable();
+
+    string discription = "", Ardiscription = "";
+    string instalink = "";
+
+    DataTable dthomeData = ds.Tables[0];
+    DataTable dtmediaData = ds.Tables[1];
+    DataTable dtSlidesData = ds.Tables[2];
+    DataTable dtContactInfo = ds.Tables[1];
+    DataTable dtMapData = new DataTable();
+
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        DataSet dsLocSocialLinks = db.SqlDataSetResult("USP_Web_GetMap", new List<System.Data.SqlClient.SqlParameter>());
+        dtMapData = dsLocSocialLinks.Tables[0];
+
+        dtContactInfo = dsLocSocialLinks.Tables[1]; // contact info..
+        instalink = dtContactInfo.Rows[0]["CON_InstagramLink"].ToString();
+        dtFullData = db.SqlDataSetResult("USP_Web_CompanyParameter", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        discription = dtFullData.Rows[0]["COMPAR_Description"].ToString();
+        Ardiscription = dtFullData.Rows[1]["COMPAR_Description"].ToString();
+        dtLogosData = db.SqlDataSetResult("USP_Web_GetLogos", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+    }
+    String HOM_ShopBannerImage = dthomeData.Rows[0]["HOM_ShopBannerImage"].ToString();
+    String HOM_ShopBannerHeading = dthomeData.Rows[0]["HOM_ShopBannerHeading"].ToString();
+    String HOM_ShopDescription = dthomeData.Rows[0]["HOM_ShopDescription"].ToString();
+    String HOM_DineBannerImage = dthomeData.Rows[0]["HOM_DineBannerImage"].ToString();
+    String HOM_DineBannerHeading = dthomeData.Rows[0]["HOM_DineBannerHeading"].ToString();
+    String HOM_DineDescription = dthomeData.Rows[0]["HOM_DineDescription"].ToString();
+    String HOM_EnjoyBannerImage = dthomeData.Rows[0]["HOM_EnjoyBannerImage"].ToString();
+    String HOM_EnjoyBannerHeading = dthomeData.Rows[0]["HOM_EnjoyBannerHeading"].ToString();
+    String HOM_EnjoyDescription = dthomeData.Rows[0]["HOM_EnjoyDescription"].ToString();
+    String HOM_AreaTitle = dthomeData.Rows[0]["HOM_AreaTitle"].ToString();
+    String HOM_AreaSubtitle = dthomeData.Rows[0]["HOM_AreaSubtitle"].ToString();
+    String HOM_AreaDescription = dthomeData.Rows[0]["HOM_AreaDescription"].ToString();
+}
+<div id="myModal" class="modal fade modal--1" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="/web_assets/images/new-timing.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slider">
+    <div class="owl-carousel slidercar" id=slider>
+        @{
+            foreach (DataRow row in dtSlidesData.Rows)
+            {
+                String imageURL = row["SBM_BannerImage"].ToString();
+                String Description = row["SBM_Description"].ToString();
+                string Title = row["SBM_Subtitle"].ToString();
+                string PageUrl = row["SBM_RedirectUrl"].ToString();
+                <div class="slideitem">
+                    <div class="sliderimage">
+                        <img src="@imageURL">
+                    </div>
+                    <div class="slidercontent">
+                        <h2>@Description</h2>
+                        <p>@Title</p>
+                        <a href="@PageUrl" class="explorebutton">
+                            View all Shops <span class="arrowicon">
+                                <img src="/web_assets/images/arrow-right.png">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <div id="counter" style="display:none;"></div>
+
+</div>
+
+<!-- SLIDER END -->
+<div class="exploresection">
+    <div class="container-fluid g-0">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <a href="/Shop" class="sectionimageandcontent shopsection">
+                    <div class="sectionimage">
+                        <img src="@HOM_ShopBannerImage">
+                    </div>
+                    <div class="content">
+                        <div class="viewallshopsbtn">
+                            All Shops <span class="arrowicon">
+                                <img src="/web_assets/images/btn-explore.png">
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                <a href="/Enjoy" class="sectionimageandcontent dinesection">
+                    <div class="sectionimage">
+                        <img src="@HOM_EnjoyBannerImage">
+                    </div>
+                    <div class="content">
+                        <div class="viewallshopsbtn">
+                            All Play <span class="arrowicon">
+                                <img src="/web_assets/images/btn-explore.png">
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/Dine" class="sectionimageandcontent enjoysection">
+                    <div class="sectionimage">
+                        <img src="@HOM_DineBannerImage" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="viewallshopsbtn">
+                            All Dine <span class="arrowicon">
+                                <img src="/web_assets/images/btn-explore.png">
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="aboutsection">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@dthomeData.Rows[0]["HOM_AboutImage"]" onerror="this.src='/web_assets/images/about.png'" alt="">
+                <div class="label top-left">
+                    <div class="content">@discription</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-wrap">
+                    <span>@HOM_AreaTitle</span>
+                    <h3>@HOM_AreaSubtitle</h3>
+                    <p>@Html.Raw(dthomeData.Rows[0]["HOM_AreaDescription"])</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="logotext">EZDAN MALL</div>
+</div>
+
+<div class="storessection">
+    <div class="owl-carousel stores" id="stores">
+        @*<div class="owl-stage owl-item cloned owl-carousel stores" id="stores">*@
+        @*<div class="owl-stage owl-item cloned owl-carousel stores" id="stores">*@
+        @{
+            /* style added by Ragi*/
+            foreach (DataRow row in dtLogosData.Rows)
+            {
+                String imageURL = row["Logo"].ToString();
+                String RedirectURL = row["RedirectURL"].ToString();
+                <div class="storelogosmall">
+                    <a href="@RedirectURL">
+                        <img src="@imageURL">
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</div>
+<style>
+    .storelogosmall a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .storelogosmall img {
+        height: 130px;
+        object-fit: cover;
+    }
+
+</style>
+
+<div class="news">
+    <!--            <h3>News Room</h3>-->
+    <h2>Latest News</h2>
+    <div class="newslist">
+        <div class="owl-carousel newslistcar owl-loaded owl-drag" id="news">
+            @{
+                foreach (DataRow row in dtmediaData.Rows)
+                {
+                    String imageURL = row["NWS_BannerImage"].ToString();
+                    String Description = row["NWS_Descriptin"].ToString();
+                    DateTime strDate = Convert.ToDateTime(row["NWS_Date"].ToString());
+                    String date = strDate.ToString("dd-MM-yyyy");
+                    var parts = date.Split('-');
+                    int day = Convert.ToInt16(parts[0]);
+                    int year = Convert.ToInt16(parts[2]);
+                    int month = Convert.ToInt16(parts[1]);
+                    string[] months = {"January", "February", "March", "April", "May", "June",
+            "July", "August", "Setember", "October", "November", "December" };
+                    string newmonth = months[month - 1];
+                    string newdate = day + " " + newmonth + " " + year;
+                    String urlKey = row["NWS_URL_Key"] + "-" + row["NWS_DocNo"];
+
+                    <div class="newsitem" data-hover="">
+                        <a href="/news-info/@urlKey">
+                            <div class="newsimage">
+                                <img src="@imageURL">
+                            </div>
+                        </a>
+                        <div class="newsdetails" data-hover="">
+                            <h4><a href="/news-info/@urlKey">@Html.Raw(row["NWS_Branch_Name"])</a></h4>
+
+                            <h5>@day @newmonth, @year</h5>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@{
+
+    if (discription.ToLower().Trim() == "al wakra")
+    {
+        <section class="socialfeeds">
+            <div class="instafeed-item mb-4">
+                <h3>FOLLOW EZDAN MALL AL WAKRA ON INSTAGRAM</h3>
+                <h2><a href="@instalink">@@ezdanmall.wa</a></h2>
+            </div>
+            <div class="elfsight-app-82b7a3b0-49a1-4c06-8a6c-e8e516a72f5c"></div>
+        </section>
+    }
+
+    else if (discription.ToLower().Trim() == "al gharaffa")
+    {
+        <section class="socialfeeds">
+            <div class="instafeed-item mb-4">
+                <h3>FOLLOW EZDAN MALL AL GHARAFFA ON INSTAGRAM</h3>
+                <h2><a href="@instalink">@@ezdanmall.gh</a></h2>
+            </div>
+            <div class="elfsight-app-434d5817-6562-4343-b3e0-8c4c9c68dc26"></div>
+        </section>
+    }
+}
+
+@{
+    String LOC_Latitude = dtMapData.Rows[0]["LOC_Latitude"].ToString();
+    String LOC_Longitude = dtMapData.Rows[0]["LOC_Longitude"].ToString();
+    String LOC_Embed_URL = dtMapData.Rows[0]["LOC_Embed_URL"].ToString();
+    <div class="mapsection">
+        @*<div id="map"></div>*@
+        <iframe src="@LOC_Embed_URL" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    @*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5Vk7DSidwTkh5VCIHD805xHeYj_41pc&libraries=places&callback=initAutocomplete" async defer></script>
+        <script>
+        var Businesslocation = { lat: @LOC_Latitude, lng: @LOC_Longitude };
+        function initAutocomplete() {
+        var mapProp = {
+        center: new google.maps.LatLng(@LOC_Latitude, @LOC_Longitude),
+        zoom: 12,
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+        new google.maps.Marker({
+        position: Businesslocation,
+        map,
+
+        });
+        }
+        </script>
+        <style>
+        .mapsection #map {
+        width: 100%;
+        height: 280px;
+        }
+        </style>*@
+
+}
+@*<div class="mapsection">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.807893873756!2d51.5653751148449!3d25.17596368390605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45cc378a868c15%3A0x7732587ba48c97f6!2sEzdan%20Mall%20AL%20Wukair!5e0!3m2!1sen!2sin!4v1650265859222!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>*@
+
+@*<div class="download-widget">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+    <div class="d-flex">
+    <div>
+    <h5>Never get lost again,</h5>
+    <p>Kindly download Ezdan Mall Al Wukair Map here</p>
+    </div>
+    <a href="#" class="dbtn">Download Floor Map <img src="/web_assets/images/darrow.png" alt=""></a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+*@
+<script src="/web_assets/js/owl.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#news').owlCarousel({
+            margin: 15,
+            stagePadding: 0,
+            nav: true,
+            /*autoplay: true,
+            autoplayTimeout: 4000,*/
+            loop: true,
+            dots: true,
+            smartSpeed: 1050,
+            items: 4,
+            responsive:{
+              0:{
+                  items:1
+              },
+              768:{
+                  items:4
+              },
+              1000:{
+                  items:4
+              }
+          }
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#SimilarStores').owlCarousel({
+            navigation : true,
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            loop: true,
+            smartSpeed: 1050,
+            items: 4,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:4
+              }
+          }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#slider")
+          .on("initialized.owl.carousel changed.owl.carousel", function(e) {
+            if (!e.namespace) {
+              return;
+            }
+            $("#counter").html(
+              e.relatedTarget.relative(e.item.index) + 1 + "/" + "<i>" + e.item.count + "</i>"
+            );
+          })
+          .owlCarousel({
+            margin: 0,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            dots: false,
+            loop: true,
+            smartSpeed: 1050,
+            items: 1,
+          });
+
+    });
+
+</script>
+<script>
+
+    $(document).ready(function() {
+        $('#stores').owlCarousel({
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 4000,
+            loop: true,
+            smartSpeed: 1050,
+            items: 9,
+            responsive:{
+             0:{
+                  items:3
+              },
+              600:{
+                  items:6
+              },
+              1000:{
+                  items:9
+              }
+          }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+         $('#socialfeeds').owlCarousel({
+             margin: 10,
+             stagePadding: 0,
+             nav: false,
+             autoplay: true,
+             autoplayTimeout: 5500,
+             dots: true,
+             loop: true,
+             smartSpeed: 1050,
+             items: 5,
+             responsive:{
+               0:{
+                   items:1
+               },
+               600:{
+                   items:5
+               },
+               1000:{
+                   items:5
+               }
+           }
+         });
+     });
+</script>
+
+<style>
+    .newsimage img {
+        max-height: 180px;
+        object-fit: cover;
+    }
+</style>
+<script>
+    //$(document).ready(function(){
+    //    $("#myModal").modal('show');
+    //});
+
+    //$(window).load(function(){
+    //    $("#myModal").modal('show');
+    //});
+</script>

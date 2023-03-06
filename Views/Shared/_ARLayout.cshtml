@@ -1,0 +1,337 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{	
+	DataTable? dtFullData = new DataTable();
+	DataSet ds = Model;
+	DataTable? dtFullDataAlWalkra = new DataTable();
+	DataTable? dtMapData = new DataTable();
+	DataTable? dtContactInfo = new DataTable();
+    
+	string discription = "", Ardiscription = "",MAIN_Url="",LOC_Map = "";
+	  string mobile1 = "", mobile2 = "", fblink = "", instalink = "", twitterlink = "", linkedlink = "",PhoneNo="",PhoneNoAR="";
+
+	using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_Web_CompanyParameter", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+		
+		discription = dtFullData.Rows[0]["COMPAR_Description"].ToString();
+        Ardiscription = dtFullData.Rows[1]["COMPAR_Description"].ToString();
+		MAIN_Url = dtFullData.Rows[6]["COMPAR_Description"].ToString();
+		PhoneNo = dtFullData.Rows[7]["COMPAR_Description"].ToString();
+		PhoneNoAR = dtFullData.Rows[8]["COMPAR_Description"].ToString();
+
+		dtFullDataAlWalkra = db.SqlDataSetResult("USP_Web_CompanyParameter_AlWalkra", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+		
+		//discriptionalwakra = dtFullDataAlWalkra.Rows[0]["COMPAR_Description"].ToString();
+		//Ardiscription = dtFullDataAlWalkra.Rows[1]["COMPAR_Description"].ToString();
+
+        string  discription1 = dtFullDataAlWalkra.Rows[1]["COMPAR_Description"].ToString();
+		string  discription2 = dtFullDataAlWalkra.Rows[0]["COMPAR_Description"].ToString();
+		string  discription3 = dtFullDataAlWalkra.Rows[2]["COMPAR_Description"].ToString();
+		string  name1 = dtFullDataAlWalkra.Rows[0]["COMPAR_Pjct_Name"].ToString();
+		string  name2 = dtFullDataAlWalkra.Rows[1]["COMPAR_Pjct_Name"].ToString();
+		string  name3 = dtFullDataAlWalkra.Rows[2]["COMPAR_Pjct_Name"].ToString();
+
+		DataSet dss = db.SqlDataSetResult("USP_Web_GetMap", new List<System.Data.SqlClient.SqlParameter>());
+        dtMapData = dss.Tables[0];
+        dtContactInfo = dss.Tables[1]; // contact info..
+
+        mobile1 = dtContactInfo.Rows[0]["CON_MobileNumber1"].ToString();
+        mobile2 = dtContactInfo.Rows[0]["CON_MobileNumber2"].ToString();
+        fblink = dtContactInfo.Rows[0]["CON_FacebookLink"].ToString();
+        instalink = dtContactInfo.Rows[0]["CON_InstagramLink"].ToString();
+        twitterlink = dtContactInfo.Rows[0]["CON_TwitterLink"].ToString();
+        linkedlink = dtContactInfo.Rows[0]["CON_LinkedinLink"].ToString();
+    }
+}
+
+<!doctype html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <title>@Ardiscription ازدان مول | @ViewData["Title"]</title>
+    <script src="/web_assets/js/jquery.js"></script>
+    <script src="/web_assets/js/mainscript.js"></script>
+    <script src="/web_assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/web_assets/js/menu.js"></script>
+    <script src="/web_assets/js/isotope.pkgd.min.js"></script>
+    <script src="/web_assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/web_assets/js/all.js"></script>
+	<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    
+    <link rel="icon" href="/web_assets/images/favicon.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="/web_assets/css/zen.css">
+    <link rel="stylesheet" href="/web_assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/web_assets/fonts/flaticon/flaticon.css">
+    <link rel="stylesheet" href="/web_assets/fonts/fontawesome/css/all.min.css">
+    <link rel=stylesheet href="/web_assets/css/owl.css">
+    <link rel=stylesheet href="/web_assets/css/rtl.css">	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<!--addon css-->
+<link rel="stylesheet" href="/web_assets/css/addon.css">
+</head>
+<style>
+	 ul li.active > a {
+    color: #e51b24;
+}
+</style>
+
+<body class="scroll rtl">
+
+    <div class="main-outercon">
+        <header class="header">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="header-inner">
+							<div class="header-logo logo"><a href="/ar"><img src="/web_assets/images/logo.png" alt="logo"></a></div>
+							<div class="header-links">
+								<a href="#" class="menu-btn">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</a>
+							</div>
+							<div class="menu header-menu" dir="rtl">
+								<nav>
+									<ul>
+										<li class="menu_Home"><li><a href="/ar">الصفحة الرئيسية</a></li>
+                                        <li class="menu_Shop"><a href="/ar/Shop">تسوق</a></li>
+                                        <li class="menu_Dine"><a href="/ar/Dine">ألمطاعم</a></li>
+                                        <li class="menu_Enjoy"><a href="/ar/Enjoy">الألعاب</a></li>
+                                        <li class="menu_Promotions"><a href="/ar/Promotions">العروض</a></li>
+                                        <li class="menu_News"><a href="/ar/News">الأخبار</a></li>
+										@*<li><a href="index.html">الصفحة الرئيسية</a></li>
+										<li><a href="shop.html">محل</a></li>
+										<li><a href="dine.html">تعشى</a></li>
+										<li><a href="enjoy.html">يتمتع</a></li>
+										<li><a href="promotions.html">الترقيات</a></li>
+										<li><a href="news.html">أخبار</a></li>*@
+									</ul>
+								</nav>
+							</div>
+							<div class="dropdownmenus">
+								<div class="backtomain">
+									<a href="@MAIN_Url"><i class="fas fa-angle-left"></i> الى الخلف</a>
+								</div>
+								<div class="loctiondropdown">
+									
+									<div class="dropdown">
+										 @{
+
+                                                if(discription == "Al Wakra")
+                                                 {
+                                                    <button   href="@dtFullDataAlWalkra.Rows[0]["COMPAR_Description"]"class="dropbtn"><span class="locationicon"><img src="/web_assets/images/place.png"></span>@Ardiscription <span class="downarrow"><img src="/web_assets/images/arrow-down.png"></span> </button>
+                                            <div class="dropdown-content">
+                                                <a href="@dtFullDataAlWalkra.Rows[1]["COMPAR_Description"]/ar">@dtFullDataAlWalkra.Rows[1]["COMPAR_Pjct_ArName"]<span class="smalllocationicon"><img src="/web_assets/images/arrow-right.png"></span></a>
+                                                <a href="@dtFullDataAlWalkra.Rows[2]["COMPAR_Description"]/ar"> @dtFullDataAlWalkra.Rows[2]["COMPAR_Pjct_ArName"] <span class="smalllocationicon"><img src="/web_assets/images/arrow-right.png"></span></a>											
+                                            </div>
+                                                
+                                                    }
+                                           else if(discription == "Al Wukair")
+                                            {
+                                                    <button   href="@dtFullDataAlWalkra.Rows[1]["COMPAR_Description"]"class="dropbtn"><span class="locationicon"><img src="/web_assets/images/place.png"></span>@Ardiscription <span class="downarrow"><img src="/web_assets/images/arrow-down.png"></span> </button>
+                                            <div class="dropdown-content">
+                                                <a href="@dtFullDataAlWalkra.Rows[0]["COMPAR_Description"]/ar">@dtFullDataAlWalkra.Rows[0]["COMPAR_Pjct_ArName"]<span class="smalllocationicon"><img src="/web_assets/images/arrow-right.png"></span></a>
+                                                <a href="@dtFullDataAlWalkra.Rows[2]["COMPAR_Description"]/ar">@dtFullDataAlWalkra.Rows[2]["COMPAR_Pjct_ArName"] <span class="smalllocationicon"><img src="/web_assets/images/arrow-right.png"></span></a>											
+                                            </div>
+                                                
+                                            }
+                                            else 
+                                            {
+                                                    <button  href="@dtFullDataAlWalkra.Rows[2]["COMPAR_Description"]" class="dropbtn"><span class="locationicon"><img src="/web_assets/images/place.png"></span>@Ardiscription <span class="downarrow"><img src="/web_assets/images/arrow-down.png"></span> </button>
+                                            <div class="dropdown-content">
+                                                <a href="@dtFullDataAlWalkra.Rows[1]["COMPAR_Description"]/ar">@dtFullDataAlWalkra.Rows[1]["COMPAR_Pjct_ArName"]<span class="smalllocationicon"><img src="/web_assets/images/arrow-right.png"></span></a>
+                                                <a href="@dtFullDataAlWalkra.Rows[0]["COMPAR_Description"]/ar"> @dtFullDataAlWalkra.Rows[0]["COMPAR_Pjct_ArName"] <span class="smalllocationicon"><img src="/web_assets/images/arrow-right.png"></span></a>											
+                                            </div>
+                                                
+                                            }
+                                           
+                                            }
+										@*<button class="dropbtn"><span class="locationicon"><img src="/web_assets/images/place.png"></span>الغرافة<span class="downarrow"><img src="/web_assets/images/arrow-down.png"></span> </button>
+										<div class="dropdown-content">
+											<a href="/"> الوكرة<span class="smalllocationicon"><img src="/web_assets/images/arrow-right.png"></span></a>
+											<a href="/"> أل وقير <span class="smalllocationicon"><img src="/web_assets/images/arrow-right.png"></span></a>
+										</div>*@
+									</div>
+								</div>
+								<div class="languagedropdown">
+									<div class="dropdown">
+										<button class="dropbtn">عربي <span class="downarrow"><img src="/web_assets/images/arrow-down.png"></span> </button>
+										<div class="dropdown-content">											
+											<a id="lang_link" href="/">ENGLISH </a>
+										</div>
+									</div>
+								</div>
+							
+						</div>                                
+					</div>
+				</div>
+			</div>
+        </header>
+		@RenderBody()
+		
+		<div class="download-widget">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="d-flex">
+							<div>
+								<h5>لن تضل الطريق مرة أخرى</h5>
+								@{
+									LOC_Map = dtMapData.Rows[0]["LOC_Map"].ToString();
+								}
+								<p><a href="@LOC_Map" class="dbtn">برجاء تحميل خريطة إزدان مول @Ardiscription من هنا <img src="/web_assets/images/darrow.png" alt=""></a></p>
+									
+								
+							</div>
+							@*@{
+                                 using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+                                 {
+                                  dtMapData = db.SqlDataSetResult("USP_Web_GetMap", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+                                  LOC_Map = dtMapData.Rows[0]["LOC_Map"].ToString();
+                                <div>
+                                    <h5>Never get lost</h5>
+                                    <p><a href="@LOC_Map" target="_blank" class="dbtn">Kindly download Ezdan Mall @discription Map here  <img src="/web_assets/images/darrow.png" alt=""></a></p>
+                                </div>
+                              }
+                            }*@
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer-container">
+			<div class="footer-widget">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="footer-logo">
+								<a href="/"><img src="/web_assets/images/logo.png" alt="logo"></a>
+							</div>
+							<a href="tel:@PhoneNo" class="fbtn" dir="rtl"><i>للاستفسار عن مساحات متاحة للتأجير</i>@PhoneNoAR</a>
+						</div>
+						<div class="col-md-6">
+							<div class="menu-widget">
+								<div class="menu-wrapper">
+									<h4>روابط سريعة</h4>
+									<ul><li class="menu_Home"><li><a href="/ar">الصفحة الرئيسية</a></li>
+                                        <li class="menu_Shop"><a href="/ar/Shop">تسوق</a></li>
+                                        <li class="menu_Dine"><a href="/ar/Dine">ألمطاعم</a></li>
+                                        <li class="menu_Enjoy"><a href="/ar/Enjoy">الألعاب</a></li>
+                                        <li class="menu_Promotions"><a href="/ar/Promotions">العروض</a></li>
+                                        <li class="menu_News"><a href="/ar/News">الأخبار</a></li>
+										@*<li><a href="index.html">الصفحة الرئيسية</a></li>
+										<li><a href="shop.html">محل</a></li>
+										<li><a href="dine.html">تعشى</a></li>
+										<li><a href="enjoy.html">يتمتع</a></li>
+										<li><a href="promotions.html">الترقيات</a></li>
+										<li><a href="news.html">أخبار</a></li>*@
+									</ul>
+								</div>
+								<div class="menu-wrapper">
+									<h4>مزيد من المعلومات</h4>
+									<ul>
+										<li class="menu_Timings"  ><a href="/ar/Timings">مواعيد عمل المول</a></li>
+										<li class="menu_About"	  ><a href="/ar/About">معلومات عنا</a></li>
+										<li class="menu_Contact"  ><a href="/ar/Contact">اتصل بنا</a></li>
+										<li class="menu_Locations"><a href="/ar/Locations">مواقع أخرى</a></li>
+									</ul>
+								</div>
+								<div class="menu-wrapper">
+									<h4>العنوان</h4>
+									<address>إزدان مول ، شارع الجثي ، الدوحة - قطر</address>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3" dir="rtl">
+							<h4>اتصل بنا</h4>
+							<ul class="contact-links">
+								 @{
+                                    String telmob1 = "tel:+974"+mobile1;
+                                    String telmob2 = "tel:+974"+mobile2;
+                                }
+								<li style="text-align:right;"><a href="@telmob1">+974 @mobile1</a></li>
+								<li style="text-align:right;"><a href="@telmob2">+974 @mobile2</a></li>
+							</ul>
+							<div class="social-icons">
+								<span>تابعنا</span>
+								<ul>
+									<li class="insta"><a target="_blank" href="@instalink"><i class="fab fa-instagram"></i></a></li>
+									<li class="fb"><a target="_blank" href="@fblink"><i class="fab fa-facebook-f"></i></a></li>
+									<li class="fb"><a target="_blank" href="@twitterlink"><i class="fab fa-twitter"></i></a></li>
+									<li class="linkedin"><a target="_blank" href="@linkedlink"><i class="fab fa-linkedin-in"></i></a></li>
+								</ul>   
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 d-flex">
+							<p>©<a href="#">Ezdanmall.qa</a> -  جميع الحقوق محفوظة</p>
+							<div class="footer-copyright">
+								<p>مشغل بواسطة<a href="http://auraqatar.com/ " target="_blank"><img src="/web_assets/images/aura.png" alt=""></a></p> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="#" class="scrolltop"><i class="fa fa-chevron-up"></i></a>
+			<div class="mob-visible"></div>
+		</footer>
+		
+    </div>
+
+
+    
+    <script>
+        $(document).ready( function() {
+            var isotope = $('.grid').isotope({
+              itemSelector: '.grid-item',
+            });
+            // filter items on button click
+            $('.filter-button-group').on( 'click', 'li', function() {
+              var filterValue = $(this).attr('data-filter');
+              $('.grid').isotope({ filter: filterValue });
+              $('.filter-button-group li').removeClass('active');
+              $(this).addClass('active');
+            });
+
+            isotope.imagesLoaded().progress( function() {
+                isotope.isotope('layout');
+            });
+
+            isotope.imagesLoaded().progress( function() {
+              isotope.isotope('layout');
+            });
+			var menuId = '@ViewData["Page"]';
+			console.log(menuId);
+            $(".menu_"+menuId).addClass("active");
+			var mmm = menuId.toLowerCase();
+            if(mmm.indexOf("-info")>-1){
+                $("#lang_link").attr("href",window.location.origin+"/"+window.location.pathname.replace("/ar/",""));
+            }else{
+                $("#lang_link").attr("href","/"+menuId.toLowerCase());
+            }			
+        });
+    </script>
+
+
+</body>
+
+</htmL>
+<style>
+	.contact-links {
+    width: 100%;
+    padding-bottom: 39px;
+    padding-left: 0;
+	
+}
+</style>

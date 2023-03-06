@@ -1,0 +1,16 @@
+<svg id="Documents" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Combined_Shape" data-name="Combined Shape" d="M2.727,20A2.73,2.73,0,0,1,0,17.273V2.727A2.73,2.73,0,0,1,2.727,0H9.135a.9.9,0,0,1,.539.21A.914.914,0,0,1,9.747.28l6.337,6.337a.905.905,0,0,1,.273.55v0a.892.892,0,0,1,.006.1v10A2.73,2.73,0,0,1,13.637,20ZM1.818,2.727V17.273a.91.91,0,0,0,.909.909h10.91a.91.91,0,0,0,.909-.909V8.182H9.091a.909.909,0,0,1-.9-.8l-.006-.106V1.818H2.727A.91.91,0,0,0,1.818,2.727ZM10,6.364h3.26L10,3.1Z" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <rect id="Rectangle" width="20" height="20" fill="none"/>
+  <g id="Group_5" data-name="Group 5" transform="translate(2)">
+    <path id="Combined_Shape-2" data-name="Combined Shape" d="M2.727,20A2.73,2.73,0,0,1,0,17.273V2.727A2.73,2.73,0,0,1,2.727,0H9.135a.9.9,0,0,1,.539.21A.914.914,0,0,1,9.747.28l6.337,6.337a.905.905,0,0,1,.273.55v0a.892.892,0,0,1,.006.1v10A2.73,2.73,0,0,1,13.637,20ZM1.818,2.727V17.273a.91.91,0,0,0,.909.909h10.91a.91.91,0,0,0,.909-.909V8.182H9.091a.909.909,0,0,1-.9-.8l-.006-.106V1.818H2.727A.91.91,0,0,0,1.818,2.727ZM10,6.364h3.26L10,3.1Z" fill="#fff"/>
+    <g id="Mask_Group_5" data-name="Mask Group 5" clip-path="url(#clip-path)">
+      <g id="_300" data-name="300" transform="translate(-2)">
+        <rect id="Rectangle-2" data-name="Rectangle" width="20" height="20" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

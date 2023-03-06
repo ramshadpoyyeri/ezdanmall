@@ -1,0 +1,117 @@
+﻿@using System.Data;
+@using System.Data.SqlClient;
+@using Microsoft.AspNetCore.Http;
+@inject IConfiguration Configuration;
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    String doctype = Context.Request.Query["doctype"];
+    String docno = Context.Request.Query["docno"];
+    docno = (docno == null ? "" : docno);
+
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        HttpContext? httpContext = Context;
+        if (db.IsUserLoggedIn(httpContext))
+        {
+            EzdanLibrary.UserRoleClass? Session = db.GetSessionInfo(httpContext);
+            String? UserId = Session.UserId;
+
+            DataTable dtGridData = new DataTable();
+
+            EzdanLibrary.DocumentSettings docSettings = new EzdanLibrary.DocumentSettings();
+
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            sqlParams.Add(new SqlParameter("@USR_DocNo", UserId));
+            sqlParams.Add(new SqlParameter("@DocType", doctype));                      
+            sqlParams.Add(new SqlParameter("@DocNo_Value", docno));
+            System.Data.DataSet ds = db.SqlDataSetResult("USP_STG_Default_List", sqlParams);
+            if (ds.Tables.Count > 0)
+            {
+                docSettings = db.ConvertDataTableToClass<EzdanLibrary.DocumentSettings>(ds.Tables[0]);
+                docSettings.dtGridData = ds.Tables[1]; //Grid Data...
+                if (ds.Tables.Count > 2)
+                    docSettings.dtData = ds.Tables[2];
+                else
+                    docSettings.dtData = null;
+
+            }
+            String? entryformUrl = docSettings.DM_EntryForm;
+
+            //<div class="title-box">
+            //    <div class="d-flex">
+            //        <i class='@docSettings.DM_DocIcon'></i><h1>@docSettings.DM_FormName</h1>
+            //        @if (TempData["Message"] != null)
+            //        {
+            //            <div class="success-wrap active"><img alt="success" src="/assets/images/success.png"><h5>SUCCESS <br> <span>@TempData["Message"]</span></h5><a href="#" class="clos"><i class='icon-close'></i></a></div>
+            //        }
+            //    </div>
+            //</div>
+
+            <div class="breadcrubs_sec">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="page_headding">
+                            <h5>@docSettings.DM_FormName</h5>
+                            <span><a href="/admin">Home</a> / <a href="#">@docSettings.DM_FormName</a></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="outer-btns">
+                            <div class="search_box">
+                                <div class="search_box_inner">
+                                    <input type="text" name="" id="txtSearch" placeholder="Search @docSettings.DM_FormName">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.767" height="13.432" viewBox="0 0 12.767 13.432">
+                                            <path id="Icon" d="M12.275,13.432a.488.488,0,0,1-.335-.132L8.856,10.215a5.62,5.62,0,1,1,.753-.635l3.026,3.009v.017a.491.491,0,0,1-.359.826ZM5.656,1.066a4.584,4.584,0,1,0,4.585,4.585A4.59,4.59,0,0,0,5.656,1.066Z" fill="rgba(120,115,137,0.8)"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="page_right_add_btn">
+                                <a href="@entryformUrl">
+                                    <img src="/admin_assets/images/create.svg" alt=""> Add New
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="delete-container" id="delete">
+                    <div class="window">
+
+                        <div class="confirm">
+                            <button class="cancel">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <g id="Group_10111" data-name="Group 10111" transform="translate(-1397.313 -760.313)">
+                                        <circle id="Ellipse_45" data-name="Ellipse 45" cx="6" cy="6" r="6" transform="translate(1397.313 760.313)" fill="rgba(0,0,0,0.14)"></circle>
+                                        <line id="Line_11" data-name="Line 11" x1="3.946" y2="3.946" transform="translate(1401.34 764.34)" fill="none" stroke="#fff" stroke-width="1"></line>
+                                        <line id="Line_12" data-name="Line 12" x1="3.946" y1="3.946" transform="translate(1401.34 764.34)" fill="none" stroke="#fff" stroke-width="1"></line>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="cont">
+                            <div class="ic">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47">
+                                    <g id="Group_10109" data-name="Group 10109" transform="translate(-0.206)">
+                                        <circle id="Ellipse_44" data-name="Ellipse 44" cx="23.5" cy="23.5" r="23.5" transform="translate(0.206)" fill="#d21018"></circle>
+                                        <g id="Group_10108" data-name="Group 10108" transform="translate(13.41 11)">
+                                            <g id="Trash_icon" data-name="Trash icon" transform="translate(0)">
+                                                <path id="Shape" d="M18.142,24.289H3.07A1.677,1.677,0,0,1,1.4,22.614V5.31H.838a.838.838,0,1,1,0-1.675h4.79a5.621,5.621,0,0,1,10.516,0h4.791a.838.838,0,0,1,0,1.675H19.817v17.3A1.677,1.677,0,0,1,18.142,24.289Zm-3.07-12a.839.839,0,0,1,.838.838v9.49h2.233V5.31H3.07v17.3H5.3v-9.49a.838.838,0,0,1,1.675,0v9.49H9.769V9.775a.837.837,0,0,1,1.674,0V22.614h2.792v-9.49A.838.838,0,0,1,15.072,12.286ZM10.886,1.681a3.544,3.544,0,0,0-3.5,1.953h7A3.6,3.6,0,0,0,10.886,1.681Z" fill="#fff"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="text">
+                                <h3>deleted !</h3>
+                                <h4 id="deleteMessage">One of item has been deleted</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            await Html.RenderPartialAsync("~/Views/Partials/DataGrid_Partial.cshtml", docSettings);
+        }
+    }
+}

@@ -1,0 +1,234 @@
+﻿@using System.Data;
+@{
+    ViewData["Page"] = "shop-info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Model;
+
+    DataTable dtData = ds.Tables[0];
+    DataTable dtAllimgdata = ds.Tables[1];
+}
+
+<div class="storedetails">
+    @{
+        foreach (DataRow row in dtData.Rows)
+        {
+            String SHP_Name = row["SHP_Name"].ToString();
+            ViewData["Title"] = SHP_Name;
+            String SHP_AboutShop = row["SHP_AboutShop"].ToString();
+            String mob1 = row["SHP_PhoneNumber"].ToString();
+            String SHP_Address = row["SHP_Address"].ToString();
+            String SHP_Timing = row["SHP_Timing"].ToString();
+            String SHP_Logo = row["SHP_Logo"].ToString();
+            String SHP_BannerImage = row["SHP_BannerImage"].ToString();
+            String SHP_InstagramLink = row["SHP_InstagramLink"].ToString();
+            if (!Uri.IsWellFormedUriString(SHP_InstagramLink, UriKind.Absolute))
+            {
+                if (String.IsNullOrEmpty(SHP_InstagramLink)) { }
+                else
+                {
+                    SHP_InstagramLink = "http://" + SHP_InstagramLink;
+                }
+            }
+            String SHP_FacebookLink = row["SHP_FacebookLink"].ToString();
+            if (!Uri.IsWellFormedUriString(SHP_FacebookLink, UriKind.Absolute))
+            {
+                if (String.IsNullOrEmpty(SHP_FacebookLink)) { }
+                else
+                {
+                    SHP_FacebookLink = "http://" + SHP_FacebookLink;
+                }
+            }
+            String imageURL1 = row["SHP_GalleryImage1"].ToString();
+            String imageURL2 = row["SHP_GalleryImage2"].ToString();
+            String imageURL3 = row["SHP_GalleryImage3"].ToString();
+            String imageURL4 = row["SHP_GalleryImage4"].ToString();
+            String imageURL5 = row["SHP_GalleryImage5"].ToString();
+            String imageURL6 = row["SHP_GalleryImage6"].ToString();
+            String urlKey = row["SHP_URL_Key"] + "-" + row["SHP_DocNo"];
+
+            <div class="storeminimaldetails">
+                <ul>
+                    <li class="firstch">
+                        <div class="storelogoindetails">
+                            <img src="@SHP_Logo" alt="">
+                        </div>
+                    </li>
+                    <li class="lastl">
+                        <div class="d-flex">
+                            <div>
+                                <h1>@SHP_Name</h1>
+                                <span>Store Details </span>
+                            </div>
+                            @{
+                                if (String.IsNullOrEmpty(SHP_FacebookLink) && String.IsNullOrEmpty(SHP_InstagramLink))
+                                {
+
+                                }
+                                else
+                                {
+                                    <div class="social-icons">
+                                        <span>Follow Us</span>
+                                        <ul>
+                                            @{
+                                                if (!String.IsNullOrEmpty(SHP_FacebookLink))
+                                                {
+                                                    <li class="fb"><a href="@SHP_FacebookLink"><i class="fab fa-facebook-f"></i></a></li>
+                                                }
+                                                if (!String.IsNullOrEmpty(SHP_InstagramLink))
+                                                {
+                                                    <li class="insta"><a href="@SHP_InstagramLink"><i class="fab fa-instagram"></i></a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <ul class="contacts">
+                            <li>
+                                <img src="/web_assets/images/p1.png">
+                                <div><span>Phone </span><a href="tel:+974 @mob1"> +974 @mob1</a></div>
+                            </li>
+                            <li>
+                                <img src="/web_assets/images/t1.png">
+                                <div><span>Timing </span> <a href="#">@Html.Raw(dtData.Rows[0]["SHP_Timing"])</a></div>
+                            </li>
+                            <li>
+                                <img src="/web_assets/images/l1.png">
+                                <div><span>Location </span><a href="#"> @SHP_Address</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="storegalleryimages">
+                <div class="owl-carousel shopgallerycar" id="Gallery">
+                    @{
+                        //changes by Ragi
+                        for (int i = 1; i <= 6; i++)
+                        {
+                            string data = "SHP_GalleryImage" + i;
+                            if (row[data] != "")
+                            {
+                                <div class="galleryimage"><img style="object-fit:cover;height:500PX" src="@row[data]"></div>
+                            }
+
+                        }
+
+                        //<div class="galleryimage"><img src="@imageURL1"></div>
+                        //<div class="galleryimage"><img src="@imageURL2"></div>
+                        //<div class="galleryimage"><img src="@imageURL3"></div>
+                        //<div class="galleryimage"><img src="@imageURL4"></div>
+                        //<div class="galleryimage"><img src="@imageURL5"></div>
+                        //<div class="galleryimage"><img src="@imageURL6"></div>
+                    }
+
+                </div>
+            </div>
+            <div class="shopmoredetails">
+                <p>@Html.Raw(dtData.Rows[0]["SHP_AboutShop"])</p>
+            </div>
+        }
+    }
+</div>
+
+@{
+    if (dtAllimgdata.Rows.Count > 0)
+    {
+
+        <div class="similarstorecar">
+            <div class="youmayalsolike">
+                <h2>You May also like this </h2>
+                <div class="owl-carousel owl-loaded owl-drag" id="SimilarStores">
+                    @{
+                        foreach (DataRow row in dtAllimgdata.Rows)
+                        {
+                            String BannerImage = row["SHP_BannerImage"].ToString();
+                            String SHP_Logo = row["SHP_Logo"].ToString();
+                            String urlKey = row["SHP_URL_Key"] + "-" + row["SHP_DocNo"];
+                            <a href="/shop-info/@urlKey" class="storelogo">
+                                <div class="shopimageforlist">
+                                    <img src="@BannerImage">
+                                </div>
+                                <div class="logo">
+                                    <img src="@SHP_Logo" alt="">
+                                </div>
+                                <div class="storename">
+                                    <h3 style="color:black">@row["SHP_Name"]</h3>
+                                    <span href="/shop-info/@urlKey" class="viewstoredetails">
+                                        View Details
+                                    </span>
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}
+<script src="/web_assets/js/owl.js"></script>
+
+<script>
+    $(document).ready(function() {
+    //changes by Ragi
+    var numItems = $('.galleryimage').length;
+    if (numItems<4)
+    {
+        $('#Gallery').owlCarousel({
+            dots: false,
+        });
+    }
+
+        $('#Gallery').owlCarousel({
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5500,
+            loop: true,
+            smartSpeed: 1050,
+            items: 3,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:3
+              }
+          }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#SimilarStores').owlCarousel({
+            navigation : true,
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            loop: false,
+            smartSpeed: 1050,
+            items: 4,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:4
+              }
+          }
+        });
+    });
+</script>
+

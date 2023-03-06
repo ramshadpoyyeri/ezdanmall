@@ -1,0 +1,436 @@
+﻿@using System.Data;
+@{
+    Layout = null;
+
+    String docno = Context.Request.Query["docno"];
+
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    docno = dtData.Rows[0]["LOC_DocNo"].ToString();
+    String LOC_Latitude = "", LOC_Longitude = "", LOC_Map = "", LOC_Embed_URL = "";
+    //Map_Url = "";
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        LOC_Latitude = dtData.Rows[0]["LOC_Latitude"].ToString();
+        LOC_Longitude = dtData.Rows[0]["LOC_Longitude"].ToString();
+        LOC_Map = dtData.Rows[0]["LOC_Map"].ToString();
+        LOC_Embed_URL = dtData.Rows[0]["LOC_Embed_URL"].ToString();
+        //Map_Url = "background-image:url(/admin_assets/images/icon_pdf.png)";
+    }
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            @*<label for="">Choose Location From Map</label>*@
+            <label for="">Location Map</label>
+             <div class="col-12">
+                <div class="form-wrap half-field">
+                    <label for="LOC_Map">Google Location Embed URL *</label>
+                    <input type="text" id="LOC_Embed_URL" name="LOC_Embed_URL" value="@LOC_Embed_URL" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-wrap half-field">
+                    <iframe id="mapIframe" style="width:100%;height:335px;" src="@LOC_Embed_URL"></iframe>
+                    @*<div id="map" style="height: 335px; width: 100%;"></div>
+                        <input id="pac-input" class="controls" type="text" placeholder="Search Place" />
+                        <div id="mapDiv" style="margin-left:23px;"></div>*@
+                    <input type="hidden" id="HDLattitude" name="LOC_Latitude" value="@LOC_Latitude" />
+                    <input type="hidden" id="HDLongitude" name="LOC_Longitude" value="@LOC_Longitude" />
+                    <input type="hidden" id="Coordinateid" name="Coordinateid" value="LiveCoordinates" />
+                </div>
+            </div>
+           
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-wrap half-field">
+                        <label for="LOC_Map">Attach Floor Map *  (PDF)</label>
+                        <div class="file-upload">
+                            <div class="file-select">
+                                <div class="imagePreview" style="background-size: contain;"></div>
+                                <button class="btn btn-secondary">Choose</button>
+                                <div class="file-select-name">No File Chosen</div>
+                                <input type="file" id="LOC_Map" name="LOC_Map" class="profileimg">
+                                <input type="hidden" id="LOC_Map_1" value="@LOC_Map">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="LOC_Map">&nbsp;</label>
+                    @{
+                        if (String.IsNullOrEmpty(LOC_Map) == false)
+                        {
+                            <a class="floor_map" href="@LOC_Map" target="_blank"><img style="width:28px;height:28px;object-fit:contain" src="/admin_assets/images/icon_pdf.png" /> View Floor Map</a>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <button type="submit" class="submit" id="submit_form">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".clos").click(function(){
+        //$('.success-wrap').hide();
+        $('.success-wrap').removeClass("active");
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        //GetMap();
+        $("#LOC_Embed_URL").change(function(){
+            $("#mapIframe").attr("src",$(this).val());
+        });
+    });
+    //GetMap();
+        function GetMap() {
+            //$("#Coordinateid").val(Coordinates);
+            var lat = $("#HDLattitude").val();
+            var lon = $("#HDLongitude").val();
+            if (lat != "" && lat != undefined && lon != "" && lon != undefined) {
+                $("#HDLattitude").val(lat);
+                $("#HDLongitude").val(lon);
+
+                var geolocate = new google.maps.LatLng(lat, lon);
+                //
+                setLocationDetails(lat, lon);
+                map.setCenter(geolocate);
+                addMarker(geolocate, map);
+            }
+
+
+            $("#Banner").show();
+
+        }
+
+        //map scripts
+        var map;
+        var marker;
+        var markers = [];
+        var SuggetionSet = false;
+        var Businesslocation = { lat: 13.0866616, lng: 72.0182585 };
+        function setSuggetion() {
+            if (SuggetionSet == false) {
+                $(".pac-container").appendTo($("#pac-input").parent());
+                SuggetionSet = true;
+            }
+        }
+
+
+        //function GetAddress() {
+        //    var lat = parseFloat(document.getElementById("txtLatitude").value);
+        //    var lng = parseFloat(document.getElementById("txtLongitude").value);
+        //    var latlng = new google.maps.LatLng(lat, lng);
+        //    var geocoder = geocoder = new google.maps.Geocoder();
+        //    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        //        if (status == google.maps.GeocoderStatus.OK) {
+        //            if (results[1]) {
+        //                alert("Location: " + results[1].formatted_address);
+        //            }
+        //        }
+        //    });
+        //}
+
+        function setLocationDetails(lat, lng) {
+
+            var coordinates = $("#Coordinateid").val();
+            $("#x" + coordinates).val(lat);
+            $("#y" + coordinates).val(lng);
+            var latlng = new google.maps.LatLng(lat, lng);
+            var geocoder = geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[2]) {
+                        //
+                        $("#LocationDataDiv").html('<p>Place : ' + results[3].formatted_address + ' <i>(' + lat + ',' + lng + ')</i></p>');
+                        // ShowSnack('Location Set : ' + results[3].formatted_address);
+
+
+                        //calling shops list
+                        //loadShopsList();
+                    }
+                }
+            });
+            /*$("#Banner").hide();*/
+        }
+        function geinLocation()
+        {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+
+                    $("#HDLattitude").val(position.coords.latitude);
+                    $("#HDLongitude").val(position.coords.longitude);
+
+
+
+                    var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    //
+                    setLocationDetails(position.coords.latitude, position.coords.longitude);
+                    map.setCenter(geolocate);
+                    addMarker(geolocate, map);
+
+                }, function (error) {
+                    if (error.code == error.PERMISSION_DENIED) {
+
+                        alert("Location is disabled, please enable it back from browser settings..");
+                    }
+                });
+            } else {
+                //GeoLocation not suported.
+
+                alert("Geolocation is not supported by this browser.");
+            }
+
+        }
+
+        function addMarker(location, map) {
+            ClearMarker();
+            marker = new google.maps.Marker({
+                map: map,
+
+                animation: google.maps.Animation.DROP,
+                position: location
+            });
+            markers.push(marker);
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+
+        function ClearMarker() {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(null);
+            }
+            markers = [];
+
+        }
+
+        function initAutocomplete()
+        {
+            debugger;
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: Businesslocation,
+                zoom: 12,
+                mapTypeId: 'roadmap',
+                gestureHandling: 'cooperative',
+                styles: [{
+                    featureType: 'all',
+                    elementType: 'labels',
+                    stylers: [{
+                        visibility: 'on'
+                    }]
+                }]
+            });
+
+
+
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            //var autocomplete = new google.maps.places.Autocomplete(input);
+            //autocomplete.bindTo('bounds', map);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function () {
+                searchBox.setBounds(map.getBounds());
+                //$(".pac-container").input.parent
+
+            });
+
+            searchBox.addListener('places_changed', function ()
+            {
+
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function (place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    /*  markers.push(new google.maps.Marker({
+                          map: map,
+                          icon: icon,
+                          title: place.name,
+                          position: place.geometry.location
+                      }));*/
+                    //
+                    $("#HDLattitude").val(place.geometry.location.lat());
+                    $("#HDLongitude").val(place.geometry.location.lng());
+
+                    setLocationDetails(place.geometry.location.lat(), place.geometry.location.lng());
+                    Businesslocation = place.geometry.location;
+                    addMarker(Businesslocation, map);
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+
+            addMarker(Businesslocation, map);
+            var clickHandler = new ClickEventHandler(map, origin);
+
+            google.maps.event.addListener(map, 'click', function (event) {
+                ClearMarker();
+                addMarker(event.latLng, map);
+                //
+                $("#HDLattitude").val(event.latLng.lat());
+                $("#HDLongitude").val(event.latLng.lng());
+                setLocationDetails(event.latLng.lat(), event.latLng.lng());
+            });
+            if ('@docno' == '1000') {
+                debugger;
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+
+                        $("#HDLattitude").val(position.coords.latitude);
+                        $("#HDLongitude").val(position.coords.longitude);
+                        var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                        setLocationDetails(position.coords.latitude, position.coords.longitude);
+                        map.setCenter(geolocate);
+                        addMarker(geolocate, map);
+
+
+                    }, function (error) {
+                        if (error.code == error.PERMISSION_DENIED) {
+
+                        }
+                    });
+                } else {
+                    //GeoLocation not suported.
+
+                    alert("Geolocation is not supported by this browser.");
+                }
+            }
+        }
+
+        var ClickEventHandler = function (map, origin) {
+            this.origin = origin;
+            this.map = map;
+            this.directionsService = new google.maps.DirectionsService;
+            this.directionsDisplay = new google.maps.DirectionsRenderer;
+            this.directionsDisplay.setMap(map);
+            this.placesService = new google.maps.places.PlacesService(map);
+            this.infowindow = new google.maps.InfoWindow;
+            this.infowindowContent = document.getElementById('infowindow-content');
+            this.infowindow.setContent(this.infowindowContent);
+            this.map.addListener('click', this.handleClick.bind(this));
+        };
+
+        ClickEventHandler.prototype.handleClick = function (event) {
+            console.log('You clicked on: ' + event.latLng);
+            if (event.placeId) {
+                event.stop();
+                //this.getPlaceInformation(event.placeId);
+            }
+        };
+
+        ClickEventHandler.prototype.getPlaceInformation = function (placeId) {
+            var me = this;
+            this.placesService.getDetails({ placeId: placeId }, function (place, status) {
+                if (status === 'OK') {
+                    me.infowindow.close();
+                    me.infowindow.setPosition(place.geometry.location);
+
+                    me.infowindow.open(me.map);
+                    //
+
+                    setdetails(place);
+                }
+            });
+            //google.maps.event.addDomListener(window, 'load');
+        };
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5Vk7DSidwTkh5VCIHD805xHeYj_41pc&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+    var editMode = "@editMode".toLowerCase();
+    $(document).ready(function () {
+    $("#pac-input").val();
+    $("#form").validate({
+        rules: {
+            LOC_Map: {
+                required: editMode == "true" ? false : true,
+                extension: "docx|rtf|doc|pdf"
+            },
+            LOC_Embed_URL : {
+                required: editMode == "true" ? false : true,
+            }
+        },
+        messages: {
+            LOC_Map: {
+                required: "<b>Brochure pdf</b> required.!",
+                extension: "Type <b>(docx/rtf/doc/pdf)</b>"
+            },
+             LOC_Embed_URL: {
+                required: "<b>Embed URL</b> required.!"
+            },
+        },
+        submitHandler: function (form) {
+             if (editMode == "true") {
+                if ($("#LOC_Map").val().length == 0) {
+                    $("#LOC_Map_1").attr("name", "LOC_Map");
+                    $("#LOC_Map").remove();
+                }
+             }
+            $("#form button[type=submit]").attr("disabled", "disabled");
+            form.submit();
+        }
+    });
+       });
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5Vk7DSidwTkh5VCIHD805xHeYj_41pc&libraries=places&callback=initAutocomplete" async defer></script>
+<style>
+    .editor_hidden {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .floor_map {
+        background: #fff;
+        border: 1px solid #dcdcdc;
+        display: inline-block;
+        margin-bottom: 10px;
+        text-decoration: none;
+        font-size: 0.9em;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+</style>

@@ -1,0 +1,367 @@
+.col-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 19px;
+}
+.modal-dialog .col-flex button{
+    flex: 0 1 100%;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+}
+#myModal2 .col-flex{
+    margin-top: 19px;
+}
+.modal-dialog .btn-reset{
+    background-color: #E51B24;
+    color: #FFF;
+}
+.modal-dialog form .field.reset-field input{
+    border: 1px solid #707070;
+    border-radius: 9px;
+}
+section.reset-password{
+    width: 100%;
+    background-color: #F3F3F3;
+    padding-top: 117px;
+    padding-bottom: 187px;
+}
+section.reset-password .section-head{
+    margin-bottom: 45px;
+}
+.reset-password .reset-form{
+    width: 100%;
+    max-width: 630px;
+    margin: 0 auto;
+    padding: 43px 40px 58px;
+    background-color: #FFF;
+    border-radius: 19px;
+    filter: drop-shadow(0 5px 17px rgba(0, 0, 0, 0.04));
+}
+.reset-form .field{
+    position: relative;
+    padding-bottom: 18px;
+}
+.reset-form .field label{
+    color: #717171;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Jost', sans-serif;
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+.reset-form .field input{
+    width: 100%;
+    border: 1px solid #DEDADA;
+    border-radius: 10px;
+    background-color: #FFF;
+    color: #717171;
+    opacity: 1;
+    transition: all .3s ease-in;
+    padding: 0 20px;
+    height: 60px;
+    font-family: 'AvertaStd';
+    font-weight: 600;
+}
+.reset-form .field input:focus{
+    border-color: #E51B24;
+}
+.reset-form form{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.reset-form .field span{
+    position: absolute;
+    bottom: 35px;
+    right: 20px;
+}
+.reset-form .field .toggle-pwd{
+    display: inline-block;
+    height: 22px;
+    width: 25px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    line-height: 1;
+    fill: #E51B24;
+    cursor: pointer;
+}
+.reset-form .form-footer{
+    padding-top: 15px;
+}
+.reset-form .form-footer button[type="submit"]{
+    border-radius: 7px;
+    background-color: #E51B24;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    font-family: 'AvertaStd';
+}
+.my-account{
+    width: 100%;
+    background-color: #F3F3F3;
+    padding-bottom: 91px;
+}
+.my-account .section-head h2{
+    text-transform: uppercase;
+    color: #3B080A;
+    font-weight: 700;
+    background-image: url(/web_assets/images/account-header.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 87px 0 71px;
+    margin-bottom: 0;
+}
+.my-account .container-fluid{
+    max-width: 1215px;
+}
+.my-account .tab-pill{
+    width: 100%;
+    background-color: #FFF;
+    border-radius: 19px;
+    filter: drop-shadow(0 5px 17px rgba(0, 0, 0, 0.04));
+    padding: 35px 48px;
+    margin-bottom: 26px;
+}
+.my-account .tab-welcome{
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    color: rgba(0,0,0,.54);
+}
+.my-account .tab-welcome p{
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+}
+.my-account .tab-welcome p:last-child{
+    margin: 0;
+}
+.my-account .tab-welcome h4{
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+.my-account .tab-label{
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    color: #E51B24;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "AvertaStd";
+}
+.tab-label i{
+    flex-shrink: 0;
+    fill: #E51B24;
+}
+.account-info .field label{
+    display: block;
+    cursor: pointer;
+    margin-bottom: 8px;
+    color: #717171;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Jost', sans-serif;
+}
+.account-info .field input{
+    transition: all .3s ease-in;
+    font-family: "AvertaStd";
+    border-radius: 10px;
+    height: 60px;
+    border: 1px solid #DEDADA;
+    padding: 0 22px;
+    display: block;
+    width: 100%;
+    opacity: 1;
+    font-size: 18px;
+    font-weight: 600;
+}
+.account-info .field{
+    padding-bottom: 17px;
+    position: relative;
+}
+.account-info .field input:focus{
+    border-color: #E51B24;
+}
+.account-info .field .toggle-pwd{
+    position: absolute;
+    bottom: 37px;
+    right: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+.account-info .field .toggle-pwd svg{
+    height: 16px;
+    fill: #DEDADA;
+    transition: all .3s ease-in;
+}
+.account-info .field .toggle-pwd svg:hover,.account-info .field input:focus span{
+    fill: #E51B24;
+}
+.account-info .form-footer{
+    padding-top: 15px;
+}
+.account-info .submit-btn{
+    border-radius: 7px;
+    height: 53px;
+    background-color: #E51B24;
+    color: #FFF;
+    font-family: "AvertaStd";
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 1;
+    min-width: 222px;
+    padding: 0 20px;
+    white-space: nowrap;
+}
+.my-account .btn-log-out{
+    padding-top: 17px;
+}
+.btn-log-out a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.11));
+    background-color: #FFF;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Jost', sans-serif;
+    color: #000;
+    height: 41px;
+    border-radius: 7px;
+    min-width: 139px;
+    padding: 0 10px;
+}
+.my-account form {
+    padding-right: 0;
+}
+.backtomain{
+    margin-right: 10px;
+}
+
+.backtomain a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    gap:5px;
+    color: #000;
+    height: 51px;
+    border: 1px solid #B1B1B1;
+    padding: 0 10px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    transition: all .2s ease-in;
+    line-height: 1;
+    letter-spacing: -0.13px;
+}
+.backtomain a:hover{
+    background-color: #f1f1f1;
+    border: 1px solid #575757;
+}
+.modal--1{
+    padding: 20px;
+}
+.modal--1 .modal-body, .modal--1 .modal-header{
+    padding: 0;
+}
+.modal--1 .modal-dialog{
+    width: 100%;
+    max-width: 62%;
+    min-width: 300px;
+    margin: 0 auto;
+}
+.modal--1 .btn-close{
+    position: absolute;
+    left: 100%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    width: 39px;
+    height: 39px;
+    aspect-ratio: 1/1;
+    border-radius: 40px;
+    background: url(/web_assets/images/close.png) no-repeat center center;
+    opacity: 1;
+    text-indent: -99999px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    box-shadow: none;
+    background-size: cover;
+}
+
+/*---rtl-------*/
+
+.rtl .backtomain{
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+/*---------media-queries-------------*/
+@media(max-width:1200px){
+    section.reset-password{
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+    section.reset-password .section-head {
+        margin-bottom: 35px;
+    }
+    .backtomain a{
+        height: 50px;
+    }
+}
+@media(max-width:991px){
+    .my-account .tab-pill{
+        padding: 30px 20px;
+    }
+    .backtomain a{
+        height: 44px;
+    }
+    .backtomain {
+        margin-right: 5px;
+    }
+}
+@media(max-width:767px){
+    .reset-password .reset-form{
+        padding: 30px 20px;
+    }
+    .my-account .section-head h2{
+        padding: 60px 0 50px;
+    }
+    .modal--1 .btn-close{
+        width: 35px;
+        height: 35px;
+    }
+    .dropdownmenus{
+        flex-wrap: nowrap;
+        padding-left: 10px;
+    }
+    .backtomain a{
+        height: 34px;
+        font-size: 10px;
+    }
+    .modal--1 .modal-dialog{
+        max-width: none;
+    }
+}
+
+@media(max-width:767px){
+	.rtl .backtomain{
+		margin-left: 5px;
+	}
+}

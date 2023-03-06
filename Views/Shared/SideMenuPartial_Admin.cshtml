@@ -1,0 +1,102 @@
+﻿@using System.Data;
+@using System.Data.SqlClient;
+@using Microsoft.AspNetCore.Http;
+@inject IConfiguration Configuration;
+@{
+    Layout = null;
+    String login_user_name = "";
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        if (db.IsUserLoggedIn(Context))
+        {
+            EzdanLibrary.UserRoleClass Session = db.GetSessionInfo(Context);
+            String? UserId = Session.UserId;
+            Int64 RoleId = Convert.ToInt64(Session.RoleId);
+
+            DataTable dt = new DataTable();
+            DataTable dtLoginUser = new DataTable();
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            sqlParams.Add(new SqlParameter("@USR_DocNo", UserId));
+            sqlParams.Add(new SqlParameter("@RoleID", RoleId));
+
+            System.Data.DataSet dsResult = db.SqlDataSetResult("USP_STG_Role_GetRoleBasedMenus", sqlParams);
+            if (dsResult.Tables.Count > 0)
+            {
+                dt = dsResult.Tables[0];
+                dtLoginUser = dsResult.Tables[1];
+                login_user_name = dtLoginUser.Rows[0]["USR_FullName"].ToString();
+            }
+
+            <div class="sidemenu">
+                @{
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        String? Menu_Title = item["Menu_Navbar"].ToString();
+                        <h2>@Menu_Title</h2>
+
+                        Int64 menuId = Convert.ToInt64(item["Menu_Id"]);
+                        sqlParams = new List<SqlParameter>();
+
+                        sqlParams.Add(new SqlParameter("@USR_DocNo", UserId));
+                        sqlParams.Add(new SqlParameter("@RoleID", RoleId));
+                        sqlParams.Add(new SqlParameter("@MenuId", menuId));
+                        sqlParams.Add(new SqlParameter("@MenuType", "Menu"));
+
+                        System.Data.DataSet dsSubResult = db.SqlDataSetResult("USP_STG_Role_GetRoleBasedSubMenus", sqlParams);
+                        DataTable SubMenus = new DataTable();
+                        if (dsSubResult.Tables.Count > 0)
+                        {
+                            SubMenus = dsSubResult.Tables[0];
+                            <ul>
+                                @foreach (DataRow subitem in SubMenus.Rows)
+                                {
+                                    Menu_Title = subitem["Menu_Navbar"].ToString();
+                                    String menu_logo = String.IsNullOrEmpty(subitem["Menu_Logo"] + "") ? "/admin_assets/images/settings.svg" : subitem["Menu_Logo"] + "";
+                                    String? Menu_Path = subitem["Menu_Path"].ToString();
+                                    String? Menu_DocType = subitem["Menu_DocType"].ToString();
+
+                                    <li>
+                                        <a id="menu_@Menu_DocType" href="@Menu_Path">
+                                            <div class="sidemenu_icon">
+                                                <img src="@menu_logo" alt="">
+                                            </div>
+                                            <div class="sidemenu_name">
+                                                <h3>@Menu_Title</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    }
+                }
+                <ul>
+                    <li>
+                        <a href="#" onclick="logoutDialog(0)">
+                            <div class="sidemenu_icon">
+                                <img src="/admin_assets/images/Logout.svg" alt="">
+                            </div>
+                            <div class="sidemenu_name">
+                                <h3>Logout</h3>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        }
+        else
+        {
+            Context.Response.Redirect("/admin/login");
+        }
+    }
+}
+<script>
+    function logoutDialog(a){
+        if(a==1)
+            $(".user_profile .top").click();
+        $("#logoutModal").modal("show");
+    }
+    setTimeout(function(){
+        set_loginUser('@login_user_name');
+    },100);
+</script>

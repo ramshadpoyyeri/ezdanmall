@@ -1,0 +1,119 @@
+﻿@using System.Data;
+@{
+    ViewData["Title"] = "Privacy Policy";
+    //ViewData["Page"] = "Privacy Policy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Model;
+
+    DataTable dtData = ds.Tables[0];
+    DataTable dtPrivacy = ds.Tables[1];
+}
+
+@*<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+*@
+
+<section class="banner">
+<img src="assets/images/enjoy-banner.jpg" alt="">
+<!--<div class="banner-overlay">
+	<span>Ezdanmall - Al Wukair</span>
+	<h1>Enjoy</h1>
+</div>-->
+</section>
+
+ <div class="storeslistandfilter">
+     <div class="storesfilter">
+         <button class="advancedfilter">
+             <span class="filtericon"></span> Filter
+       </button>
+         <ul class="category-filter filter-button-group">
+             <li class="active" data-filter="*">All</li>
+             <li data-filter=".games">Games</li>
+             <li data-filter=".entertainment">Entertainment</li>
+             <li data-filter=".kids">Kids Corner</li>
+         </ul>
+     </div>
+
+     <div class="storeslist">
+         <ul class="grid">
+             <li class="grid-item games">
+                 <a href="enjoy-funville.html" class="storelogo">
+                     <div class="shopimageforlist">
+                         <img src="assets/images/funville-image.jpg">
+                     </div>
+                     <div class="logo">
+                         <img src="assets/images/shop-funville.png">
+                     </div>
+<div class="tooltip"><i></i> Ground Floor</div>
+                 </a>
+                 <div class="storename">
+                 <h3>Fun Ville</h3>
+                 <a href="enjoy-funville.html" class="viewstoredetails">
+                   View Details
+                 </a>
+                 </div>
+
+             </li>
+             <li class="grid-item games entertainment">
+                 <a href="enjoy-zoo-riders.html" class="storelogo">
+                     <div class="shopimageforlist">
+                         <img src="assets/images/zoo-riders-image.jpg">
+                     </div>
+                     <div class="logo">
+                         <img src="assets/images/zoo-rider.png">
+                     </div>
+<div class="tooltip"><i></i> Ground Floor</div>
+                 </a>
+                 <div class="storename">
+                     <h3>Zoo Rider</h3>
+                     <a href="enjoy-zoo-riders.html" class="viewstoredetails">
+                   View Details
+                 </a>
+                 </div>
+
+             </li>
+
+     <li class="grid-item kids">
+                 <a href="enjoy-bounce.html" class="storelogo">
+                     <div class="shopimageforlist">
+                         <img src="assets/images/bounce-image.jpg">
+                     </div>
+                     <div class="logo">
+                         <img src="assets/images/shop-bounce.png">
+                     </div>
+<div class="tooltip"><i></i> Ground Floor</div>
+                 </a>
+                 <div class="storename">
+                     <h3>Bounce</h3>
+                     <a href="enjoy-bounce.html" class="viewstoredetails">
+                    View Details
+                  </a>
+                 </div>
+
+             </li>
+
+             <li class="grid-item games kids">
+                 <a href="enjoy-5d.html" class="storelogo">
+                     <div class="shopimageforlist">
+                         <img src="assets/images/5d-thrills-image.jpg">
+                     </div>
+                     <div class="logo">
+                         <img src="assets/images/shop-5d-thrills.png">
+                     </div>
+<div class="tooltip"><i></i> Ground Floor</div>
+                 </a>
+                 <div class="storename">
+                     <h3> 5D Thrills</h3>
+                     <a href="enjoy-5d.html" class="viewstoredetails">
+                  View Details
+                 </a>
+                 </div>
+
+             </li>
+
+
+         </ul>
+     </div>
+ </div>

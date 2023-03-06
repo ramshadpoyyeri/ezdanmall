@@ -1,0 +1,157 @@
+﻿@{
+    Layout = null;
+    String gridData = Model;
+    String doctype = Context.Request.Query["doctype"];
+}
+
+<div class="category-table">
+    <table id="dataTable" aria-describedby="dataTable_info">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <input class="select-all" type="checkbox" id="all">
+                    <label for="all"></label>
+                </th>
+                @*<th scope="col">LOGO</th>*@
+                <th scope="col">SHOP NAME</th>
+                <th scope="col">OFFER NAME</th>
+                <th scope="col">OFFER TAG</th>
+                <th scope="col">FROM</th>
+                <th scope="col">TO</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script>
+    var dataTable;
+    $(document).ready(function ()
+    {
+        var gridData = JSON.parse(JSON.stringify(@Html.Raw(gridData)));
+        //var gridData = JSON.parse('Html.Raw(gridData)');
+        dataTable = $("#dataTable").DataTable({
+            bFilter: true,
+            "bInfo" : false,
+                language:{"infoEmpty": "No records available",
+            },
+            bPaginate: true,
+            data: gridData,
+            columnDefs:
+            [{
+                "targets": [0],
+                "visible": true,
+                "searchable": false,
+                //"sortable" : false
+            }
+            ],
+            "columns": [
+                {
+                    "render": function (data, type, row, meta)
+                    {
+                        return "<input class='individual' type='checkbox' id='"+row.POM_DocNo+"'><label for='"+row.POM_DocNo+"'></label>";
+                    }
+                },
+                //{
+                //    "render": function (data, type, row, meta)
+                //    {
+                //        return "<div class='store'><img src='"+row.POM_Logo+"'/></div>";
+                //    }
+                //},
+                { data: "POM_SHP_Name", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                { data: "POM_OfferTitle", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                { data: "POM_OfferTag", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                { data: "POM_StartDate", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                { data: "POM_EndDate", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                {
+                    data: null, render: function (data, type, row)
+                    {
+                        var status = (row.POM_Status + "" == "1")?"Active":"Expired";
+                        return "<div class='"+status.toLowerCase()+"'>"+status+"</div>";
+                           
+                    }
+                },
+                {
+                    data: null, render: function (data, type, row)
+                    {
+                        return "<div class='action-btn'><div class='edit'><a href='/admin/EntryForm?doctype=@doctype&docno="+row.POM_DocNo+"'><img src='/admin_assets/images/edit.svg' alt=''></a></div>"
+                             + "<div class='delete'><a href='#' id='"+row.POM_DocNo+"' onclick=\"ShowDeleteDialog('"+row.POM_DocNo+"','Are you sure you want to delete the offer?')\"><img src='/admin_assets/images/delete.svg' alt=''></a></div>"
+                             + "</div>";
+                    }
+                },
+            ]
+        });
+
+        //customize search..
+        $('#txtSearch').keyup(function(){
+              dataTable.search($(this).val()).draw();
+        })
+
+        setTimeout(function(){
+            var pageSizeHtml = "<label class='d-flex pageSize'>Show <select name='dataTable_length' id='pageSize' aria-controls='dataTable' class='form-select form-select-sm'><option value='10'>10</option><option value='25'>25</option><option value='50'>50</option><option value='100'>100</option></select> entries</label>";
+            $(".dataTables_wrapper .row:last-child .col-md-5").html(pageSizeHtml);
+
+            $('#pageSize').change(function(){
+                dataTable.page.len($(this).val()).draw();
+            });
+
+        },100);
+    });
+</script>
+
+<style>
+    .main_content .inner_content .category-table div.expired {
+        font-weight: normal;
+        font-size: 10px;
+        letter-spacing: 0.02em;
+        line-height: 39px;
+        text-align: left;
+        color: #f64912;
+        width: 70px;
+        height: 26px;
+        border-radius: 18px;
+        background: #ffe9ea;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        text-transform: uppercase;
+    }
+
+    .main_content .inner_content .category-table div.active {
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 39px;
+        text-align: left;
+        color: #849b22;
+        width: 70px;
+        border-radius: 18px;
+        height: 26px;
+        background: #eaefdb;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+</style>

@@ -1,0 +1,94 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    Layout = null;
+    String docno = Context.Request.Query["docno"];
+    DataTable? dtFullData = new DataTable();
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    String CAT_Description = "", CAT_Description_Arabic = "";
+    String CAT_Parent_DocNo = "";
+
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        CAT_Description = dtData.Rows[0]["CAT_Description"].ToString();
+        CAT_Description_Arabic = dtData.Rows[0]["CAT_Description_Arabic"].ToString();
+        CAT_Parent_DocNo = dtData.Rows[0]["CAT_Parent_DocNo"].ToString();
+    }
+
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_CAT_List", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+    
+    }
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <label for="">Category Name</label>
+            <input type="text" name="CAT_Description" value="@CAT_Description" maxlength="100" placeholder="Category Name">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <label for="">Category Name in Arabic</label>
+            <input type="text" name="CAT_Description_Arabic" value="@CAT_Description_Arabic" maxlength="100" placeholder="Category Name in Arabic">
+        </div>
+    </div>
+    @*<div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Choose Main Category</label>
+            <select name="CAT_Parent_DocNo" id="CAT_Parent_DocNo">
+                <option value="" disabled="" selected="">Choose Main Category</option>
+                @{
+                    foreach (DataRow row in dtFullData.Rows)
+                    {
+                        <option value="@row["CAT_DocNo"]">@row["CAT_Description"]</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>*@
+
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <input type="submit" value="submit" class="submit">
+        </div>
+    </div>
+</div>
+
+<script>
+    var editMode = '@editMode'.toLowerCase();
+    $("#form").validate({
+        rules: {
+            CAT_Description: {
+                required: true,
+            },
+            CAT_Description_Arabic: {
+                required: true
+            },
+            //CAT_Parent_DocNo: {
+            //    required: true,
+            //},
+        },
+        messages: {
+            CAT_Description: {
+                required: "<b>Name</b> required.!",
+            },
+            CAT_Description_Arabic: {
+                required: "<b>Arabic Name</b> required.!",
+            },
+            //CAT_Parent_DocNo: {
+            //    required: "<b>Main Category</b> required.!",
+            //}
+        },
+        submitHandler: function(form) {
+            $("#form button[type=submit]").attr("disabled", "disabled");
+            form.submit();
+        }
+    });
+    $("#CAT_Parent_DocNo").val('@CAT_Parent_DocNo');
+</script>

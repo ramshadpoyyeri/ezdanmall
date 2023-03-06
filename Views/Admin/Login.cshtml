@@ -1,0 +1,80 @@
+﻿@inject IConfiguration Configuration;
+@{
+    ViewData["Title"] = "Admin Login";
+    Layout = "~/Views/Shared/_AdminLoginLayout.cshtml";
+
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        if (db.IsUserLoggedIn(Context))
+        {
+            Context.Response.Redirect("/admin");
+        }
+    }
+}
+
+
+<div class="login-outer">
+    <div class="login-box">
+        <div class="logo">
+            <img src="/admin_assets/images/logo-login.png" alt="">
+        </div>
+        <h3>Welcome back! Please login to your account.</h3>
+        <form id="form" action="/admin/login" method="post">
+            <div class="form-item">    
+                <input type="email" id="username" placeholder="example@domain.com" name="Username" autocomplete="off">
+                <label class="error" for="username">Username</label>
+            </div>
+
+            <div class="form-item">                 
+                <input type="password" id="password" name="Password" autocomplete="off" placeholder="*********">
+                <label class="error" for="password">Password</label>
+            </div>
+            <div class="forgot-sec">
+                <div class="left-checkbox">
+                    <div class="form-group">                       
+                        <input type="checkbox" id="html" name="keeplogin" value="" checked>
+                        <label for="html">Remember me</label>
+                    </div>
+                </div>
+                <div class="link-forgot">
+                    <a href="/admin/forgot-password">Forgot Password</a>
+                </div>
+            </div>
+            <div class="btn-login">
+                <div class="error">@TempData["Message"]</div>
+                <input type="submit" value="LOGIN" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+       $(document).ready(function () {
+        $("#form").validate({
+            rules: {
+                Username: {
+                    required: true,
+                    email: true
+                },
+                Password: {
+                    required: true ,
+                     minlength : 1,
+                }
+            },
+            messages: {
+                Password: { required: "*Password Required" },
+                Username:{
+
+                    required: "Enter Username",
+                    email: "Incorrect Email"
+                }
+            },
+              submitHandler: function (form) {
+                form.submit();
+            }
+        });
+    });
+</script>
+
+
+

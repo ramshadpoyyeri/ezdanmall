@@ -1,0 +1,263 @@
+﻿@using System.Data;
+@{
+    ViewData["Page"] = "enjoy-info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Model;
+
+    DataTable dtData = ds.Tables[0];
+    DataTable dtAllimgdata = ds.Tables[1];
+}
+
+<div class="storedetails">
+    @{
+        foreach (DataRow row in dtData.Rows)
+        {
+            String EJY_Name = row["EJY_Name"].ToString();
+            ViewData["Title"] = EJY_Name;
+            String EJY_AboutShop = row["EJY_AboutShop"].ToString();
+            String mob1 = row["EJY_PhoneNumber"].ToString();
+            String EJY_Address = row["EJY_Address"].ToString();
+            String EJY_Timing = row["EJY_Timing"].ToString();
+            String EJY_Logo = row["EJY_Logo"].ToString();
+            String EJY_BannerImage = row["EJY_BannerImage"].ToString();
+            String EJY_InstagramLink = row["EJY_InstagramLink"].ToString();
+            if (!Uri.IsWellFormedUriString(EJY_InstagramLink, UriKind.Absolute))
+            {
+                if (String.IsNullOrEmpty(EJY_InstagramLink)) { }
+                else
+                {
+                    EJY_InstagramLink = "http://" + EJY_InstagramLink;
+                }
+            }
+            String EJY_FacebookLink = row["EJY_FacebookLink"].ToString();
+            if (!Uri.IsWellFormedUriString(EJY_FacebookLink, UriKind.Absolute))
+            {
+                if (String.IsNullOrEmpty(EJY_InstagramLink)) { }
+                else
+                {
+                    EJY_InstagramLink = "http://" + EJY_InstagramLink;
+                }
+            }
+            String imageURL1 = row["EJY_GalleryImage1"].ToString();
+            String imageURL2 = row["EJY_GalleryImage2"].ToString();
+            String imageURL3 = row["EJY_GalleryImage3"].ToString();
+            String imageURL4 = row["EJY_GalleryImage4"].ToString();
+            String imageURL5 = row["EJY_GalleryImage5"].ToString();
+            String imageURL6 = row["EJY_GalleryImage6"].ToString();
+            String urlKey = row["EJY_URL_Key"] + "-" + row["EJY_DocNo"];
+
+            <div class="storeminimaldetails">
+                <ul>
+                    <li class="firstch">
+                        <div class="storelogoindetails">
+                            <img src="@EJY_Logo" alt="">
+                        </div>
+                    </li>
+                    <li class="lastl">
+                        <div class="d-flex">
+                            <div>
+                                <h1>@EJY_Name</h1>
+                                <span>Store Details </span>
+                            </div>
+                            @{
+                                if (String.IsNullOrEmpty(EJY_FacebookLink) && String.IsNullOrEmpty(EJY_InstagramLink))
+                                {
+
+                                }
+                                else
+                                {
+                                    <div class="social-icons">
+                                        <span>Follow Us</span>
+                                        <ul>
+                                            @{
+                                                if (!String.IsNullOrEmpty(EJY_FacebookLink))
+                                                {
+                                                    <li class="fb"><a href="@EJY_FacebookLink"><i class="fab fa-facebook-f"></i></a></li>
+                                                }
+                                                if (!String.IsNullOrEmpty(EJY_InstagramLink))
+                                                {
+                                                    <li class="insta"><a href="@EJY_InstagramLink"><i class="fab fa-instagram"></i></a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            <div class="social-icons">
+                                <span>Follow Us</span>
+                                <ul>
+                                    <li class="fb"><a href="@EJY_FacebookLink"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li class="insta"><a href="@EJY_InstagramLink"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="contacts">
+                            <li>
+                                <img src="/web_assets/images/p1.png">
+                                <div><span>Phone </span><a href="tel:+974 @mob1"> +974 @mob1</a></div>
+                            </li>
+                            <li>
+                                <img src="/web_assets/images/t1.png">
+                                <div><span>Timing </span> <a href="#">@Html.Raw(dtData.Rows[0]["EJY_Timing"])</a></div>
+                            </li>
+                            <li>
+                                <img src="/web_assets/images/l1.png">
+                                <div><span>Location </span><a href="#"> @EJY_Address</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="storegalleryimages">
+                <div class="owl-carousel shopgallerycar" id="Gallery">
+                    @{
+                        //changes by Ragi
+                        for (int i = 1; i <= 6; i++)
+                        {
+                            string data = "EJY_GalleryImage" + i;
+                            if (row[data] != "")
+                            {
+                                <div class="galleryimage"><img style="object-fit:cover;height:500PX" src="@row[data]"></div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="shopmoredetails">
+                <p>@Html.Raw(dtData.Rows[0]["EJY_AboutShop"])</p>
+            </div>
+        }
+    }
+</div>
+
+@*<div class="youmayalsolike">
+    <h2>You May also like this </h2>
+    <div class="storeslist">
+    <ul class="grid">
+    <li class="grid-item games">
+    @{
+    foreach (DataRow row in dtAllimgdata.Rows)
+    {
+    String BannerImage = row["EJY_BannerImage"].ToString();
+    String EJY_Address = row["EJY_Address"].ToString();
+    String EJY_Logo = row ["EJY_Logo"].ToString();
+    String urlKey = row["EJY_URL_Key"] + "-" + row["EJY_DocNo"];
+    <li class="grid-item games kids">
+    <a href="/shop-info/@urlKey" class="storelogo">
+    <div class="shopimageforlist">
+    <img src="@BannerImage">
+    </div>
+    <div class="logo">
+    <img src="@EJY_Logo">
+    </div>
+    <div class="tooltip"><i></i>@EJY_Address</div>
+    </a>
+    <div class="storename">
+    <h3>  @row["EJY_Name"]</h3>
+    <a href="/Enjoy-info/@urlKey" class="viewstoredetails">
+    View Details
+    </a>
+    </div>
+
+    </li>
+    }
+    }
+
+    </ul>
+    </div>
+    </div>*@
+
+@{
+    if (dtAllimgdata.Rows.Count > 0)
+    {
+        <div class="youmayalsolike">
+            <h2>You May also like this </h2>
+            <div class="owl-carousel owl-loaded owl-drag" id="SimilarStores">
+                @{
+                    foreach (DataRow row in dtAllimgdata.Rows)
+                    {
+                        String BannerImage = row["EJY_BannerImage"].ToString();
+                        String EJY_Logo = row["EJY_Logo"].ToString();
+                        String urlKey = row["EJY_URL_Key"] + "-" + row["EJY_DocNo"];
+                        <a href="/shop-info/@urlKey" class="storelogo">
+                            <div class="shopimageforlist">
+                                <img src="@BannerImage">
+                            </div>
+                            <div class="logo">
+                                <img src="@EJY_Logo" alt="">
+                            </div>
+                            <div class="storename">
+                                <h3>@row["EJY_Name"]</h3>
+                                <span href="/Enjoy-info/@urlKey" class="viewstoredetails">View Details</span>
+                            </div>
+                        </a>
+
+                    }
+                }
+            </div>
+        </div>
+    }
+}
+<script src="/web_assets/js/owl.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+    var numItems = $('.galleryimage').length;
+    if (numItems < 4) {
+        $('#Gallery').owlCarousel({
+            dots: false,
+        });
+    }
+        $('#Gallery').owlCarousel({
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5500,
+            loop: true,
+            smartSpeed: 1050,
+            items: 3,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:3
+              }
+          }
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#SimilarStores').owlCarousel({
+            navigation : true,
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            loop: false,
+            smartSpeed: 1050,
+            items: 4,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:4
+              }
+          }
+        });
+    });
+</script>

@@ -1,0 +1,175 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    ViewData["Title"] = "Contact";
+    ViewData["Page"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Model;
+    DataTable? dtFullData = new DataTable();
+
+    string discription = "", Ardiscription = "", fblink = "", instalink = "", twitterlink = "", linkedlink = "";
+    DataTable dtMapData;
+    String LOC_Embed_URL = "";
+    DataTable dtData = ds.Tables[0];
+    //DataTable dtContacts = ds.Tables[1];
+
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_Web_CompanyParameter", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        discription = dtFullData.Rows[0]["COMPAR_Description"].ToString();
+        Ardiscription = dtFullData.Rows[1]["COMPAR_Description"].ToString();
+
+        dtMapData = db.SqlDataSetResult("USP_Web_GetMap", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        String LOC_Latitude = dtMapData.Rows[0]["LOC_Latitude"].ToString();
+        String LOC_Longitude = dtMapData.Rows[0]["LOC_Longitude"].ToString();
+        LOC_Embed_URL = dtMapData.Rows[0]["LOC_Embed_URL"].ToString();
+    }
+
+    String Title = dtData.Rows[0]["CON_FormTitle"].ToString();
+    String mob1 = dtData.Rows[0]["CON_MobileNumber1"].ToString();
+    String mob2 = dtData.Rows[0]["CON_MobileNumber2"].ToString();
+    String imageURL = dtData.Rows[0]["CON_ContactImage"].ToString();
+    String Email1 = dtData.Rows[0]["CON_EmailAddress1"].ToString();
+    String Email2 = dtData.Rows[0]["CON_EmailAddress2"].ToString();
+    String CON_InstagramLink = dtData.Rows[0]["CON_InstagramLink"].ToString();
+
+    fblink = dtData.Rows[0]["CON_FacebookLink"].ToString();
+    instalink = dtData.Rows[0]["CON_InstagramLink"].ToString();
+    twitterlink = dtData.Rows[0]["CON_TwitterLink"].ToString();
+    linkedlink = dtData.Rows[0]["CON_LinkedinLink"].ToString();
+
+    if (!Uri.IsWellFormedUriString(CON_InstagramLink, UriKind.Absolute))
+    {
+        CON_InstagramLink = "http://" + CON_InstagramLink;
+    }
+}
+<section class="banner">
+    <img src="@imageURL" alt="">
+    <div class="banner-overlay">
+        <span>Ezdan mall -  @discription</span>
+        <h1>Contact Us</h1>
+    </div>
+</section>
+
+<div class="contact-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <span>Get In touch</span>
+                <h2>@Title</h2>
+                <p>Your feedback is important to us, enabling us to serve you even better. Give us your feedback or suggestions, or ask a question about one of our malls or an upcoming event here.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Store</h5>
+                        <address>Ezdan Mall, Al Juthay St, <br> Doha-Qatar</address>
+                        @{
+                            String telmob1 = "tel:+974" + mob1;
+                            String telmob2 = "+974" + mob2;
+                        }
+                        <a href="@telmob1">+974 @mob1</a>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Social</h5>
+                        <div class="social-icons">                           
+                            <ul>
+                                <li class="insta"><a target="_blank" href="@instalink"><i class="fab fa-instagram"></i></a></li>
+                                <li class="fb"><a target="_blank" href="@fblink"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="fb"><a target="_blank" href="@twitterlink"><i class="fab fa-twitter"></i></a></li>
+                                <li class="linkedin"><a target="_blank" href="@linkedlink"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                        <br /><a href="@telmob2">+974 @mob2</a>
+                        @*<a href="@CON_InstagramLink" class="inst"><i class="fab fa-instagram"></i><span>Instagram<br><i>@@ezdanmall</i></span></a> <br>*@
+                        @*<br /><a href="@telmob2"><i class="fab fa-whatsapp"></i><span>Whatsapp<br>+974 @mob2</span></a>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="formwrap">
+                    <form action="/Home/SendEnquiryEmail" class="contact-form">
+                        <div class="field" for="Name">
+                            <input type="text" name="Name" id="Name" autocomplete="off" maxlength="50" required="" placeholder="Your Name">
+                        </div>
+                        <div class="field" for="Email">
+                            <input type="email" name="Email" id="Email" autocomplete="off" required="" maxlength="50" placeholder="Email Address">
+                        </div>
+                        <div class="field" for="Message">
+                            <textarea name="Message" id="Message" maxlength="500" required="" placeholder="Message"></textarea>
+                        </div>
+                        <div class="btn-sub">
+                            <input type="submit" value="Send Now">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4 pt-4">
+            <div class="col-md-10">
+                <div class="mapsection hlgt">
+                    <img src="/web_assets/images/maptitle.png" class="maptitle" alt="">
+
+                    <iframe style="border: 0;" src="@LOC_Embed_URL" width="100%" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $("#contact-form").validate({
+            rules: {
+                Name: { required: true },
+                Email: { required: true },
+                Message: { required: true },
+            },
+            messages: {
+                Name: { required: "please Enter Your Name" },
+                Email: { required: "Please Enter valid email_ID" },
+                Message: { required: "Please Enter" },
+            },
+        });
+    });
+</script>
+<style>
+    .contact-wrap h2, .contact-wrap p {
+        word-break: break-all;
+    }
+</style>
+
+@*@{
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+    DataTable dtMapData = db.SqlDataSetResult("USP_Web_GetMap", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+    String LOC_Latitude = dtMapData.Rows[0]["LOC_Latitude"].ToString();
+    String LOC_Longitude = dtMapData.Rows[0]["LOC_Longitude"].ToString();
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5Vk7DSidwTkh5VCIHD805xHeYj_41pc&libraries=places&callback=initAutocomplete" async defer></script>
+    <script>
+    var Businesslocation = { lat: @LOC_Latitude, lng: @LOC_Longitude };
+    function initAutocomplete() {
+    var mapProp = {
+    center: new google.maps.LatLng(@LOC_Latitude, @LOC_Longitude),
+    zoom: 12,
+    };
+
+    var map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+    new google.maps.Marker({
+    position: Businesslocation,
+    map,
+
+    });
+    }
+    </script>
+    <style>
+    #map {
+    width: 100%;
+    height: 580px;
+    }
+    </style>
+    }
+    }*@

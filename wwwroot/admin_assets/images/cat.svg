@@ -1,0 +1,16 @@
+<svg id="History" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="list_1496_" data-name="list [#1496]" d="M20,15H5V13H20v2ZM3,15H0V12H3v3ZM20,9H5V7H20V9ZM3,9H0V6H3V9ZM20,3H5V1H20V3ZM3,3H0V0H3V3Z" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <rect id="Rectangle" width="20" height="20" transform="translate(0)" fill="none"/>
+  <g id="Group_8" data-name="Group 8" transform="translate(0 3)">
+    <path id="list_1496_2" data-name="list [#1496]" d="M20,15H5V13H20v2ZM3,15H0V12H3v3ZM20,9H5V7H20V9ZM3,9H0V6H3V9ZM20,3H5V1H20V3ZM3,3H0V0H3V3Z" fill="#fff"/>
+    <g id="Mask_Group_8" data-name="Mask Group 8" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <g id="_300" data-name="300" transform="translate(0 -3)">
+        <rect id="Rectangle-2" data-name="Rectangle" width="20" height="20" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

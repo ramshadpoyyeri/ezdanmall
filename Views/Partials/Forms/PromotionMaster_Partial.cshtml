@@ -1,0 +1,195 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    Layout = null;
+    String docno = Context.Request.Query["docno"];
+    DataTable? dtFullData = new DataTable();
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    String POM_SHP_DocNo="", POM_OfferTag = "", POM_OfferTag_Arabic = "";
+    String POM_OfferTitle = "", POM_OfferTitle_Arabic = "";
+    String POM_Description = "", POM_Description_Arabic = "";
+    String POM_StartDate = "", POM_EndDate = "";
+
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        POM_SHP_DocNo = dtData.Rows[0]["POM_SHP_DocNo"].ToString();
+        POM_OfferTag = dtData.Rows[0]["POM_OfferTag"].ToString();
+        POM_OfferTag_Arabic = dtData.Rows[0]["POM_OfferTag_Arabic"].ToString();
+        POM_OfferTitle = dtData.Rows[0]["POM_OfferTitle"].ToString();
+        POM_OfferTitle_Arabic = dtData.Rows[0]["POM_OfferTitle_Arabic"].ToString();
+        POM_Description = dtData.Rows[0]["POM_Description"].ToString();
+        POM_Description_Arabic = dtData.Rows[0]["POM_Description_Arabic"].ToString();
+        POM_StartDate = Convert.ToDateTime(dtData.Rows[0]["POM_StartDate"].ToString()).ToString("yyyy-MM-dd");
+        //POM_EndDate = dtData.Rows[0]["POM_EndDate"].ToString();
+        POM_EndDate = Convert.ToDateTime(dtData.Rows[0]["POM_EndDate"].ToString()).ToString("yyyy-MM-dd");
+    }
+    String todayDate = "";
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_GetShops", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+        todayDate = db.DateTimeNow().ToString("yyyy-MM-dd");
+    }
+}
+
+<div class="form-head">
+    <h3>Add New Offer</h3>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="POM_SHP_DocNo">Choose shop</label>
+            <select name="POM_SHP_DocNo" id="POM_SHP_DocNo">
+                <option value="" disabled="" selected="">Choose Shop</option>
+                @{
+                    foreach (DataRow row in dtFullData.Rows)
+                    {
+                                <option value="@row["SHP_DocNo"]">@row["SHP_Name"]</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-wrap half-field">
+            <label for="">Add Offer Tag</label>
+            <input type="text" name="POM_OfferTag" value="@POM_OfferTag" placeholder="OfferTag" maxlength="15">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-wrap half-field">
+            <label for="">Add Offer Tag Arabic</label>
+            <input type="text" name="POM_OfferTag_Arabic" value="@POM_OfferTag_Arabic" placeholder="OfferTag"  maxlength="15">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Offer Title</label>
+            <textarea type="text" name="POM_OfferTitle" placeholder="Offer Title">@POM_OfferTitle</textarea>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Offer Title (Arabic)</label>
+            <textarea type="text" name="POM_OfferTitle_Arabic" placeholder="Offer Title in Arabic">@POM_OfferTitle_Arabic</textarea>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Offer Description </label>
+            <textarea type="text" name="POM_Description" placeholder="Offer Description">@POM_Description</textarea>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Description (Arabic)</label>
+            <textarea type="text" name="POM_Description_Arabic" placeholder="Offer Description ">@POM_Description_Arabic</textarea>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">StartDate</label>
+            <input type="date" id="POM_StartDate" name="POM_StartDate" value="@POM_StartDate">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">EndDate</label>
+            <input type="date" id="POM_EndDate" name="POM_EndDate" value="@POM_EndDate" min="@todayDate">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <input type="submit" value="submit" class="submit">
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+       var editMode = '@editMode'.toLowerCase();
+       if(editMode == "true"){
+        $("#POM_SHP_DocNo").val('@POM_SHP_DocNo');
+    }
+       $("#POM_StartDate,#POM_EndDate").change(function(){
+
+            var POM_StartDate = new Date($("#POM_StartDate").val());
+            var POM_EndDate = new Date($("#POM_EndDate").val());
+            debugger;
+            if(POM_StartDate <= POM_EndDate){}
+            else{
+                $("#POM_StartDate").attr("max",$("#POM_EndDate").val());
+            }
+       });
+
+       $("#form").validate({
+           rules: {
+               POM_SHP_DocNo:{
+                   required: true,
+               },
+               POM_OfferTag: {
+                   required: true,
+               },
+               POM_OfferTag_Arabic: {
+                   required: true,
+               },
+               POM_OfferTitle: {
+                   required: true
+               },
+               POM_OfferTitle_Arabic:{
+                   required: true,
+               },
+               POM_Description: {
+                   required: true,
+               },
+               POM_Description_Arabic: {
+                   required: true,
+               },
+               POM_StartDate: {
+                   required: true                 
+               },
+               POM_EndDate: {
+                   required:true,
+               }
+           },
+           messages: {
+               POM_SHP_DocNo: {
+                   required: "<b>Title</b> required.!",
+               },
+               POM_OfferTag: {
+                   required: "<b>Title</b> required.!",
+               },
+               POM_OfferTag_Arabic: {
+                   required: "<b>Arabic Title</b> required.!",
+               },
+               POM_OfferTitle: {
+                    required: "<b>Title</b> required.!",
+               },
+               POM_OfferTitle_Arabic: {
+                   required: "<b>Arabic Title</b> required.!",
+               },
+               POM_Description: {
+                   required: "<b>Description</b> required.!",
+               },
+               POM_Description_Arabic: {
+                   required: "<b>Description_Arabic</b> required.!",
+               },
+               POM_StartDate: {
+                    required: "<b>StartDate</b> required.!",
+                    min: "Please choose a date less than or equal to <b>End Date</b>",
+                    max: "Please choose a date less than or equal to <b>End Date</b>"
+               },
+               POM_EndDate: {
+                   required: "<b>EndDate</b> required.!",
+               }
+           },
+           submitHandler: function(form) {
+               $("#form button[type=submit]").attr("disabled", "disabled");
+               form.submit();
+           }
+       });
+     });
+      
+</script>

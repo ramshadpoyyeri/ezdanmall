@@ -1,0 +1,156 @@
+﻿@using System.Data;
+@{
+    ViewData["Title"] = "Locations";
+    ViewData["Page"] = "Locations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Model;
+
+    DataTable dtData = ds.Tables[0];
+}
+<!-- Begin banner section -->
+<section class="conetnt-container bglw mb-4 pb-4 mt-4 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-wrap">
+                    <p>Choose your <br> <strong>favourite <em>branch</em> to start</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul>
+        <li>
+            <a href="http://ezdanalgharaffa.auraqatar.com/">
+                <img src="/web_assets/images/mall-algharaffa.png" alt="">
+            </a>
+            <div class="overlay">
+                <a href="http://ezdanalgharaffa.auraqatar.com/">
+                    <img class="loc" src="/web_assets/images/mapr.png" alt="">
+                    <img class="loc" src="/web_assets/images/mapi.png" alt="">
+                    <h3>al gharaffa</h3>
+                </a>
+                <a href="http://ezdanalgharaffa.auraqatar.com/" class="btn-secondary">
+                    Explore Now
+                    <img src="/web_assets/images/arrow.png" alt="">
+                    <img src="/web_assets/images/arrow_white.png" alt="">
+                </a>
+            </div>
+        </li>
+        <li>
+            <a href="http://ezdanalwakra.auraqatar.com/">
+                <img src="/web_assets/images/mall%20alwakra.png" alt="">
+            </a>
+            <div class="overlay mid">
+                <a href="http://ezdanalwakra.auraqatar.com/">
+                    <img class="loc" src="/web_assets/images/mapr.png" alt="">
+                    <img class="loc" src="/web_assets/images/mapi.png" alt="">
+                    <h3>al wakra</h3>
+                </a>
+                <a href="http://ezdanalwakra.auraqatar.com" class="btn-secondary">
+                    Explore Now
+                    <img src="/web_assets/images/arrow.png" alt="">
+                    <img src="/web_assets/images/arrow_white.png" alt="">
+                </a>
+            </div>
+        </li>
+        <li>
+            <a href="http://ezdanalwukair.auraqatar.com/">
+                <img src="/web_assets/images/mallalwukair.png" alt="">
+            </a>
+             <div class="overlay mid">
+                <a href="http://ezdanalwukair.auraqatar.com/">
+                    <img class="loc" src="/web_assets/images/mapr.png" alt="">
+                    <img class="loc" src="/web_assets/images/mapi.png" alt="">
+                    <h3>al wukair</h3>
+                </a>
+                <a href="http://ezdanalwukair.auraqatar.com" class="btn-secondary">
+                    Explore Now
+                    <img src="/web_assets/images/arrow.png" alt="">
+                    <img src="/web_assets/images/arrow_white.png" alt="">
+                </a>
+            </div>           
+        </li>
+    </ul>
+</section>
+<!-- End banner section -->
+@*
+    <script src="/web_assets/js/mainscript.js"></script>
+    <script src="/web_assets/js/menu.js"></script>
+    <script src="/web_assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/web_assets/js/owl.js"></script>
+    <script src="/web_assets/js/all.js"></script>*@
+<script>
+    $(document).ready(function() {
+        $("#slider")
+          .on("initialized.owl.carousel changed.owl.carousel", function(e) {
+            if (!e.namespace) {
+              return;
+            }
+            $("#counter").html(
+              e.relatedTarget.relative(e.item.index) + 1 + "/" + "<i>" + e.item.count + "</i>"
+            );
+          })
+          .owlCarousel({
+            margin: 0,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            dots: false,
+            loop: true,
+            smartSpeed: 1050,
+            items: 1,
+          });
+
+    });
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('#stores').owlCarousel({
+            margin: 15,
+            stagePadding: 0,
+            nav: true,
+            autoplay: true,
+            autoplayTimeout: 4000,
+            loop: true,
+            smartSpeed: 1050,
+            items: 9,
+
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#socialfeeds').owlCarousel({
+            margin: 10,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5500,
+            dots: true,
+            loop: true,
+            smartSpeed: 1050,
+            items: 5,
+
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#news').owlCarousel({
+            margin: 15,
+            stagePadding: 0,
+            nav: true,
+            autoplay: true,
+            autoplayTimeout: 4000,
+            loop: true,
+            dots: true,
+            smartSpeed: 1050,
+            items: 4,
+
+        });
+    });
+</script>
+

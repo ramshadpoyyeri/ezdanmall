@@ -1,0 +1,480 @@
+﻿@using System.Data;
+@using System.Data.SqlClient;
+@using Microsoft.AspNetCore.Http;
+@inject IConfiguration Configuration;
+@{
+    // bool editMode = false;
+    // String docno = "1000";
+    // String doctype = "ABT";       
+    //DataTable? dtData = Model;
+    String docno = Context.Request.Query["docno"];
+    String doctype = Context.Request.Query["doctype"];
+    Layout = null;
+    DataTable? dtFullData = new DataTable();
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    docno = dtData.Rows[0]["HOM_DocNo"].ToString();
+    String HOM_ShopBannerImage = "", HOM_ShopBannerHeading = "", HOM_ShopBannerHeading_Arabic = "",
+    HOM_ShopDescription = "", HOM_ShopDescription_Arabic = "",
+    HOM_DineBannerImage = "",
+    HOM_DineBannerHeading = "", HOM_DineBannerHeading_Arabic = "",
+    HOM_DineDescription = "", HOM_DineDescription_Arabic = "",
+    HOM_EnjoyBannerImage = "",
+    HOM_EnjoyBannerHeading = "", HOM_EnjoyBannerHeading_Arabic = "",
+    HOM_EnjoyDescription = "", HOM_EnjoyDescription_Arabic = "",
+    HOM_AreaTitle = "", HOM_AreaSubtitle = "",
+    HOM_AreaDescription = "",
+    HOM_AboutTitle = "", HOM_AboutSubtitle = "",
+    HOM_AboutDescription = "";
+
+    String ShopBannerImage_Url = "", DineBannerImage_Url = "", EnjoyBannerImage_Url = "";
+    String HOM_AboutImage = "", HOM_AboutBgImage = "";
+
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        
+        HOM_ShopBannerImage = dtData.Rows[0]["HOM_ShopBannerImage"].ToString(); 
+        ShopBannerImage_Url = "background-image:url(" + HOM_ShopBannerImage + ")";
+        HOM_ShopBannerHeading = dtData.Rows[0]["HOM_ShopBannerHeading"].ToString();
+        HOM_ShopBannerHeading_Arabic = dtData.Rows[0]["HOM_ShopBannerHeading_Arabic"].ToString();        
+        HOM_ShopDescription = dtData.Rows[0]["HOM_ShopDescription"].ToString();
+        HOM_ShopDescription_Arabic = dtData.Rows[0]["HOM_ShopDescription_Arabic"].ToString();
+        HOM_DineBannerImage = dtData.Rows[0]["HOM_DineBannerImage"].ToString();
+        DineBannerImage_Url = "background-image:url(" + HOM_DineBannerImage + ")";
+        HOM_DineBannerHeading = dtData.Rows[0]["HOM_DineBannerHeading"].ToString();
+        HOM_DineBannerHeading_Arabic = dtData.Rows[0]["HOM_DineBannerHeading_Arabic"].ToString();
+        HOM_DineDescription = dtData.Rows[0]["HOM_DineDescription"].ToString();
+        HOM_DineDescription_Arabic = dtData.Rows[0]["HOM_DineDescription_Arabic"].ToString();
+        HOM_EnjoyBannerImage =  dtData.Rows[0]["HOM_EnjoyBannerImage"].ToString();
+        EnjoyBannerImage_Url = "background-image:url(" + HOM_EnjoyBannerImage + ")";
+        HOM_EnjoyBannerHeading = dtData.Rows[0]["HOM_EnjoyBannerHeading"].ToString();
+        HOM_EnjoyBannerHeading_Arabic = dtData.Rows[0]["HOM_EnjoyBannerHeading_Arabic"].ToString();
+        HOM_EnjoyDescription = dtData.Rows[0]["HOM_EnjoyDescription"].ToString();
+        HOM_EnjoyDescription_Arabic = dtData.Rows[0]["HOM_EnjoyDescription_Arabic"].ToString();
+        HOM_AreaTitle = dtData.Rows[0]["HOM_AreaTitle"].ToString();
+        HOM_AreaSubtitle = dtData.Rows[0]["HOM_AreaSubtitle"].ToString();
+        HOM_AreaDescription = dtData.Rows[0]["HOM_AreaDescription"].ToString();
+        HOM_AboutTitle = dtData.Rows[0]["HOM_AboutTitle"].ToString();
+        HOM_AboutSubtitle = dtData.Rows[0]["HOM_AboutSubtitle"].ToString();
+        HOM_AboutDescription = dtData.Rows[0]["HOM_AboutDescription"].ToString();
+
+        HOM_AboutImage = dtData.Rows[0]["HOM_AboutImage"].ToString();
+        HOM_AboutBgImage = "background-image:url(" + HOM_AboutImage + ")";
+    }
+}
+
+
+<div class="row">
+    <div class="sub-head">
+         <h4>Main Category Banners</h4>
+         <h5>1. SHOP</h5>
+    </div>    
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="HOM_ShopBannerImage">Banner Image (Size :1224x615)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@ShopBannerImage_Url"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="HOM_ShopBannerImage" name="HOM_ShopBannerImage" class="profileimg">
+                    <input type="hidden" id="HOM_ShopBannerImage_1" value="@HOM_ShopBannerImage">               
+                </div>
+           </div>
+        </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+              <div class="form-wrap half-field">
+                   <label for="">Banner Heading</label>
+                   <input type="text" id="HOM_ShopBannerHeading" name="HOM_ShopBannerHeading" placeholder="Banner Heading" maxlength="100" value="@HOM_ShopBannerHeading">
+              </div>
+         </div>
+         <div class="col-md-6 ">
+              <div class="form-wrap half-field ">
+                    <label for="HOM_ShopBannerHeading_Arabic">Banner Heading (Arabic)</label>
+                    <input type="text" id="HOM_ShopBannerHeading_Arabic" name="HOM_ShopBannerHeading_Arabic" placeholder="Banner Heading (Arabic)" maxlength="100" value="@HOM_ShopBannerHeading_Arabic">
+              </div>
+         </div>
+         <div class="col-md-6 ">
+              <div class="form-wrap half-field ">
+                   <label for="HOM_ShopDescription">Description</label>
+                   <textarea type="text" id="HOM_ShopDescription" name="HOM_ShopDescription" placeholder="Description">@HOM_ShopDescription</textarea>
+              </div>
+         </div>         
+         <div class="col-md-6 ">
+                <div class="form-wrap half-field ">
+                     <label for="HOM_ShopDescription_Arabic">Description (Arabic)</label>
+                     <textarea type="text" id="HOM_ShopDescription_Arabic" name="HOM_ShopDescription_Arabic" placeholder="Description">@HOM_ShopDescription_Arabic</textarea>
+                </div>
+         </div>
+    </div>
+    <!--------------dine------------------->
+    <div class="sub-head">
+    <h5>2. DINE</h5>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="HOM_DineBannerImage">Shop List Image(Size :692x1230)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@DineBannerImage_Url"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="HOM_DineBannerImage" name="HOM_DineBannerImage" class="profileimg">
+                    <input type="hidden" id="HOM_DineBannerImage_1" value="@HOM_DineBannerImage">               
+                </div>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+         <div class="col-md-6 ">
+              <div class="form-wrap half-field ">
+                   <label for="HOM_DineBannerHeading">Banner Heading</label>
+                   <input type="text" id="HOM_DineBannerHeading" name="HOM_DineBannerHeading" placeholder="Banner Heading" maxlength="100" value="@HOM_DineBannerHeading">
+              </div>
+         </div>    
+         <div class="col-md-6 ">
+               <div class="form-wrap half-field ">
+                    <label for="HOM_DineBannerHeading_Arabic">Banner Heading (Arabic)</label>
+                    <input type="text" id="HOM_DineBannerHeading_Arabic" name="HOM_DineBannerHeading_Arabic" placeholder="Banner Heading (Arabic)" maxlength="100" value="@HOM_DineBannerHeading_Arabic">
+               </div>
+         </div>             
+         <div class="col-md-6 ">
+              <div class="form-wrap half-field ">
+                   <label for="HOM_DineDescription">Description</label>
+                   <textarea type="text" id="HOM_DineDescription" name="HOM_DineDescription" placeholder="Description">@HOM_DineDescription</textarea>
+              </div>
+         </div>
+         <div class="col-md-6 ">
+              <div class="form-wrap half-field ">
+                   <label for="HOM_DineDescription_Arabic">Description (Arabic)</label>
+                   <textarea type="text" id="HOM_DineDescription_Arabic" name="HOM_DineDescription_Arabic" placeholder="Description">@HOM_DineDescription_Arabic</textarea>
+              </div>
+         </div> 
+     </div>
+     <!--------------3. ENJOY------------------->
+     <div class="sub-head">
+     <h5>3. PLAY</h5>
+     </div>
+     <div class="col-md-6">
+          <div class="form-wrap half-field">
+                <label for="HOM_EnjoyBannerImage">Shop List Image(Size :1224x615)</label>
+                <div class="file-upload">
+                    <div class="file-select">
+                    <div class="imagePreview" style="@EnjoyBannerImage_Url"></div>
+                        <button class="btn btn-secondary">Choose</button>
+                        <div class="file-select-name">No File Chosen</div>
+                        <input type="file" id="HOM_EnjoyBannerImage" name="HOM_EnjoyBannerImage" class="profileimg">
+                        <input type="hidden" id="HOM_EnjoyBannerImage_1" value="@HOM_EnjoyBannerImage">                
+                    </div>
+                </div>
+          </div>
+     </div>
+     <div class="row" >
+          <div class="col-md-6 ">
+               <div class="form-wrap half-field ">
+                    <label for="HOM_EnjoyBannerHeading">Banner Heading</label>
+                    <input type="text" id="HOM_EnjoyBannerHeading" name="HOM_EnjoyBannerHeading" placeholder="Banner Heading" maxlength="100" value="@HOM_EnjoyBannerHeading">
+               </div>
+          </div>
+          <div class="col-md-6 ">
+               <div class="form-wrap half-field ">
+                    <label for="HOM_EnjoyBannerHeading_Arabic">Banner Heading (Arabic)</label>
+                    <input type="text" name="HOM_EnjoyBannerHeading_Arabic" placeholder="Banner Heading (Arabic)" maxlength="100" value="@HOM_EnjoyBannerHeading_Arabic">                    
+               </div>
+          </div> 
+          <div class="col-md-6 ">
+               <div class="form-wrap half-field ">
+                    <label for="HOM_EnjoyDescription">Description</label>
+                    <textarea type="text" id="HOM_EnjoyDescription" name="HOM_EnjoyDescription" placeholder="Description">@HOM_EnjoyDescription</textarea>
+               </div>
+          </div>
+          <div class="col-md-6 ">
+               <div class="form-wrap half-field ">
+                    <label for="HOM_EnjoyDescription_Arabic">Description (Arabic)</label>
+                    <textarea type="text" id="HOM_EnjoyDescription_Arabic" name="HOM_EnjoyDescription_Arabic" placeholder="Description">@HOM_EnjoyDescription_Arabic</textarea>
+               </div> 
+          </div>
+     </div>
+     <!--------------3. ABOUT------------------->
+     <hr />
+     <div class="sub-head">
+     <h4>ABOUT AREA</h4>
+     </div>
+     <div class="col-md-12 ">
+          <div class="form-wrap half-field ">
+               <label for="HOM_AreaTitle">About Title</label>
+               <input type="text" id="HOM_AreaTitle" name="HOM_AreaTitle" placeholder="VISIT EZDAN MALL AL WAKRA" maxlength="100" value="@HOM_AreaTitle">
+          </div>
+     </div>
+     <div class="col-md-12 ">
+          <div class="form-wrap half-field ">
+               <label for="HOM_AreaSubtitle">About SubTitle</label>
+               <input type="text" id="HOM_AreaSubtitle" name="HOM_AreaSubtitle" placeholder="NEXT LEVEL OF SHOPPING" maxlength="100" value="@HOM_AreaSubtitle">
+          </div>
+     </div>
+     <div class="col-md-12 ">
+          <div class="form-wrap half-field ">
+               <label for="HOM_AreaDescription">Description</label>
+               @*<div id="editor" class="editor"></div>*@
+               <textarea id="editor" name="HOM_AreaDescription" class="editor">@HOM_AreaDescription</textarea>
+          </div>
+     </div>   
+     <div class="form-wrap half-field ">
+          <label for="HOM_AboutTitle">About Title (Arabic)</label>
+          <input type="text" id="HOM_AboutTitle" name="HOM_AboutTitle" placeholder="VISIT EZDAN MALL AL WAKRA" maxlength="100" value="@HOM_AboutTitle">
+     </div>
+     <div class="form-wrap half-field ">
+          <label for="HOM_AboutSubtitle">About SubTitle (Arabic)</label>
+          <input type="text" id="HOM_AboutSubtitle" name="HOM_AboutSubtitle" placeholder="NEXT LEVEL OF SHOPPING" maxlength="100" value="@HOM_AboutSubtitle">
+     </div>
+     <div class="col-md-12 ">
+          <div class="form-wrap half-field ">
+                <label for="HOM_AboutDescription">Description (Arabic)</label>
+                @*<div id="editor" class="editor"></div>*@
+                <textarea id="editor1" name="HOM_AboutDescription" class="editor">@HOM_AboutDescription</textarea>
+          </div>
+     </div>
+     <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <label for="HOM_AboutImage">Image (Size :880x950)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@HOM_AboutBgImage"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="HOM_AboutImage" name="HOM_AboutImage" class="profileimg">
+                    <input type="hidden" id="HOM_AboutImage1" value="@HOM_AboutImage">
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <input type="submit" value="Save Changes" class="submit">
+        </div>
+    </div>
+                
+</div>
+
+<script>          
+    ClassicEditor.create(document.querySelector('#editor'))
+        //.then(ed => {
+
+        //})
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor1'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    $("#editor,#editor1").parent().find(".ck-content").on('blur keyup paste input', function() {
+
+        var editor = $(this).parent().parent().parent().find(".editor");
+        var textID = $(editor).attr("id"); + "_text";
+
+        var default_Html = '<p><br data-cke-filler="true"></p>';
+        var rich_Html = $(this).html();
+        if (rich_Html == default_Html) {
+            $("#" + textID).val("");
+        } else {
+            $("#" + textID).val(rich_Html);
+        }
+    });
+    $("#editor").parent().find(".ck-content").html('@HOM_ShopDescription');
+    $("#editor1").parent().find(".ck-content").html('@HOM_ShopDescription_Arabic');
+
+    var editMode = '@editMode'.toLowerCase();
+
+
+     $(document).ready(function() {
+         debugger;
+    $("#form").validate({
+        rules: {
+            HOM_ShopBannerImage: {
+                required: editMode == "true" ? false : true,
+                extension: "jpg|jpeg|png|bmp"
+            },
+            HOM_ShopBannerHeading: {
+                required: true,
+            },
+            HOM_ShopBannerHeading_Arabic: {
+                required: true
+            },
+            HOM_ShopDescription: {
+                required: true,
+            },
+            HOM_ShopDescription_Arabic: {
+                required: true,
+            },                       
+            HOM_DineBannerImage: {
+                required: editMode == "true" ? false : true,
+                extension: "jpg|jpeg|png|bmp"
+            },
+            HOM_DineBannerHeading: {
+                required: true,
+            },
+            HOM_DineBannerHeading_Arabic: {
+                required: true,
+            },
+            HOM_DineDescription: {
+                required: true,
+            },
+            HOM_DineDescription_Arabic: {
+                required: true,
+            },
+            HOM_EnjoyBannerImage: {
+                required: editMode == "true" ? false : true,
+                extension: "jpg|jpeg|png|bmp"
+            },
+            HOM_EnjoyBannerHeading: {
+                required: true,
+            },
+            HOM_EnjoyBannerHeading_Arabic: {
+                required: true,
+            },
+            HOM_EnjoyDescription: {
+                required: true,
+            },
+            HOM_EnjoyDescription_Arabic: {
+                required: true,
+            },
+            HOM_AreaTitle: {
+                required: true,
+            },
+            HOM_AreaSubtitle: {
+                required: true,
+            },
+            HOM_AreaDescription: {
+                required: true,
+            },
+            HOM_AboutTitle: {
+                 required: true,
+            },
+            HOM_AboutSubtitle:{
+                 required: true,
+            },
+            HOM_AboutDescription:{
+                required: true,
+            },
+            HOM_AboutImage: {
+                required: editMode == "true" ? false : true,
+                extension: "jpg|jpeg|png|bmp"
+            },
+        },
+        messages: {
+            HOM_ShopBannerImage: {
+                required: "<b>Logo</b> required.!",
+                extension: "Logo Type <b>(jpg/png/bmp)</b>"
+            },
+            HOM_ShopBannerHeading: {
+                required: "*Required",
+            },
+            HOM_ShopBannerHeading_Arabic: {
+                required: "*Required",
+            },            
+            HOM_ShopDescription: {
+                required: "*Required",
+            },
+            HOM_ShopDescription_Arabic: {
+                required: "*Required",
+            },
+            HOM_DineBannerImage: {
+                required: "<b>Logo</b> required.!",
+                extension: "Logo Type <b>(jpg/png/bmp)</b>"
+            },
+            HOM_DineBannerHeading: {
+                 required: "*Required",
+            },
+            HOM_DineBannerHeading_Arabic: {
+                 required: "*Required",
+            },
+            HOM_DineDescription: {
+                 required: "*Required",
+            },
+            HOM_DineDescription_Arabic: {
+                required: "*Required",
+            },
+            HOM_EnjoyBannerImage: {
+                required: "<b>Banner Image</b> required.!",
+                extension: "Image Type <b>(jpg/png/bmp)</b>"
+            },
+            HOM_EnjoyBannerHeading: {
+                required: "*Required",
+            },
+            HOM_EnjoyBannerHeading_Arabic: {
+                 required: "*Required",
+            },
+            HOM_EnjoyDescription: {
+                 required: "*Required",
+            },
+            HOM_EnjoyDescription_Arabic: {
+                required: "*Required",
+            },
+            HOM_AreaTitle: {
+                required: "*Required",
+            },
+            HOM_AreaSubtitle: {
+                required:"*Required",
+            },
+            HOM_AreaDescription: {
+                required:"*Required",
+            },
+            HOM_AboutTitle: {
+                required:"*Required",
+            },
+            HOM_AboutSubtitle: {
+                required:"*Required",
+            },
+            HOM_AboutDescription: {
+                required: "*Required",
+            },
+            HOM_AboutImage: {
+                required: "<b>About Image</b> required.!",
+                extension: "Image Type <b>(jpg/png/bmp)</b>"
+            },
+        },
+        submitHandler: function(form) {
+
+            if (editMode == "true") {
+                if ($("#HOM_ShopBannerImage").val().length == 0) {
+                    $("#HOM_ShopBannerImage_1").attr("name", "HOM_ShopBannerImage");
+                    $("#HOM_ShopBannerImage").remove();
+                }
+                if ($("#HOM_DineBannerImage").val().length == 0) {
+                    $("#HOM_DineBannerImage_1").attr("name", "HOM_DineBannerImage");
+                    $("#HOM_DineBannerImage").remove();
+                }
+                if ($("#HOM_EnjoyBannerImage").val().length == 0) {
+                    $("#HOM_EnjoyBannerImage_1").attr("name", "HOM_EnjoyBannerImage");
+                    $("#HOM_EnjoyBannerImage").remove();
+                }
+
+                if ($("#HOM_AboutImage").val().length == 0) {
+                    $("#HOM_AboutImage1").attr("name", "HOM_AboutImage");
+                    $("#HOM_AboutImage").remove();
+                }
+
+            }
+
+             $("#form button[type=submit]").attr("disabled", "disabled");
+            form.submit();
+        }
+    }); 
+    });
+</script>
+
+<style>
+    .editor_hidden {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+</style>

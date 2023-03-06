@@ -1,0 +1,290 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    Layout = null;
+    String docno = Context.Request.Query["docno"];
+    String doctype = Context.Request.Query["doctype"];
+    DataTable? dtFullData = new DataTable();
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    docno = dtData.Rows[0]["MTM_DocNo"].ToString();
+    String MTM_ShopCategoryTitle = "", MTM_ShopCategoryTitle_Arabic = "",
+    MTM_ShopTiming = "", MTM_ShopTiming_Arabic = "",
+    MTM_CofeeShopCategoryTitle = "", MTM_CofeeShopCategoryTitle_Arabic = "",
+    MTM_CofeeShopTiming = "", MTM_CofeeShopTiming_Arabic = "",
+    MTM_NewShopCategory = "", MTM_NewShopCategory_Arabic = "",
+    MTM_NewShopTiming = "", MTM_NewShopTiming_Arabic = "";
+
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        MTM_ShopCategoryTitle = dtData.Rows[0]["MTM_ShopCategoryTitle"].ToString();
+        MTM_ShopCategoryTitle_Arabic = dtData.Rows[0]["MTM_ShopCategoryTitle_Arabic"].ToString();
+        MTM_ShopTiming = dtData.Rows[0]["MTM_ShopTiming"].ToString();
+        MTM_ShopTiming_Arabic = dtData.Rows[0]["MTM_ShopTiming_Arabic"].ToString();        
+        MTM_CofeeShopCategoryTitle = dtData.Rows[0]["MTM_CofeeShopCategoryTitle"].ToString();
+        MTM_CofeeShopCategoryTitle_Arabic = dtData.Rows[0]["MTM_CofeeShopCategoryTitle_Arabic"].ToString();
+        MTM_CofeeShopTiming = dtData.Rows[0]["MTM_CofeeShopTiming"].ToString();
+        MTM_CofeeShopTiming_Arabic = dtData.Rows[0]["MTM_CofeeShopTiming_Arabic"].ToString();    
+        MTM_NewShopCategory = dtData.Rows[0]["MTM_NewShopCategory"].ToString();
+        MTM_NewShopCategory_Arabic = dtData.Rows[0]["MTM_NewShopCategory_Arabic"].ToString();
+        MTM_NewShopTiming = dtData.Rows[0]["MTM_NewShopTiming"].ToString();
+        MTM_NewShopTiming_Arabic = dtData.Rows[0]["MTM_NewShopTiming_Arabic"].ToString();    
+    }
+}
+
+
+<div class="row ">
+    <div class="col-md-6">
+        <div class="form-wrap half-field ">
+            <label for="MTM_ShopCategoryTitle">Shop Category Titles</label>
+            <input type="text" name="MTM_ShopCategoryTitle" maxlength="100" placeholder="Shop Category Titles" value="@MTM_ShopCategoryTitle">
+        </div>
+    </div> 
+    <div class="col-md-6">
+        <div class="form-wrap half-field ">
+            <label for="MTM_ShopCategoryTitle_Arabic">Shop Category Titles (Arabic)</label>
+            <input type="text" name="MTM_ShopCategoryTitle_Arabic" maxlength="100" placeholder="Shop Category Titles (Arabic)" value="@MTM_ShopCategoryTitle_Arabic">
+    </div>
+    </div>
+    <div class="col-md-12 ">
+          <div class="form-wrap half-field ">
+               <label for="MTM_ShopTiming">Shop Timing</label>
+               @*<div id="editor" class="editor"></div>*@
+               <textarea id="editor" name="MTM_ShopTiming" class="editor">@MTM_ShopTiming</textarea>
+          </div>
+     </div>             
+    <div class="col-md-12">
+          <div class="form-wrap half-field ">
+                <label for="MTM_ShopTiming_Arabic">Shop Timing (Arabic)</label>
+                @*<div id="editor" class="editor"></div>*@
+                <textarea id="editor1" name="MTM_ShopTiming_Arabic" class="editor">@MTM_ShopTiming_Arabic</textarea>
+          </div>
+     </div> 
+</div>
+<div class="form-head">
+     <h3>Coffee Shops</h3>
+</div>
+<div class="row ">
+    <div class="col-md-6">
+        <div class="form-wrap half-field ">
+            <label for="MTM_CofeeShopCategoryTitle">Shop Category Titles</label>
+            <input type="text" name="MTM_CofeeShopCategoryTitle" maxlength="100" placeholder="Shop Category Titles" value="@MTM_CofeeShopCategoryTitle">
+        </div>
+    </div> 
+    <div class="col-md-6">
+        <div class="form-wrap half-field ">
+            <label for="MTM_CofeeShopCategoryTitle_Arabic">Shop Category Titles (Arabic)</label>
+            <input type="text" name="MTM_CofeeShopCategoryTitle_Arabic" maxlength="100" placeholder="Shop Category Titles (Arabic)" value="@MTM_CofeeShopCategoryTitle_Arabic">
+        </div>
+    </div>
+    <div class="col-md-12 ">
+          <div class="form-wrap half-field ">
+               <label for="MTM_CofeeShopTiming">Shop Timing</label>
+               @*<div id="editor" class="editor"></div>*@
+               <textarea id="editor2" name="MTM_CofeeShopTiming" class="editor">@MTM_CofeeShopTiming</textarea>
+          </div>
+     </div>             
+    <div class="col-md-12">
+          <div class="form-wrap half-field ">
+                <label for="MTM_CofeeShopTiming_Arabic">Shop Timing (Arabic)</label>
+                @*<div id="editor" class="editor"></div>*@
+                <textarea id="editor3" name="MTM_CofeeShopTiming_Arabic" class="editor">@MTM_CofeeShopTiming_Arabic</textarea>
+          </div>
+     </div>     
+</div>
+<div class="form-head">
+     <h3>New Shop</h3>
+</div>
+<div class="row ">
+    <div class="col-md-6">
+        <div class="form-wrap half-field ">
+            <label for="MTM_NewShopCategory">Shop Category Titles</label>
+            <input type="text" name="MTM_NewShopCategory" maxlength="100" placeholder="Shop Category Titles" value="@MTM_NewShopCategory">
+        </div>
+    </div> 
+    <div class="col-md-6">
+        <div class="form-wrap half-field ">
+            <label for="MTM_NewShopCategory_Arabic">Shop Category Titles (Arabic) </label>
+            <input type="text" name="MTM_NewShopCategory_Arabic" maxlength="100" placeholder="Shop Category Titles (Arabic) " value="@MTM_NewShopCategory_Arabic">
+        </div>
+    </div>
+    <div class="col-md-12 ">
+          <div class="form-wrap half-field ">
+               <label for="MTM_NewShopTiming">Shop Timing</label>
+               @*<div id="editor" class="editor"></div>*@
+               <textarea id="editor4" name="MTM_NewShopTiming" class="editor">@MTM_NewShopTiming</textarea>
+          </div>
+     </div>             
+    <div class="col-md-12">
+          <div class="form-wrap half-field ">
+                <label for="MTM_NewShopTiming_Arabic">Shop Timing (Arabic)</label>
+                @*<div id="editor" class="editor"></div>*@
+                <textarea id="editor5" name="MTM_NewShopTiming_Arabic" class="editor">@MTM_NewShopTiming_Arabic</textarea>
+          </div>
+     </div> 
+    <div class="form-wrap half-field">
+    <input type="submit" value="UPDATE" class="submit">
+    </div>
+</div>
+
+<script>
+
+    ClassicEditor.create(document.querySelector('#editor'))
+        //.then(ed => {
+
+        //})
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor1'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor2'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor3'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor4'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor5'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    $("#editor,#editor1,#editor2,#editor3,#editor4,#editor5").parent().find(".ck-content").on('blur keyup paste input', function() {
+
+        var editor = $(this).parent().parent().parent().find(".editor");
+        var textID = $(editor).attr("id");// + "_text";
+
+        var default_Html = '<p><br data-cke-filler="true"></p>';
+        var rich_Html = $(this).html();
+        if (rich_Html == default_Html) {
+            $("#" + textID).val("");
+        } else {
+            $("#" + textID).val(rich_Html);
+        }
+    });
+    $("#editor").parent().find(".ck-content").html('MTM_Description');
+    $("#editor1").parent().find(".ck-content").html('MTM_Description_Arabic');
+    $("#editor2").parent().find(".ck-content").html('MTM_CofeeShopTiming');
+    $("#editor3").parent().find(".ck-content").html('MTM_CofeeShopTiming_Arabic');
+    $("#editor4").parent().find(".ck-content").html('MTM_NewShopTiming');
+    $("#editor5").parent().find(".ck-content").html('MTM_NewShopTiming_Arabic');
+
+    var editMode = '@editMode'.toLowerCase();
+    $("#form").validate({
+        rules: {
+            MTM_ShopCategoryTitle: {
+                required: true,
+            },
+            MTM_ShopCategoryTitle_Arabic: {
+                required: true
+            },
+            MTM_ShopTiming: {
+                required: true,
+            },            
+            MTM_ShopTiming_Arabic: {
+                required: true,
+            },
+            MTM_CofeeShopCategoryTitle: {
+                required: true,
+            },
+            MTM_CofeeShopCategoryTitle_Arabic: {
+                required: true
+            },
+            MTM_CofeeShopTiming: {
+                required: true,
+            },            
+            MTM_CofeeShopTiming_Arabic: {
+                required: true,
+            },
+            MTM_NewShopCategory: {
+                required: true,
+            },
+            MTM_NewShopCategory_Arabic: {
+                required: true
+            },
+            MTM_NewShopTiming: {
+                required: true,
+            },            
+            MTM_NewShopTiming_Arabic: {
+                required: true,
+            },
+        },
+        messages: {
+            MTM_ShopCategoryTitle: {
+                required: "*Required",
+            },
+            MTM_ShopCategoryTitle_Arabic: {
+                required: "*Required",
+            },
+            MTM_ShopTiming: {
+                required: "*Required",
+            },
+            MTM_ShopTiming_Arabic: {
+                required: "*Required ",
+            }, 
+            MTM_CofeeShopCategoryTitle: {
+                required: "*Required",
+            },
+            MTM_CofeeShopCategoryTitle_Arabic: {
+                required: "*Required",
+            },
+            MTM_CofeeShopTiming: {
+                required: "*Required",
+            },
+            MTM_CofeeShopTiming_Arabic: {
+                required: "*Required ",
+            },            
+            MTM_NewShopCategory: {
+                required: "*Required",
+            },
+            MTM_NewShopCategory_Arabic: {
+                required: "*Required",
+            },
+            MTM_NewShopTiming: {
+                required: "*Required",
+            },
+            MTM_NewShopTiming_Arabic: {
+                required: "*Required ",
+            },            
+        },
+        submitHandler: function(form) {
+
+            //if (editMode == "true") {
+            //    if ($("#MTM_Logo").val().length == 0) {
+            //        $("#MTM_Logo1").attr("name", "MTM_Logo");
+            //        $("#MTM_Logo").removeAttr("name");
+            //        $("#MTM_Logo").remove();
+            //    }
+            //    if ($("#MTM_BannerImage").val().length == 0) {
+            //        $("#MTM_BannerImage1").attr("name", "MTM_BannerImage");
+            //        $("#MTM_BannerImage").removeAttr("name");
+            //        $("#MTM_BannerImage").remove();
+            //    }
+            //}
+
+            $("#form button[type=submit]").attr("disabled", "disabled");
+            form.submit();
+        }
+    });    
+
+</script>
+
+<style>
+    .editor_hidden {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+</style>

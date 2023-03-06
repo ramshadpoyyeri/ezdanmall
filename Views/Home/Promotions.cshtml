@@ -1,0 +1,93 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    ViewData["Title"] = "Promotions";
+    ViewData["Page"] = "Promotions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Model;
+    DataTable? dtFullData = new DataTable();
+
+    string discription = "", Ardiscription = "";
+
+    DataTable dtData = ds.Tables[0];
+    DataTable dtCategories = ds.Tables[1];
+
+
+    //String POM_StartDate = Convert.ToDateTime(dtData.Rows[0]["POM_StartDate"].ToString()).ToString("dd MMM yyyy");
+    //String POM_EndDate = Convert.ToDateTime(dtData.Rows[0]["POM_EndDate"].ToString()).ToString("dd MMM yyyy");
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_Web_CompanyParameter", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        discription = dtFullData.Rows[0]["COMPAR_Description"].ToString();
+        Ardiscription = dtFullData.Rows[1]["COMPAR_Description"].ToString();
+    }
+}
+<section class="banner mixb">
+    <img src="/web_assets/images/cbanner.jpg" alt="">
+    <div class="banner-overlay">
+        <span>Ezdan mall -@discription</span>
+        <h1>Promotions</h1>
+    </div>
+</section>
+
+<section class="promo-blk storeslistandfilter">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="storesfilter">
+                    <button class="advancedfilter">
+                        <span class="filtericon"></span> Filter
+                    </button>
+                    <ul class="category-filter filter-button-group">
+                        <li class="active" data-filter="*">All Categories</li>
+                        @{
+                            foreach (DataRow row in dtCategories.Rows)
+                            {
+                                <li data-filter=".@row["CAT_DocNo"]">@row["CAT_Description"]</li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="allpromotionslist">        
+                        <ul class="grid">
+                            @{
+                                foreach (DataRow row in dtData.Rows)
+                                {
+                                    String POM_StartDate = Convert.ToDateTime(row["POM_StartDate"].ToString()).ToString("dd MMM yyyy");
+                                    String POM_EndDate = Convert.ToDateTime(row["POM_EndDate"].ToString()).ToString("dd MMM yyyy");
+
+                                    String urlKey = row["POM_URL_Key"] + "-" + row["POM_DocNo"];
+                                    <li class="grid-item @row["SHP_CAT_DocNo"]">
+                                        <div class="offeritem" data-hover="">
+                                            <div class="offerimage">                                      
+                                                <div class="offerlogo">
+                                                    <img src="@row["SHP_Logo"]">
+                                                </div>                                              
+                                            </div>
+                                            <div class="offerdetails">
+                                                <div class="taganddate">
+                                                    <span class="malltag">@row["POM_OfferTag"]</span>
+                                                    <span class="offerdate">@POM_StartDate- @POM_EndDate</span>
+                                                </div>
+                                                <h4>@row["POM_OfferTitle"]</h4>
+                                                <h5>@Html.Raw(row["POM_Description"])</h5>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                }
+                            }                                   
+                        </ul>                                    
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+     .offeritem{
+            overflow:hidden;
+        }
+    </style>

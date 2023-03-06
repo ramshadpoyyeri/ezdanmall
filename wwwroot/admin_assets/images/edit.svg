@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+  <g id="Group_10052" data-name="Group 10052" transform="translate(-1331 -206)">
+    <g id="Rectangle_2114" data-name="Rectangle 2114" transform="translate(1331 206)" fill="#70ceff" stroke="#cee0ff" stroke-width="1">
+      <rect width="23" height="23" rx="11.5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="22" height="22" rx="11" fill="none"/>
+    </g>
+    <g id="_1976055_edit_edit_document_edit_file_edited_editing_icon" data-name="1976055_edit_edit document_edit file_edited_editing_icon" transform="translate(1335.533 209.683)">
+      <path id="Union_6" data-name="Union 6" d="M1.564,10.2A1.573,1.573,0,0,1,0,8.618V1.95A1.56,1.56,0,0,1,1.564.4H5.629v.906H1.564a.645.645,0,0,0-.658.644V8.618a.675.675,0,0,0,.658.672H8.232a.675.675,0,0,0,.659-.648V4.566H9.8V8.618A1.573,1.573,0,0,1,8.232,10.2Zm2.312-3.89a.456.456,0,0,1-.118-.43L4.149,4.3a.468.468,0,0,1,.12-.21L8,.366a1.313,1.313,0,0,1,1.819,0,1.286,1.286,0,0,1,0,1.819L6.088,5.912a.44.44,0,0,1-.21.12l-1.571.393a.437.437,0,0,1-.109.014A.457.457,0,0,1,3.876,6.306ZM5,4.645l-.18.718.718-.18L8.462,2.257,7.924,1.72ZM8.637,1.007l-.072.072.538.539.072-.073A.375.375,0,0,0,8.906.9.381.381,0,0,0,8.637,1.007Z" transform="translate(2.317 2.317)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

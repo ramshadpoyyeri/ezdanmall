@@ -1,0 +1,185 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    Layout = null;
+    String docno = Context.Request.Query["docno"];
+    DataTable? dtFullData = new DataTable();
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    String NWS_Branch_Name = "", NWS_Branch_Name_Arabic = "",
+    NWS_Descriptin = "",NWS_Description_Arabic = "",
+    NWS_BannerImage = "",NWS_Date = "";
+
+    String  BannerImage_Url = "";
+
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        NWS_Branch_Name = dtData.Rows[0]["NWS_Branch_Name"].ToString();
+        NWS_Branch_Name_Arabic = dtData.Rows[0]["NWS_Branch_Name_Arabic"].ToString();
+        NWS_Descriptin = dtData.Rows[0]["NWS_Descriptin"].ToString();
+        NWS_Description_Arabic = dtData.Rows[0]["NWS_Description_Arabic"].ToString();
+        NWS_Date = Convert.ToDateTime(dtData.Rows[0]["NWS_Date"].ToString()).ToString("yyyy-MM-dd");
+       
+        
+        NWS_BannerImage = dtData.Rows[0]["NWS_BannerImage"].ToString();
+        BannerImage_Url = "background-image:url(" + NWS_BannerImage + ")";
+    }
+
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_CAT_List", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+    }
+}
+
+<div class="row ">
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="NWS_Branch_Name">Media Name</label>
+            <input type="text" name="NWS_Branch_Name" placeholder="Media Name" maxlength="100" value="@NWS_Branch_Name">
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="NWS_Branch_Name_Arabic">Media Name (Arabic)</label>
+            <input type="text" name="NWS_Branch_Name_Arabic" placeholder="Media Name (Arabic)" maxlength="100" value="@NWS_Branch_Name_Arabic">
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="NWS_Branch_Name_Arabic">Media Date</label>
+            <input type="date" name="NWS_Date" placeholder="DD-MM-YYYY" value="@NWS_Date">
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="NWS_Descriptin">About Media</label>
+            @*<div id="editor" class="editor"></div>*@
+            <textarea id="editor" name="NWS_Descriptin" class="editor">@NWS_Descriptin</textarea>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="NWS_Description_Arabic">About Media (Arabic)</label>
+            @* <div id="editor1" class="editor"></div>*@
+            <textarea id="editor1" name="NWS_Description_Arabic" class="editor">@NWS_Description_Arabic</textarea>
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="NWS_BannerImage">Media Logo(Size:636x454)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@BannerImage_Url"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="NWS_BannerImage" name="NWS_BannerImage" class="profileimg">
+                    <input type="hidden" id="NWS_BannerImage_1" value="@NWS_BannerImage">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <input type="submit" value="Save Changes" class="submit">
+        </div>
+    </div>
+</div>
+
+<script>
+
+    ClassicEditor.create(document.querySelector('#editor'))
+        //.then(ed => {
+
+        //})
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor1'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    $("#editor,#editor1").parent().find(".ck-content").on('blur keyup paste input', function() {
+
+        var editor = $(this).parent().parent().parent().find(".editor");
+        var textID = $(editor).attr("id");// + "_text";
+
+        var default_Html = '<p><br data-cke-filler="true"></p>';
+        var rich_Html = $(this).html();
+        if (rich_Html == default_Html) {
+            $("#" + textID).val("");
+        } else {
+            $("#" + textID).val(rich_Html);
+        }
+    });
+   
+    var editMode = '@editMode'.toLowerCase();
+    $("#form").validate({
+        rules: {
+            NWS_Branch_Name: {
+                required: true,
+            },
+            NWS_Branch_Name_Arabic: {
+                required: true,
+            },
+            NWS_Date:{
+                required: true,
+            },
+            NWS_Descriptin: {
+                required: true,
+            },
+            NWS_Description_Arabic: {
+                required: true,
+            },           
+            NWS_BannerImage: {
+                required: editMode == "true" ? false : true,
+                extension: "jpg|jpeg|png|bmp"
+            },
+        },
+        messages: {
+            NWS_Branch_Name: {
+                required: "*Required",
+            },
+            NWS_Branch_Name_Arabic: {
+                required: "*Required",
+            },  
+            NWS_Date: {
+                required: "*Required",
+            },  
+            NWS_Descriptin: {
+                required: "<b>Phone number</b> required.!",
+            },
+            NWS_Description_Arabic: {
+               required: "<b>Address</b> required.!",
+            },          
+            NWS_BannerImage: {
+                required: "<b>Logo</b> required.!",
+                extension: "Logo Type <b>(jpg/png/bmp)</b>"
+            },           
+        },
+        submitHandler: function(form) {
+
+            if (editMode == "true") {
+                if ($("#NWS_BannerImage").val().length == 0) {
+                    $("#NWS_BannerImage_1").attr("name", "NWS_BannerImage");
+                    $("#NWS_BannerImage").remove();
+                }
+            }
+            $("#form button[type=submit]").attr("disabled", "disabled");
+            form.submit();
+        }
+    });
+
+</script>
+
+<style>
+    .editor_hidden {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+</style>

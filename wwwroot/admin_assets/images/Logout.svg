@@ -1,0 +1,16 @@
+<svg id="Logout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="shut_down_1431_" data-name="shut_down [#1431]" d="M10,20h0a10.426,10.426,0,0,1-1.147-.064A10,10,0,0,1,5.383,1.129,1.119,1.119,0,0,1,5.9,1,1.092,1.092,0,0,1,7,2.084v.092a1.056,1.056,0,0,1-.588.925A7.777,7.777,0,0,0,10,17.778a8.048,8.048,0,0,0,.889-.05,7.777,7.777,0,0,0,2.745-14.6,1.15,1.15,0,0,1-.635-1,1.116,1.116,0,0,1,1.119-1.111,1.129,1.129,0,0,1,.53.132A10,10,0,0,1,10,20Zm0-10A1,1,0,0,1,9,9V1a1,1,0,0,1,2,0V9A1,1,0,0,1,10,10Z" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <rect id="Rectangle" width="20" height="20" transform="translate(0)" fill="none"/>
+  <g id="Group_9" data-name="Group 9" transform="translate(0 0)">
+    <path id="shut_down_1431_2" data-name="shut_down [#1431]" d="M10,20h0a10.426,10.426,0,0,1-1.147-.064A10,10,0,0,1,5.383,1.129,1.119,1.119,0,0,1,5.9,1,1.092,1.092,0,0,1,7,2.084v.092a1.056,1.056,0,0,1-.588.925A7.777,7.777,0,0,0,10,17.778a8.048,8.048,0,0,0,.889-.05,7.777,7.777,0,0,0,2.745-14.6,1.15,1.15,0,0,1-.635-1,1.116,1.116,0,0,1,1.119-1.111,1.129,1.129,0,0,1,.53.132A10,10,0,0,1,10,20Zm0-10A1,1,0,0,1,9,9V1a1,1,0,0,1,2,0V9A1,1,0,0,1,10,10Z" fill="#fff"/>
+    <g id="Mask_Group_9" data-name="Mask Group 9" clip-path="url(#clip-path)">
+      <g id="_300" data-name="300" transform="translate(0 0)">
+        <rect id="Rectangle-2" data-name="Rectangle" width="20" height="20" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

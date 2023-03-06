@@ -1,0 +1,103 @@
+﻿@using System.Data;
+@using System.Data.SqlClient;
+@using Microsoft.AspNetCore.Http;
+@inject IConfiguration Configuration;
+<script src="/admin_assets/js/jquery.dataTables.min.js"></script>
+<script src="/admin_assets/js/dataTables.bootstrap5.min.js"></script>
+
+@{
+    Layout = null;
+    String doctype = Context.Request.Query["doctype"];
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        var gridData = db.DataTableToJSON(docSettings.dtGridData);
+
+        await Html.RenderPartialAsync("~" + docSettings.DM_GridPartial, gridData);
+    }
+}
+<style>
+
+    .dataTables_wrapper .row:first-child {
+        display: none !important;
+    }
+
+    .dataTables_wrapper .row:last-child {
+        display: flex !important;
+        background: #fff;
+        width: 100%;
+        padding: 22px 10px;
+        border-top: 2px solid #faf8f8;
+        margin: auto;
+    }
+
+    .dataTable th:last-child {
+        width: 108px !important;
+    }
+
+    .page-link {
+        border: 1px solid rgba(120, 115, 137, 0.2) !important;
+        padding: 0.375rem 0.75rem !important;
+        font-size: 14px !important;
+        color: rgba(120, 115, 137, 0.8);
+        outline: none !important;
+    }
+
+    .dataTables_scrollBody {
+        overflow: auto;
+        height: 400px;
+    }
+
+    .dataTables_paginate .pagination {
+        justify-content: flex-end !important;
+    }
+
+    .pagination .page-item.active .page-link {
+        background: #cf252e;
+        color: #fff !important;
+    }
+
+    label.pageSize {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    #pageSize {
+        width: 55px;
+        margin: 0 5px;
+        padding: 3px;
+        height: auto;
+        color: #212529;
+    }
+
+    .dataTable {
+        width: 100% !important;
+    }
+</style>
+<script>
+     function ShowDeleteDialog(dcno,title){
+        $("#sel_docno").val(dcno);
+        $("#modalTitle").html(title);
+        $("#deleteModal").modal("show");       
+    }
+    function DeleteRecord(){
+        var doctype = '@doctype';
+        var sel_docno = $("#sel_docno").val();
+
+         $.post("/admin/deleterecord",{doctype:doctype,docno:sel_docno},function(Message){
+            //deleted..
+            $("#"+sel_docno).parent().parent().remove();
+            $("#deleteModal").modal("hide");
+            $(".delete-container").show();
+            $("#deleteMessage").html(Message);
+        });
+    }
+    $(".select-all").click(function() {
+        $(".individual").prop("checked", $(this).prop("checked"));
+    });
+
+    $(".confirm button.cancel").click(function(){
+       $(".delete-container").hide();
+    });
+
+</script>

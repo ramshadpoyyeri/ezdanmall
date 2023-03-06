@@ -1,0 +1,24 @@
+//media query
+@mixin for-phone {
+    @media only screen and (max-width: $large-phone) {
+        @content;
+    }
+}
+
+@mixin for-tablet {
+    @media only screen and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin for-desktop {
+    @media only screen and (max-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin for-larg-desktop {
+    @media only screen and (max-width: $large-desktop) {
+        @content;
+    }
+}

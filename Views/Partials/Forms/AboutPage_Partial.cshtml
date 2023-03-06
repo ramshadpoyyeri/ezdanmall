@@ -1,0 +1,168 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    Layout = null;
+    String docno = Context.Request.Query["docno"];
+    DataTable? dtFullData = new DataTable();
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    docno = dtData.Rows[0]["ABT_DocNo"].ToString();
+    String ABT_BannerHeading = "", ABT_Description = "",
+    ABT_BannerHeading_Arabic = "", ABT_Description_Arabic = "";
+    String ABT_Image = "",ABT_BgImage="";
+
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        ABT_BannerHeading = dtData.Rows[0]["ABT_BannerHeading"].ToString();
+        ABT_Description = dtData.Rows[0]["ABT_Description"].ToString();
+        ABT_BannerHeading_Arabic = dtData.Rows[0]["ABT_BannerHeading_Arabic"].ToString();
+        ABT_Description_Arabic = dtData.Rows[0]["ABT_Description_Arabic"].ToString();
+
+        ABT_Image = dtData.Rows[0]["ABT_Image"].ToString();
+        ABT_BgImage = "background-image:url(" + ABT_Image + ")";
+    }
+}
+
+
+<div class="row ">
+    <div class="col-md-12">
+        <div class="form-wrap half-field ">
+            <label for="ABT_BannerHeading">Branch Name *</label>
+            <input type="text" name="ABT_BannerHeading" maxlength="100" placeholder="Branch Name" value="@ABT_BannerHeading">
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="ABT_Description">About Description</label>
+            @*<div id="editor" class="editor"></div>*@
+            <textarea id="editor" name="ABT_Description" class="editor">@ABT_Description</textarea>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field ">
+            <label for="ABT_BannerHeading_Arabic">Heading (Arabic)</label>
+            <input type="text" name="ABT_BannerHeading_Arabic" maxlength="100" placeholder="Banner Heading" value="@ABT_BannerHeading_Arabic">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field ">
+            <label for="ABT_Description_Arabic">About Description (Arabic)</label>
+            @*<div id="editor" class="editor"></div>*@
+            <textarea id="editor1" name="ABT_Description_Arabic" class="editor">@ABT_Description_Arabic</textarea>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <label for="ABT_Image">Image (Size :880x980)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@ABT_BgImage"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="ABT_Image" name="ABT_Image" class="profileimg">
+                    <input type="hidden" id="ABT_Image1" value="@ABT_Image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <input type="submit" value="Save Changes" class="submit">
+        </div>
+    </div>
+</div>
+
+<script>
+
+    ClassicEditor.create(document.querySelector('#editor'))
+        //.then(ed => {
+
+        //})
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor.create(document.querySelector('#editor1'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    $("#editor,#editor1").parent().find(".ck-content").on('blur keyup paste input', function() {
+
+        var editor = $(this).parent().parent().parent().find(".editor");
+        var textID = $(editor).attr("id");// + "_text";
+
+        var default_Html = '<p><br data-cke-filler="true"></p>';
+        var rich_Html = $(this).html();
+        if (rich_Html == default_Html) {
+            $("#" + textID).val("");
+        } else {
+            $("#" + textID).val(rich_Html);
+        }
+    });
+    $("#editor").parent().find(".ck-content").html('ABT_Description');
+    $("#editor1").parent().find(".ck-content").html('ABT_Description_Arabic');
+
+    var editMode = '@editMode'.toLowerCase();
+    $("#form").validate({
+        rules: {
+            ABT_BannerHeading: {
+                required: true,
+            },
+            ABT_Description: {
+                required: true
+            },
+            ABT_BannerHeading_Arabic: {
+                required: true,
+            },
+            ABT_Description_Arabic: {
+                required: true,
+            },
+            ABT_Image: {
+                required: editMode == "true" ? false : true,
+                extension: "jpg|jpeg|png|bmp"
+            },
+        },
+        messages: {
+            ABT_BannerHeading: {
+                required: "*Required",
+            },
+            ABT_Description: {
+                required: "*Required",
+            },
+            ABT_BannerHeading_Arabic: {
+                required: "*Required",
+            },
+            ABT_Description_Arabic: {
+                required: "*Required ",
+            },
+            ABT_Image: {
+                required: "<b>*Image</b> required.!",
+                extension: "Image Type <b>(jpg/png/bmp)</b>"
+            },
+        },
+        submitHandler: function(form) {      
+
+             if (editMode == "true") {
+                if ($("#ABT_Image").val().length == 0) {
+                    $("#ABT_Image1").attr("name", "ABT_Image");
+                    $("#ABT_Image").remove();
+                } 
+            }
+
+            $("#form button[type=submit]").attr("disabled", "disabled");
+            form.submit();
+        }
+    });
+</script>
+
+<style>
+    .editor_hidden {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+</style>

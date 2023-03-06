@@ -1,0 +1,84 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+
+@{
+	ViewData["Title"] = "Timings";
+	ViewData["Page"] = "Timings";
+	Layout = "~/Views/Shared/_ARLayout.cshtml";
+
+	DataSet ds = Model;
+	DataTable? dtFullData = new DataTable();
+	string discription = "", Ardiscription = "";
+
+	DataTable dtData = ds.Tables[0];  
+
+
+	String Shoptitle = dtData.Rows[0]["MTM_ShopCategoryTitle"].ToString();
+	String Cofeetitle = dtData.Rows[0]["MTM_CofeeShopCategoryTitle"].ToString();
+	String Newshoptitle = dtData.Rows[0]["MTM_NewShopCategory"].ToString();
+	String Shoptiming = dtData.Rows[0]["MTM_ShopTiming"].ToString();
+	String CofeeShopTiming = dtData.Rows[0]["MTM_CofeeShopTiming"].ToString();
+	String NewShopTiming = dtData.Rows[0]["MTM_NewShopTiming"].ToString();
+	String Shoptitle_Arabic = dtData.Rows[0]["MTM_ShopCategoryTitle_Arabic"].ToString();
+	String Cofeetitle_Arabic = dtData.Rows[0]["MTM_CofeeShopCategoryTitle_Arabic"].ToString();
+	String Newshoptitle_Arabic = dtData.Rows[0]["MTM_NewShopCategory_Arabic"].ToString();
+	String Shoptiming_Arabic = dtData.Rows[0]["MTM_ShopTiming_Arabic"].ToString();
+	String CofeeShopTiming_Arabic = dtData.Rows[0]["MTM_CofeeShopTiming_Arabic"].ToString();
+	String NewShopTiming_Arabic = dtData.Rows[0]["MTM_NewShopTiming_Arabic"].ToString();
+
+	using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+	{
+		dtFullData = db.SqlDataSetResult("USP_Web_CompanyParameter", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+		discription = dtFullData.Rows[0]["COMPAR_Description"].ToString();
+		discription = discription.ToUpper();
+		Ardiscription = dtFullData.Rows[1]["COMPAR_Description"].ToString();
+    }
+
+}
+
+<div class="aboutsection">
+			<div class="container">
+				<div class="row">
+			<div class="col-md-12">			
+				<h2 class="mb-4 pb-3">وقات عمل إزدان مول @Ardiscription</h2>
+						<div class="timeblk">
+							<ul>
+								<li>
+						<h5>@Shoptitle</h5>
+						<span>@Html.Raw(dtData.Rows[0]["MTM_ShopTiming"])</span>
+					</li>
+					<li>
+						<h5>@Cofeetitle</h5>
+						<span>@Html.Raw(dtData.Rows[0]["MTM_CofeeShopTiming"])</span>						
+					</li>
+					<li>
+						<h5>@Newshoptitle</h5>
+						<span>@Html.Raw(dtData.Rows[0]["MTM_NewShopTiming"])</span>						
+					</li>
+				</ul>
+				<ul class="ar">
+								<li>
+									<h5>@Shoptitle_Arabic</h5>
+						<span>@Html.Raw(dtData.Rows[0]["MTM_ShopTiming_Arabic"])</span>
+					</li>
+					<li>
+						<h5>@Cofeetitle_Arabic</h5>
+						<span>@Html.Raw(dtData.Rows[0]["MTM_CofeeShopTiming_Arabic"])</span>						
+					</li>
+					<li>
+						<h5>@Newshoptitle_Arabic</h5>
+						<span>@Html.Raw(dtData.Rows[0]["MTM_NewShopTiming_Arabic"])</span>	
+								</li>
+							</ul>
+							<p class="ar"><strong>جميع المتاجر مغلقة أيام الجمعة خلال أوقات الصلاة من الساعة 11:00 صباحًا حتى الساعة 12:30 ظهرًا</strong></p>
+							<p><strong>All stores are closed on Fridays during prayer time from 11:00AM to 12:30PM </strong></p>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+
+
+
+

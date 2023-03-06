@@ -1,0 +1,322 @@
+﻿@using System.Data;
+@using System.Data.SqlClient;
+@using Microsoft.AspNetCore.Http;
+@inject IConfiguration Configuration;
+@{
+    // bool editMode = false;
+    // String docno = "1000";
+    // String doctype = "ABT";
+    //DataTable? dtData = Model;
+    String docno = Context.Request.Query["docno"];
+    String doctype = Context.Request.Query["doctype"];
+    Layout = null;
+    //String docno = Context.Request.Query["docno"];
+    DataTable? dtFullData = new DataTable();
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    docno = dtData.Rows[0]["CON_DocNo"].ToString();
+    String CON_FormTitle = "", CON_FormTitle_Arabic = "", CON_ContactImage = "",
+    CON_MobileNumber1 = "", CON_MobileNumber2 = "",
+    CON_EmailAddress1 = "", CON_EmailAddress2 = "",
+    CON_InstagramLink = "", CON_FacebookLink = "",
+    CON_TwitterLink = "", CON_LinkedinLink = "";
+
+    String ContactImage_Url = "";
+
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+
+        CON_FormTitle = dtData.Rows[0]["CON_FormTitle"].ToString();
+        CON_FormTitle_Arabic = dtData.Rows[0]["CON_FormTitle_Arabic"].ToString();
+        CON_ContactImage = dtData.Rows[0]["CON_ContactImage"].ToString();
+        ContactImage_Url = "background-image:url(" + CON_ContactImage + ")";
+        CON_MobileNumber1 = dtData.Rows[0]["CON_MobileNumber1"].ToString();
+        CON_MobileNumber2 = dtData.Rows[0]["CON_MobileNumber2"].ToString();
+        CON_EmailAddress1 = dtData.Rows[0]["CON_EmailAddress1"].ToString();
+        CON_EmailAddress2 = dtData.Rows[0]["CON_EmailAddress2"].ToString();
+        CON_InstagramLink = dtData.Rows[0]["CON_InstagramLink"].ToString();
+        CON_FacebookLink = dtData.Rows[0]["CON_FacebookLink"].ToString();
+        CON_TwitterLink = dtData.Rows[0]["CON_TwitterLink"].ToString();
+        CON_LinkedinLink = dtData.Rows[0]["CON_LinkedinLink"].ToString();
+
+    }
+}
+
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="CON_FormTitle">Form Title *</label>
+            <input type="text" id="CON_FormTitle" name="CON_FormTitle" maxlength="100" placeholder="Form Title *" value="@CON_FormTitle">
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-wrap half-field ">
+            <label for="CON_FormTitle_Arabic">Form Title arabic</label>
+            <input type="text" id="CON_FormTitle_Arabic" name="CON_FormTitle_Arabic" maxlength="100" placeholder="Form Title arabic" value="@CON_FormTitle_Arabic">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="CON_ContactImage">Choose contact image(Size:880x980)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@ContactImage_Url"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="CON_ContactImage" name="CON_ContactImage" class="profileimg">
+                    <input type="hidden" id="CON_ContactImage_1" value="@CON_ContactImage">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-2">   
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="CON_MobileNumber1">Phone number*</label>
+            <input type="text" class="pd-65" id="CON_MobileNumber1" maxlength="9" name="CON_MobileNumber1" placeholder="Phone number*" onkeypress='return restrictAlphabets(event)' value="@CON_MobileNumber1">
+            <div class="ic-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12.668" height="12.668" viewBox="0 0 12.668 12.668">
+                    <path id="noun-phone-4778644" d="M149.775,76.24a1.384,1.384,0,0,0-1.957,0l-1.007,1.007a3.34,3.34,0,0,0-.679,3.743,14.525,14.525,0,0,0,7.213,7.213,3.34,3.34,0,0,0,3.743-.679l1.007-1.007a1.384,1.384,0,0,0,0-1.957l-1.355-1.355a1.383,1.383,0,0,0-1.6-.259l-.752.376a1.138,1.138,0,0,1-1.314-.213l-1.853-1.853a1.138,1.138,0,0,1-.213-1.314l.376-.752a1.383,1.383,0,0,0-.259-1.6Z" transform="translate(-145.833 -75.834)" fill="#727272" fill-rule="evenodd"></path>
+                </svg>
+                <span class="countrycode">+974</span>
+                <input type="hidden" name="SHP_CountryCode" value="+974" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="CON_MobileNumber2">Phone number 2  (optional)*</label>
+            <input type="text" class="pd-65" id="CON_MobileNumber2" maxlength="9" name="CON_MobileNumber2" placeholder="Phone number 2 (optional)*" onkeypress='return restrictAlphabets(event)' value="@CON_MobileNumber2">
+            <div class="ic-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12.668" height="12.668" viewBox="0 0 12.668 12.668">
+                    <path id="noun-phone-4778644" d="M149.775,76.24a1.384,1.384,0,0,0-1.957,0l-1.007,1.007a3.34,3.34,0,0,0-.679,3.743,14.525,14.525,0,0,0,7.213,7.213,3.34,3.34,0,0,0,3.743-.679l1.007-1.007a1.384,1.384,0,0,0,0-1.957l-1.355-1.355a1.383,1.383,0,0,0-1.6-.259l-.752.376a1.138,1.138,0,0,1-1.314-.213l-1.853-1.853a1.138,1.138,0,0,1-.213-1.314l.376-.752a1.383,1.383,0,0,0-.259-1.6Z" transform="translate(-145.833 -75.834)" fill="#727272" fill-rule="evenodd"></path>
+                </svg>
+                <span class="countrycode">+974</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="CON_EmailAddress1">Email Address*</label>
+            <input type="text" id="CON_EmailAddress1" name="CON_EmailAddress1" placeholder="Email Address*" value="@CON_EmailAddress1">
+            <div class="ic-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14.728" height="14.726" viewBox="0 0 14.728 14.726">
+                    <path id="Path_9672" data-name="Path 9672" d="M189.3,111.993a7.363,7.363,0,0,0-7.362,7.362,6.84,6.84,0,0,0,.822,3.372l-.736,2.015a1.472,1.472,0,0,0,1.887,1.887l2.015-.736a6.841,6.841,0,0,0,3.375.825,7.32,7.32,0,0,0,4.108-1.257l-.918-1.161a5.86,5.86,0,0,1-3.191.945,5.173,5.173,0,0,1-3.191-.982l-2.7.982.982-2.7h0a5.173,5.173,0,0,1-.982-3.191,5.89,5.89,0,0,1,11.78,0v.982a1.227,1.227,0,1,1-2.454,0v-.982a3.436,3.436,0,1,0-1.033,2.454,2.7,2.7,0,0,0,4.96-1.473V119.11a7.363,7.363,0,0,0-7.363-7.117Zm0,9.326a1.963,1.963,0,1,1,1.388-.575A1.964,1.964,0,0,1,189.3,121.319Z" transform="translate(-181.938 -111.993)" fill="#727272"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 ">
+        <div class="form-wrap half-field ">
+            <label for="CON_EmailAddress2">Email Address 2 (optional)*</label>
+            <input type="text" id="CON_EmailAddress2" name="CON_EmailAddress2" placeholder="Email Address 2 (optional)*" value="@CON_EmailAddress2">
+            <div class="ic-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14.728" height="14.726" viewBox="0 0 14.728 14.726">
+                    <path id="Path_9672" data-name="Path 9672" d="M189.3,111.993a7.363,7.363,0,0,0-7.362,7.362,6.84,6.84,0,0,0,.822,3.372l-.736,2.015a1.472,1.472,0,0,0,1.887,1.887l2.015-.736a6.841,6.841,0,0,0,3.375.825,7.32,7.32,0,0,0,4.108-1.257l-.918-1.161a5.86,5.86,0,0,1-3.191.945,5.173,5.173,0,0,1-3.191-.982l-2.7.982.982-2.7h0a5.173,5.173,0,0,1-.982-3.191,5.89,5.89,0,0,1,11.78,0v.982a1.227,1.227,0,1,1-2.454,0v-.982a3.436,3.436,0,1,0-1.033,2.454,2.7,2.7,0,0,0,4.96-1.473V119.11a7.363,7.363,0,0,0-7.363-7.117Zm0,9.326a1.963,1.963,0,1,1,1.388-.575A1.964,1.964,0,0,1,189.3,121.319Z" transform="translate(-181.938 -111.993)" fill="#727272"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 sub-head">
+            <h4>Social Media Links</h4>
+        </div>
+        <div class="col-md-3 ">
+            <div class="form-wrap half-field ">
+                <label for="CON_InstagramLink">instagram</label>
+                <input type="text" id="CON_InstagramLink" name="CON_InstagramLink" placeholder="instagram" value="@CON_InstagramLink">
+                <div class="ic-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19.294" height="19.294" viewBox="0 0 19.294 19.294">
+                        <g id="_1161953_instagram_icon_1_" data-name="1161953_instagram_icon (1)" transform="translate(-3.4 -4.8)">
+                            <path id="Path_9550" data-name="Path 9550" d="M20.379,16.7a4.979,4.979,0,1,0,4.979,4.979A4.989,4.989,0,0,0,20.379,16.7Zm0,8.169a3.19,3.19,0,1,1,3.19-3.19A3.2,3.2,0,0,1,20.379,24.869Z" transform="translate(-7.332 -7.271)" fill="#727272"></path>
+                            <circle id="Ellipse_33" data-name="Ellipse 33" cx="1.128" cy="1.128" r="1.128" transform="translate(17.093 8.184)" fill="#727272"></circle>
+                            <path id="Path_9551" data-name="Path 9551" d="M21.138,6.395A5.54,5.54,0,0,0,17.054,4.8H9.04A5.329,5.329,0,0,0,3.4,10.44v7.974a5.6,5.6,0,0,0,1.634,4.162,5.677,5.677,0,0,0,4.046,1.517h7.936A5.744,5.744,0,0,0,21.1,22.577a5.569,5.569,0,0,0,1.595-4.123V10.44A5.576,5.576,0,0,0,21.138,6.395Zm-.156,12.059a3.8,3.8,0,0,1-1.128,2.84,4.021,4.021,0,0,1-2.84,1.011H9.079a4.021,4.021,0,0,1-2.84-1.011,3.91,3.91,0,0,1-1.05-2.879V10.44A3.878,3.878,0,0,1,6.24,7.6a3.956,3.956,0,0,1,2.84-1.011h8.013a3.878,3.878,0,0,1,2.84,1.05,4.014,4.014,0,0,1,1.05,2.8v8.013Z" fill="#727272"></path>
+                        </g>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-wrap half-field ">
+                <label for="CON_FacebookLink">Facebook</label>
+                <input type="text" id="CON_FacebookLink" name="CON_FacebookLink" placeholder="Facebook" " value="@CON_FacebookLink">
+                <div class="ic-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9.034" height="16.201" viewBox="0 0 9.034 16.201">
+                        <path id="_2959749_facebook_icon" data-name="2959749_facebook_icon" d="M39.795,17.93v2.446H37.11V23.4h2.685v6.8h3.177V23.4h2.707L46,20.378s-2.273.612-3.031,0,0-2.448,0-2.448a1.038,1.038,0,0,1,.486-.781A4.336,4.336,0,0,1,44.94,16.9h1.2V14.162A15.109,15.109,0,0,0,44.251,14C39.7,14,39.795,17.93,39.795,17.93Z" transform="translate(-37.11 -14)" fill="#727272"></path>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <div class="form-wrap half-field ">
+                <label for="CON_TwitterLink">TwitterLink</label>
+                <input type="text" id="CON_TwitterLink" name="CON_TwitterLink" placeholder="TwitterLink" value="@CON_TwitterLink">
+                <div class="ic-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16.788" height="13.643" viewBox="0 0 16.788 13.643">
+                        <path id="iconmonstr-twitter-1" d="M16.788,3.863a6.877,6.877,0,0,1-1.978.542A3.45,3.45,0,0,0,16.324,2.5a6.9,6.9,0,0,1-2.187.836,3.447,3.447,0,0,0-5.87,3.141,9.778,9.778,0,0,1-7.1-3.6,3.449,3.449,0,0,0,1.065,4.6A3.43,3.43,0,0,1,.675,7.046a3.447,3.447,0,0,0,2.762,3.421,3.452,3.452,0,0,1-1.556.059A3.447,3.447,0,0,0,5.1,12.917,6.925,6.925,0,0,1,0,14.344a9.75,9.75,0,0,0,5.28,1.547,9.741,9.741,0,0,0,9.79-10.245,7.012,7.012,0,0,0,1.719-1.783Z" transform="translate(0 -2.248)" fill="#727272"></path>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <div class="form-wrap half-field ">
+                <label for="CON_LinkedinLink">LinkedinLink</label>
+                <input type="text" id="CON_LinkedinLink" name="CON_LinkedinLink" placeholder="LinkedinLink" value="@CON_LinkedinLink">
+                <div class="ic-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15.186" height="14.516" viewBox="0 0 15.186 14.516">
+                        <path id="Path_9674" data-name="Path 9674" d="M22.887,21.583V15.968c0-3.008-1.606-4.408-3.748-4.408a3.229,3.229,0,0,0-2.933,1.618V11.789H12.951c.043.92,0,9.794,0,9.794h3.255v-5.47a2.225,2.225,0,0,1,.107-.793,1.781,1.781,0,0,1,1.67-1.19c1.178,0,1.65.9,1.65,2.214v5.24ZM9.521,10.452a1.7,1.7,0,1,0,.021-3.384A1.7,1.7,0,1,0,9.5,10.452h.02Zm1.628,11.13V11.789H7.894v9.794Z" transform="translate(-7.701 -7.068)" fill="#727272"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-wrap half-field">
+                <input type="submit" value="UPDATE" class="submit">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var editMode = '@editMode'.toLowerCase();
+      $(document).ready(function() {
+       debugger;
+      $("#form").validate({
+          rules: {
+              CON_FormTitle: {
+                  required: true,
+              },
+              CON_FormTitle_Arabic: {
+                  required: true,
+              },
+              CON_ContactImage: {
+                  required: editMode == "true" ? false : true,
+                  extension: "jpg|jpeg|png|bmp"
+              },
+              CON_MobileNumber1: {
+                  required: true,
+              },
+              CON_EmailAddress1: {
+                      required: true,                     
+              },
+              CON_EmailAddress2: {
+                      required: false,                    
+              },
+              CON_InstagramLink: {
+                  required: true,
+                   url: true,
+              },
+              CON_FacebookLink: {
+                  required: true,
+                  url: true,
+              },
+              CON_TwitterLink: {
+                  required: true,
+                   url: true
+              },
+              CON_LinkedinLink: {
+                  required: true,
+                   url: true,
+              },
+          },
+          messages: {
+              CON_FormTitle: {
+                 required: "*Required",
+              },
+              CON_FormTitle_Arabic: {
+                  required: "*Required",
+              },
+              CON_ContactImage: {
+                  required: "<b>Logo</b> required.!",
+                  extension: "Logo Type <b>(jpg/png/bmp)</b>",
+              },
+              CON_MobileNumber1: {
+                  required: "*Required",
+              },
+              CON_EmailAddress1: {
+                   required: "<b>Email </b> required.!",                
+              },
+              CON_EmailAddress2: {                     
+              },
+              CON_InstagramLink: {
+                  required: "<b>URL</b> required.!",
+                  url: "<b>URL</b> required.!",
+              },
+              CON_FacebookLink: {
+                   required: "<b>URL</b> required.!",
+                   url: "<b>URL</b> required.!",
+              },
+              CON_TwitterLink: {
+                   required: "<b>URL</b> required.!",
+                   url: "<b>URL</b> required.!",
+              },
+              CON_LinkedinLink: {
+                   required: "<b>URL</b> required.!",
+                   url: "<b>URL</b> required.!",
+              }
+          },
+          submitHandler: function(form) {
+
+              if (editMode == "true") {
+                  if ($("#CON_ContactImage").val().length == 0) {
+                      $("#CON_ContactImage_1").attr("name", "CON_ContactImage");
+                      $("#CON_ContactImage").remove();
+                  }
+              }
+               $("#form button[type=submit]").attr("disabled", "disabled");
+              form.submit();
+          }
+      });
+      });
+      function restrictAlphabets(e) {
+                  var x = e.which || e.keycode;
+                  if ((x >= 48 && x <= 57))
+                      return true;
+                  else
+                      return false;
+              }
+</script>
+
+<style>
+
+    .main_content .inner_content .main-form .form-wrap .ic-input {
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 10px;
+    }
+
+    .editor_hidden {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .main_content .inner_content .main-form .form-wrap input {
+        height: 40px;
+        background: #fff;
+        border: 1px solid #dcdcdc;
+        border-radius: 5px;
+        width: 100%;
+        color: #d21018;
+        -webkit-transition: 0.5s ease-out;
+        transition: 0.5s ease-out;
+        outline: none !important;
+        padding: 10px 30px;
+    }
+
+    path[Attributes Style] {
+        d: path("M 149.775 76.24 a 1.384 1.384 0 0 0 -1.957 0 l -1.007 1.007 a 3.34 3.34 0 0 0 -0.679 3.743 a 14.525 14.525 0 0 0 7.213 7.213 a 3.34 3.34 0 0 0 3.743 -0.679 l 1.007 -1.007 a 1.384 1.384 0 0 0 0 -1.957 l -1.355 -1.355 a 1.383 1.383 0 0 0 -1.6 -0.259 l -0.752 0.376 a 1.138 1.138 0 0 1 -1.314 -0.213 l -1.853 -1.853 a 1.138 1.138 0 0 1 -0.213 -1.314 l 0.376 -0.752 a 1.383 1.383 0 0 0 -0.259 -1.6 Z");
+        transform: translate(-145.833, -75.834);
+        fill: rgb(114, 114, 114);
+        fill-rule: evenodd;
+    }
+</style>

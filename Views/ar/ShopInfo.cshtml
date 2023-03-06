@@ -1,0 +1,234 @@
+﻿@using System.Data;
+@{
+    ViewData["Page"] = "shop-info";
+
+    Layout = "~/Views/Shared/_ARLayout.cshtml";
+
+    DataSet ds = Model;
+
+    DataTable dtData = ds.Tables[0];
+    DataTable dtAllimgdata = ds.Tables[1];
+}
+
+<div class="storedetails">
+    @{
+        foreach (DataRow row in dtData.Rows)
+        {
+            String SHP_Name = row["SHP_Name"].ToString();
+
+            String SHP_InstagramLink = row["SHP_InstagramLink"].ToString();
+            if (!Uri.IsWellFormedUriString(SHP_InstagramLink, UriKind.Absolute))
+            {
+                if (String.IsNullOrEmpty(SHP_InstagramLink)) { }
+                else
+                {
+                    SHP_InstagramLink = "http://" + SHP_InstagramLink;
+                }
+            }
+            String SHP_FacebookLink = row["SHP_FacebookLink"].ToString();
+            if (!Uri.IsWellFormedUriString(SHP_FacebookLink, UriKind.Absolute))
+            {
+                if (String.IsNullOrEmpty(SHP_FacebookLink)) { }
+                else
+                {
+                    SHP_FacebookLink = "http://" + SHP_FacebookLink;
+                }
+            }
+            String SHP_Name_Arabic = row["SHP_Name_Arabic"].ToString();
+            ViewData["Title"] = SHP_Name_Arabic;
+            String SHP_AboutShop_Arabic = row["SHP_AboutShop_Arabic"].ToString();
+            String mob1 = row["SHP_PhoneNumber"].ToString();
+            String SHP_Address_Arabic = row["SHP_Address_Arabic"].ToString();
+            String SHP_Timing_Arabic = row["SHP_Timing_Arabic"].ToString();
+            String SHP_Logo = row["SHP_Logo"].ToString();
+            String SHP_BannerImage = row["SHP_BannerImage"].ToString();
+            String imageURL1 = row["SHP_GalleryImage1"].ToString();
+            String imageURL2 = row["SHP_GalleryImage2"].ToString();
+            String imageURL3 = row["SHP_GalleryImage3"].ToString();
+            String imageURL4 = row["SHP_GalleryImage4"].ToString();
+            String imageURL5 = row["SHP_GalleryImage5"].ToString();
+            String imageURL6 = row["SHP_GalleryImage6"].ToString();
+            String urlKey = row["SHP_URL_Key"] + "-" + row["SHP_DocNo"];
+
+
+
+            <div class="storeminimaldetails">
+                <ul>
+                    <li class="firstch">
+                        <div class="storelogoindetails">
+                            <img src="@SHP_Logo" alt="">
+                            <!--  src="/web_assets/images/store-1.png" -->
+                    </div>
+                    </li>
+                    <li class="lastl">
+                        <div class="d-flex">
+                            <div>
+                                <h1>@SHP_Name_Arabic</h1>
+                                <span>تفاصيل المتجر</span>
+                            </div>
+                            @{
+                                if (String.IsNullOrEmpty(SHP_FacebookLink) && String.IsNullOrEmpty(SHP_InstagramLink))
+                                {
+
+                                }
+                                else
+                                {
+                                    <div class="social-icons">
+                                        <span>تابعنا</span>
+                                        <ul>
+                                            @{
+                                                if (!String.IsNullOrEmpty(SHP_FacebookLink))
+                                                {
+                                                    <li class="fb"><a href="@SHP_FacebookLink"><i class="fab fa-facebook-f"></i></a></li>
+                                                }
+                                                if (!String.IsNullOrEmpty(SHP_InstagramLink))
+                                                {
+                                                    <li class="insta"><a href="@SHP_InstagramLink"><i class="fab fa-instagram"></i></a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <ul class="contacts">
+                            <li>
+                                <img src="/web_assets/images/p1.png">
+                                <div dir="ltr"><span>هاتف  </span><a href="tel:+974 @mob1 ">+974 @mob1 </a></div>
+                            </li>
+                            <li>
+                                <img src="/web_assets/images/t1.png">
+                                <div><span>مواعيد العمل </span> <a href="#">@Html.Raw(dtData.Rows[0]["SHP_Timing_Arabic"])</a></div>
+                            </li>
+                            <li>
+                                <img src="/web_assets/images/l1.png">
+                                <div><span>الموقع </span><a href="#">@SHP_Address_Arabic</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="storegalleryimages">
+                <div class="owl-carousel shopgallerycar" id="Gallery">
+                    @{
+                        for (int i = 1; i <= 6; i++)
+                        {
+                            string data = "SHP_GalleryImage" + i;
+                            if (row[data] != "")
+                            {
+                                <div class="galleryimage"><img style="object-fit:cover;height:500PX" src="@row[data]"></div>
+                            }
+
+                        }
+                        //<div class="galleryimage"><img src="@imageURL1"></div>
+                        //<div class="galleryimage"><img src="@imageURL2"></div>
+                        //<div class="galleryimage"><img src="@imageURL3"></div>
+                        //<div class="galleryimage"><img src="@imageURL4"></div>
+                        //<div class="galleryimage"><img src="@imageURL5"></div>
+                        //<div class="galleryimage"><img src="@imageURL6"></div>
+                    }
+                </div>
+            </div>
+            <div class="shopmoredetails">
+                <p>@Html.Raw(dtData.Rows[0]["SHP_AboutShop_Arabic"])</p>
+            </div>
+        }
+    }
+</div>
+@{
+    if (dtAllimgdata.Rows.Count > 0)
+    {
+        <div class="similarstorecar">
+            <div class="youmayalsolike">
+                <h2>قد يعجبك هذا أيضًا</h2>
+                <div class="owl-carousel owl-loaded owl-drag" id="SimilarStores">
+                    @{
+                        foreach (DataRow row in dtAllimgdata.Rows)
+                        {
+                            String BannerImage = row["SHP_BannerImage"].ToString();
+                            String urlKey = row["SHP_URL_Key"] + "-" + row["SHP_DocNo"];
+                            <a href="/ar/shop-info/@urlKey" class="storelogo">
+                                <div class="shopimageforlist">
+                                    <img src="@BannerImage">
+                                </div>
+                                <div class="logo">
+                                    <img src="@row["SHP_Logo"]" alt="">
+                                </div>
+                                <div class="storename">
+                                    <h3>@row["SHP_Name_Arabic"]</h3>
+                                    <span href="/ar/shop-info/@urlKey" class="viewstoredetails">
+                                        عرض التفاصيل
+                                    </span>
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+<script src="/web_assets/js/owl.js"></script>
+
+<script>
+    $(document).ready(function() {
+    var numItems = $('.galleryimage').length;
+    if (numItems < 4) {
+        $('#Gallery').owlCarousel({
+            dots: false,
+        });
+    }
+        $('#Gallery').owlCarousel({
+            rtl: $('body').hasClass('rtl'),
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5500,
+            loop: true,
+            smartSpeed: 1050,
+            items: 3,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:3
+              }
+          }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#SimilarStores').owlCarousel({
+            rtl: $('body').hasClass('rtl'),
+            navigation : true,
+            margin: 15,
+            stagePadding: 0,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            loop: false,
+            smartSpeed: 1050,
+            items: 4,
+            responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:2
+              },
+              1000:{
+                  items:4
+              }
+          }
+        });
+    });
+</script>

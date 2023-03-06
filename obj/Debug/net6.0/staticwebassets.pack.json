@@ -1,0 +1,1765 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\admin_assets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\css\\style.css",
+      "PackagePath": "staticwebassets\\admin_assets\\css\\style.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\History.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\History.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\Logout.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\Logout.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\about.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\about.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\arrow.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\arrow.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\avatar (1).png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\avatar (1).png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\avatar.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\avatar.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\banner.jpg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\banner.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\banner.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\banner.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\bg.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\bg.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\cat.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\cat.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\contat.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\contat.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\create.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\create.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\delete.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\delete.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\delete.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\delete.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\dine.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\dine.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\edit.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\edit.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\edit.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\edit.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\enjoy.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\enjoy.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\home.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\home.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\icon_pdf.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\icon_pdf.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\img-ap.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\img-ap.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\location.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\location.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\logo-login.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\logo-login.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\logo.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\logo.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\logo.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\logo.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\marker.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\marker.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\media.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\media.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\promotion.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\promotion.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\settings.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\settings.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\shop.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\shop.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\store-8.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\store-8.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\success.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\success.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\time.svg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\time.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\user-1.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\user-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\user-2.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\user-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\images\\user_icon.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\user_icon.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\js\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\js\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\js\\ckeditor.js",
+      "PackagePath": "staticwebassets\\admin_assets\\js\\ckeditor.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\js\\dataTables.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\js\\dataTables.bootstrap5.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\js\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\admin_assets\\js\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\admin_assets\\js\\main.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\base\\_base.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\base\\_base.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\fonts\\_fonts.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\fonts\\_fonts.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\mixins\\_mixins.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\mixins\\_mixins.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\pages\\_home.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\pages\\_home.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\pages\\_pages.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\pages\\_pages.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\style.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\style.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\themes\\_themes.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\themes\\_themes.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\utilities\\utilities.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\utilities\\utilities.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\variable\\variables.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\variable\\variables.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\vendor\\_slick.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\vendor\\_slick.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\admin_assets\\scss\\vendor\\_vendor.scss",
+      "PackagePath": "staticwebassets\\admin_assets\\scss\\vendor\\_vendor.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\email_forgetpassword.html",
+      "PackagePath": "staticwebassets\\email_forgetpassword.html"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\docs\\20227181460407.docx",
+      "PackagePath": "staticwebassets\\uploads\\docs\\20227181460407.docx"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\docs\\2022721113911397.pdf",
+      "PackagePath": "staticwebassets\\uploads\\docs\\2022721113911397.pdf"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\20227200392476.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\20227200392476.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\20227200392481.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\20227200392481.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\202272011243769.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\202272011243769.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\202272011243776.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\202272011243776.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\2022720125337220.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\2022720125337220.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\2022720125337224.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\2022720125337224.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\2022720125535392.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\2022720125535392.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\2022720125535396.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\2022720125535396.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\2022720125820795.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\2022720125820795.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\uploads\\images\\2022720125820802.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\2022720125820802.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\css\\addon.css",
+      "PackagePath": "staticwebassets\\web_assets\\css\\addon.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\web_assets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\css\\isotope-docs.css",
+      "PackagePath": "staticwebassets\\web_assets\\css\\isotope-docs.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\css\\owl.css",
+      "PackagePath": "staticwebassets\\web_assets\\css\\owl.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\css\\rtl.css",
+      "PackagePath": "staticwebassets\\web_assets\\css\\rtl.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\css\\style.css",
+      "PackagePath": "staticwebassets\\web_assets\\css\\style.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\css\\style.scss",
+      "PackagePath": "staticwebassets\\web_assets\\css\\style.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\css\\zen.css",
+      "PackagePath": "staticwebassets\\web_assets\\css\\zen.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\AvertaStd-Semibold.woff",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\AvertaStd-Semibold.woff"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\flaticon\\Flaticon.eot",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\flaticon\\Flaticon.eot"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\flaticon\\Flaticon.svg",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\flaticon\\Flaticon.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\flaticon\\Flaticon.ttf",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\flaticon\\Flaticon.ttf"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\flaticon\\Flaticon.woff",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\flaticon\\Flaticon.woff"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\flaticon\\Flaticon.woff2",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\flaticon\\Flaticon.woff2"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\flaticon\\_flaticon.scss",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\flaticon\\_flaticon.scss"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\flaticon\\flaticon.css",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\flaticon\\flaticon.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\flaticon\\flaticon.html",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\flaticon\\flaticon.html"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\css\\all.min.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.eot",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.eot"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.svg",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.ttf",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.ttf"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.woff",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.woff"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.woff2",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-light-300.woff2"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\web_assets\\fonts\\fontawesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\5d-thrills-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\5d-thrills-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\5d-thrills-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\5d-thrills-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\5d-thrills-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\5d-thrills-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\5d-thrills-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\5d-thrills-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\Al-Jazeera-Perfumes-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\Al-Jazeera-Perfumes-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\Al-Jazeera-Perfumes-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\Al-Jazeera-Perfumes-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\Al-Jazeera-Perfumes-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\Al-Jazeera-Perfumes-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\BUFFOLO-QATAR.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\BUFFOLO-QATAR.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\BURGER-KING.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\BURGER-KING.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\CHILLIES-QATAR.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\CHILLIES-QATAR.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\COFFEE-TALKS.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\COFFEE-TALKS.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\Contact-header.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\Contact-header.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\JOLIBEE-IMAGE.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\JOLIBEE-IMAGE.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\KFC.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\KFC.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\MANGOLIA-BAKES.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\MANGOLIA-BAKES.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\News-header.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\News-header.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\PAPAAIS-ROTI-IMAGE.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\PAPAAIS-ROTI-IMAGE.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\abot.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\abot.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\about-us.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\about-us.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\about.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\about.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\al-ghrafa.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\al-ghrafa.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\aldo-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\aldo-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\aldo-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\aldo-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\aldo-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\aldo-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\aldo-image-4.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\aldo-image-4.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\aldo-image-5.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\aldo-image-5.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\aldo-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\aldo-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\aljazeera-perfumes-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\aljazeera-perfumes-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\arrow-down.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\arrow-down.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\arrow-right.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\arrow-right.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\arrow.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\arrow.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\arrow_left.svg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\arrow_left.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\arrow_right.svg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\arrow_right.svg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\arrow_white.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\arrow_white.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\atbg.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\atbg.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\aura.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\aura.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\banner.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\banner.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\banner1.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\banner1.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\banner2.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\banner2.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\banner3.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\banner3.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\bounce-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\bounce-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\bounce-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\bounce-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\bounce-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\bounce-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\bounce-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\bounce-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\branch-header-bg.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\branch-header-bg.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\btn-explore.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\btn-explore.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\buffaluos-cafe-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\buffaluos-cafe-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\buffaluos-cafe-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\buffaluos-cafe-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\buffaluos-cafe-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\buffaluos-cafe-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\burger-king-header.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\burger-king-header.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\cafe-talks-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\cafe-talks-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\cafe-talks-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\cafe-talks-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\cafe-talks-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\cafe-talks-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\carrefour-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\carrefour-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\carrefour-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\carrefour-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\carrefour-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\carrefour-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\carrefour-image-4.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\carrefour-image-4.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\carrefour-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\carrefour-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\cbanner (1).jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\cbanner (1).jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\cbanner.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\cbanner.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\chillis-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\chillis-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\chillis-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\chillis-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\chillis-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\chillis-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\close.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\close.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\contat (1).png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\contat (1).png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\contat .png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\contat .png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\contat.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\contat.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\darrow.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\darrow.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-banner.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-banner.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-banner.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-banner.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-buff.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-buff.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-chills.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-chills.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-coffee-talks.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-coffee-talks.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-jollibee.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-jollibee.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-mangolia.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-mangolia.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-pappai.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-pappai.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-pizza-hut.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-pizza-hut.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine-royal-tandoor.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine-royal-tandoor.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\dine.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\dine.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\embed.html",
+      "PackagePath": "staticwebassets\\web_assets\\images\\embed.html"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\enjoy-banner.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\enjoy-banner.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\enjoy-banner.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\enjoy-banner.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\enjoy.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\enjoy.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\entertain-gallery-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\entertain-gallery-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\entertain-gallery-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\entertain-gallery-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\entertain-gallery-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\entertain-gallery-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\entertain-header.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\entertain-header.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\fashion-2021-09-01-21-11-16-utc.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\fashion-2021-09-01-21-11-16-utc.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\fashion-girl-min.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\fashion-girl-min.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\favicon.ico",
+      "PackagePath": "staticwebassets\\web_assets\\images\\favicon.ico"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\favicon.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\favicon.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\fbtn.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\fbtn.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\fbtr.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\fbtr.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\filter.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\filter.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\footer.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\footer.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\footg.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\footg.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\funville-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\funville-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\gallery-dine-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\gallery-dine-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\gallery-dine-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\gallery-dine-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\gallery-dine-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\gallery-dine-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\holding web.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\holding web.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\inner-banner.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\inner-banner.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-1.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-1.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-10.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-10.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-11.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-11.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-12.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-12.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-2.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-2.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-3.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-3.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-4.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-4.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-5.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-5.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-6.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-6.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-7.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-7.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-8 (1).jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-8 (1).jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-8.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-8.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\insta-9.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\insta-9.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\jollibee-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\jollibee-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\jollibee-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\jollibee-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\jollibee-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\jollibee-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\kfc-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\kfc-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\kfc-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\kfc-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\kfc-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\kfc-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\l1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\l1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\loader.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\loader.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\loading.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\loading.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\loading.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\loading.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\logo.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\logo.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\logof-algharaffa.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\logof-algharaffa.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\logof.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\logof.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\lulea-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\lulea-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\mall alwakra.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\mall alwakra.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\mall-algharaffa.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\mall-algharaffa.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\mallalwukair.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\mallalwukair.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\map.js.download",
+      "PackagePath": "staticwebassets\\web_assets\\images\\map.js.download"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\map.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\map.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\mapb.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\mapb.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\mapi.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\mapi.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\mapr.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\mapr.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\maptitle.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\maptitle.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\menu-drops.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\menu-drops.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\menu.js.download",
+      "PackagePath": "staticwebassets\\web_assets\\images\\menu.js.download"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nails-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nails-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nails-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nails-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nails-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nails-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nails-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nails-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nayomi-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nayomi-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nayomi-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nayomi-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nayomi-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nayomi-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nayomi-image-4.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nayomi-image-4.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nayomi-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nayomi-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\new-timing.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\new-timing.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-1.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-1.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-4.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-4.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-4.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-4.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-5.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-5.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-5.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-5.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-6.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-6.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-6.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-6.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-7.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-7.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-7.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-7.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-8.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-8.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-8.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-8.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news-details.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news-details.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news1.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news1.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news2.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news2.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news3.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news3.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\news3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\news3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nova-films-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nova-films-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nw1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nw1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nw2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nw2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\nw3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\nw3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off-1.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off-1.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off-5.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off-5.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off-6.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off-6.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off-7.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off-7.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off-8.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off-8.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off-9.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off-9.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off1.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off1.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off2.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off2.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off3.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off3.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off4.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off4.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off5.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off5.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off6.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off6.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off7.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off7.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off8.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off8.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\off9.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\off9.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\offer-details.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\offer-details.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\p1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\p1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\p11.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\p11.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\p12.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\p12.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\p13.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\p13.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\p14.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\p14.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\p15.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\p15.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\p16.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\p16.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\pagination.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\pagination.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\pagination.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\pagination.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\path43.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\path43.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\paul-mark-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\paul-mark-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\paulmark-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\paulmark-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\paulmark-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\paulmark-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\paulmark-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\paulmark-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\paulmark-image-4.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\paulmark-image-4.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\pizza-hut-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\pizza-hut-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\pizza-hut-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\pizza-hut-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\pizza-hut-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\pizza-hut-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\pizza-hut-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\pizza-hut-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\place.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\place.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\promotions-header.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\promotions-header.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\rivoli-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\rivoli-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\rivoli-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\rivoli-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\rivoli-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\rivoli-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\rivoli-image-4.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\rivoli-image-4.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\rivoli-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\rivoli-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\roya-tandoor-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\roya-tandoor-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\roya-tandoor-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\roya-tandoor-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\roya-tandoor-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\roya-tandoor-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\royal-tandoor-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\royal-tandoor-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\saved_resource.html",
+      "PackagePath": "staticwebassets\\web_assets\\images\\saved_resource.html"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\search.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\search.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-5d-thrills.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-5d-thrills.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-banner.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-banner.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-bounce.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-bounce.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-details.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-details.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-funville.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-funville.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-gallery-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-gallery-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-gallery-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-gallery-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-gallery-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-gallery-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-header-banner.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-header-banner.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-minimal-details.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-minimal-details.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\shop-nov.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\shop-nov.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\slide-1.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\slide-1.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\slide-2.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\slide-2.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\slide-3.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\slide-3.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\slide-4.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\slide-4.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\social-direction.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\social-direction.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\social.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\social.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-10.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-10.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-11.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-11.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-12.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-12.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-13.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-13.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-4.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-4.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-5.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-5.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-6.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-6.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-7.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-7.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-8.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-8.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\store-9.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\store-9.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\t1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\t1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\util.js.download",
+      "PackagePath": "staticwebassets\\web_assets\\images\\util.js.download"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\zen.css",
+      "PackagePath": "staticwebassets\\web_assets\\images\\zen.css"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\zoo-rider.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\zoo-rider.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\zoo-riders-image-1.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\zoo-riders-image-1.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\zoo-riders-image-2.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\zoo-riders-image-2.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\zoo-riders-image-3.png",
+      "PackagePath": "staticwebassets\\web_assets\\images\\zoo-riders-image-3.png"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\images\\zoo-riders-image.jpg",
+      "PackagePath": "staticwebassets\\web_assets\\images\\zoo-riders-image.jpg"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\all.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\all.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\imagesloaded.pkgd.min.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\imagesloaded.pkgd.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\isotope.pkgd.min.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\isotope.pkgd.min.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\jquery.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\jquery.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\mainscript.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\mainscript.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\menu.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\menu.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\nicescroll1.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\nicescroll1.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\owl.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\owl.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\paging.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\paging.js"
+    },
+    {
+      "Id": "E:\\Lydia\\ezdan_mall_web_core\\wwwroot\\web_assets\\js\\search_filter.js",
+      "PackagePath": "staticwebassets\\web_assets\\js\\search_filter.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.EzdanMall.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.EzdanMall.props",
+      "PackagePath": "build\\EzdanMall.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.EzdanMall.props",
+      "PackagePath": "buildMultiTargeting\\EzdanMall.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.EzdanMall.props",
+      "PackagePath": "buildTransitive\\EzdanMall.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

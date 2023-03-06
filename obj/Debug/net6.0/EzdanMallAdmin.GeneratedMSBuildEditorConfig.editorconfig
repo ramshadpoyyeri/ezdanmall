@@ -1,0 +1,92 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EzdanMallAdmin
+build_property.RootNamespace = EzdanMallAdmin
+build_property.ProjectDir = D:\Ociuz\WORKS\NEW\Ezdan_RealEstate\ezdan_mall_admin_core\EzdanMallAdmin\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Ociuz\WORKS\NEW\Ezdan_RealEstate\ezdan_mall_admin_core\EzdanMallAdmin
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Admin/EntryForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRW50cnlGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Admin/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Admin/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Admin/MasterList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFzdGVyTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Admin/NewPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTmV3UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Partials/DataGrid_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRGF0YUdyaWRfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Partials/Forms/SliderBanner_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcU2xpZGVyQmFubmVyX1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Partials/Grids/SliderBanner_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcR3JpZHNcU2xpZGVyQmFubmVyX1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Shared/SideMenuPartial_Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNpZGVNZW51UGFydGlhbF9BZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Shared/_AdminLoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxvZ2luTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ociuz/WORKS/NEW/Ezdan_RealEstate/ezdan_mall_admin_core/EzdanMallAdmin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

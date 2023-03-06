@@ -1,0 +1,277 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EzdanMall
+build_property.RootNamespace = EzdanMall
+build_property.ProjectDir = E:\Lydia\ezdan_mall_web_core\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Lydia\ezdan_mall_web_core
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Admin/EntryForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRW50cnlGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Admin/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Admin/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Admin/MasterList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFzdGVyTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Admin/NewPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTmV3UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ardemo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJkZW1vXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcQWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcQ29udGFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Dine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcRGluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Dineinfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcRGluZWluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Enjoy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcRW5qb3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Enjoyinfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcRW5qb3lpbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Locations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcTG9jYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/News.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcTmV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Newsinfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcTmV3c2luZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Promotions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcUHJvbW90aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Shop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcU2hvcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/ShopInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcU2hvcEluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/ar/Timings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXJcVGltaW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Dine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaW5lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/DineInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaW5lSW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Enjoy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFbmpveS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/EnjoyInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFbmpveUluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Locations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2NhdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/News.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/NewsInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdzSW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Promotions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9tb3Rpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Shop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/ShopInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wSW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Home/Timings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUaW1pbmdzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/DataGrid_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRGF0YUdyaWRfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/AboutPage_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcQWJvdXRQYWdlX1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/CategoryMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcQ2F0ZWdvcnlNYXN0ZXJfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/ContactPage_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcQ29udGFjdFBhZ2VfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/DineMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcRGluZU1hc3Rlcl9QYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/EnjoyMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcRW5qb3lNYXN0ZXJfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/HomePage_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcSG9tZVBhZ2VfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/LocationMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcTG9jYXRpb25NYXN0ZXJfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/MallTimings_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcTWFsbFRpbWluZ3NfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/MediaCenter_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcTWVkaWFDZW50ZXJfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/PromotionMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcUHJvbW90aW9uTWFzdGVyX1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/ShopMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcU2hvcE1hc3Rlcl9QYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Forms/SliderBanner_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcRm9ybXNcU2xpZGVyQmFubmVyX1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Grids/CategoryMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcR3JpZHNcQ2F0ZWdvcnlNYXN0ZXJfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Grids/DineMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcR3JpZHNcRGluZU1hc3Rlcl9QYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Grids/EnjoyMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcR3JpZHNcRW5qb3lNYXN0ZXJfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Grids/MediaCenter_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcR3JpZHNcTWVkaWFDZW50ZXJfUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Grids/PromotionMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcR3JpZHNcUHJvbW90aW9uTWFzdGVyX1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Grids/ShopMaster_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcR3JpZHNcU2hvcE1hc3Rlcl9QYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Partials/Grids/SliderBanner_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcR3JpZHNcU2xpZGVyQmFubmVyX1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Shared/SideMenuPartial_Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNpZGVNZW51UGFydGlhbF9BZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Shared/_AdminLoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxvZ2luTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Shared/_ARLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BUkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Lydia/ezdan_mall_web_core/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

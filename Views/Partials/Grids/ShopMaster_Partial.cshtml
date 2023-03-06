@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+    String gridData = Model;
+    String doctype = Context.Request.Query["doctype"];
+}
+
+<div class="category-table">
+    <table id="dataTable" aria-describedby="dataTable_info">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <input class="select-all" type="checkbox" id="all">
+                    <label for="all"></label>
+                </th>
+                <th scope="col">SHOP LOGO</th>
+                <th scope="col">SHOP NAME</th>
+                <th scope="col">SHOP NAME (ARABIC)</th>
+                <th scope="col">CATEGORY</th>
+                <th scope="col">SHOP ADDRESS</th>
+                <th scope="col">PHONE</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script>
+    var dataTable;
+    //$(document).ready(function ()
+    //{
+        var gridData = JSON.parse(JSON.stringify(@Html.Raw(gridData)));
+        //var gridData = JSON.parse('Html.Raw(gridData)');
+        dataTable = $("#dataTable").DataTable({
+            bFilter: true,
+            "bInfo" : false,
+                language:{"infoEmpty": "No records available",
+            },
+            bPaginate: true,
+            data: gridData,
+            columnDefs:
+            [{
+                "targets": [0],
+                "visible": true,
+                "searchable": false,
+                //"sortable" : false
+            }
+            ],
+            "columns": [                 
+                {
+                    "render": function (data, type, row, meta)
+                    {
+                        return "<input class='individual' type='checkbox' id='"+row.SHP_DocNo+"'><label for='"+row.SHP_DocNo+"'></label>";
+                    }
+                },
+                {
+                    "render": function (data, type, row, meta)
+                    {
+                        return "<div class='store'><img src='"+row.SHP_Logo+"'/></div>";
+                    }
+                },
+                { data: "SHP_Name", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                { data: "SHP_Name_Arabic", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                { data: "SHP_MainCategory", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                { data: "SHP_Address", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                { data: "SHP_PhoneNumber", render: function(data, type, row)
+                  { return "<div class='clip' title='"+data+"'>"+data+"</div>"; }
+                },
+                {
+                    data: null, render: function (data, type, row)
+                    {
+                        return "<div class='action-btn'><div class='edit'><a href='/admin/EntryForm?doctype=@doctype&docno="+row.SHP_DocNo+"'><img src='/admin_assets/images/edit.svg' alt=''></a></div>"
+                             + "<div class='delete'><a href='#' id='"+row.SHP_DocNo+"' onclick=\"ShowDeleteDialog('"+row.SHP_DocNo+"','Are you sure you want to delete the shop?')\"><img src='/admin_assets/images/delete.svg' alt=''></a></div>"
+                             + "</div>";
+                    }
+                },
+            ]
+        });
+
+        //customize search..
+        $('#txtSearch').keyup(function(){
+              dataTable.search($(this).val()).draw();
+        })
+
+        setTimeout(function(){
+            var pageSizeHtml = "<label class='d-flex pageSize'>Show <select name='dataTable_length' id='pageSize' aria-controls='dataTable' class='form-select form-select-sm'><option value='10'>10</option><option value='25'>25</option><option value='50'>50</option><option value='100'>100</option></select> entries</label>";
+            $(".dataTables_wrapper .row:last-child .col-md-5").html(pageSizeHtml);
+
+            $('#pageSize').change(function(){
+                dataTable.page.len($(this).val()).draw();
+            });
+
+        },100);
+    //});
+</script>

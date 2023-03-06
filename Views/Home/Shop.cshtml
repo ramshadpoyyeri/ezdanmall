@@ -1,0 +1,88 @@
+﻿@using System.Data;
+@{
+    ViewData["Title"] = "Shop";
+    ViewData["Page"] = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Model;
+
+    DataTable dtData = ds.Tables[0];
+    DataTable dtCategories = ds.Tables[1];
+}
+<section class="banner mixb">
+    <img src="/web_assets/images/shop-banner.jpg" alt="">
+    <!--
+    <div class="banner-overlay">
+        <span>Ezdanmall - Al wakra</span>
+        <h1>Shop</h1>
+    </div>
+    -->
+</section>
+
+<section class="storeslistandfilter">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="storesfilter">
+                    <button class="advancedfilter">
+                        <span class="filtericon"></span> Filter
+                    </button>
+                    <ul class="category-filter filter-button-group">
+                        <li class="active" data-filter="*">All Categories</li>
+                        @{
+                            foreach (DataRow row in dtCategories.Rows)
+                            {
+                                <li data-filter=".@row["CAT_DocNo"]">@row["CAT_Description"]</li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <input type="text" name="search" class="my-search" placeholder="What are you looking for?">
+
+                <style type="text/css">
+                    .my-search {
+                        width: 100%;
+                        border-radius: 5px;
+                        border: 2px solid #ddd;
+                        padding: 10px 15px;
+                        position: relative;
+                        background: url("/web_assets/images/icon-search.png") top left no-repeat;
+                        background-position: 15px;
+                        background-size: 20px 20px;
+                    }
+
+                        .my-search:focus {
+                            background: none;
+                        }
+
+                </style>
+                <script src="/web_assets/js/search_filter.js"></script>
+                <div class="storeslist">
+                    <ul class="grid">
+                        @{
+                            foreach (DataRow row in dtData.Rows)
+                            {
+                                String urlKey = row["SHP_URL_Key"] + "-" + row["SHP_DocNo"];
+                                <li class="grid-item @row["SHP_CAT_DocNo"]">
+                                    <a href="/shop-info/@urlKey" class="storelogo">
+                                        <div class="shopimageforlist">
+                                            <img src="@row["SHP_BannerImage"]">
+                                        </div>
+                                        <div class="logo">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div class="tooltip"><i></i> @row["SHP_Address"]</div>
+                                    </a>
+                                    <div class="storename">
+                                        <h3>@row["SHP_Name"]</h3>
+                                        <a href="/shop-info/@urlKey" class="viewstoredetails">View Details</a>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

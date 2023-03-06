@@ -1,0 +1,98 @@
+﻿@using System.Data;
+@inject IConfiguration Configuration;
+@{
+    ViewData["Title"] = "News";
+    ViewData["Page"] = "News";
+    Layout = "~/Views/Shared/_ARLayout.cshtml";
+
+    DataSet ds = Model;
+    DataTable? dtFullData = new DataTable();
+
+    string discription = "", Ardiscription = "";
+
+    DataTable dtData = ds.Tables[0];
+    //DataTable dtNews = ds.Tables[1];
+    using (EzdanLibrary.DAL db = new EzdanLibrary.DAL(Configuration))
+    {
+        dtFullData = db.SqlDataSetResult("USP_Web_CompanyParameter", new List<System.Data.SqlClient.SqlParameter>()).Tables[0];
+
+        discription = dtFullData.Rows[0]["COMPAR_Description"].ToString();
+        Ardiscription = dtFullData.Rows[1]["COMPAR_Description"].ToString();
+    }
+}
+
+<section class="banner">
+    <img src="/web_assets/images/cbanner.jpg" alt="">
+    <div class="banner-overlay">
+        <span>ازدان مول - @Ardiscription</span>
+        <h1>الإخبارية</h1>
+    </div>
+</section>
+
+<div class="newspage">
+    <div class="allnewslist">
+        <h2 class="text-center mb-4 pb-4">المركز الاعلامي</h2>
+        <ul>
+            @{
+                foreach (DataRow row in dtData.Rows)
+                {
+
+                    String NWS_Descriptin = row["NWS_Description_Arabic"].ToString();
+                    DateTime strDate = Convert.ToDateTime(row["NWS_Date"].ToString());
+                    String date = strDate.ToString("dd-MM-yyyy");
+                    var parts = date.Split('-');
+                    int day = Convert.ToInt16(parts[0]);
+                    int year = Convert.ToInt16(parts[2]);
+                    int month = Convert.ToInt16(parts[1]);
+                    string[] months = {"January", "February", "March", "April", "May", "June",
+            "July", "August", "Setember", "October", "November", "December" };
+                    string newmonth = months[month - 1];
+                    string newdate = day + " " + newmonth + " " + year;
+                    String urlKey = row["NWS_URL_Key"] + "-" + row["NWS_DocNo"];
+                    <li>
+                        <div class="newsitem" data-hover="">
+                            <a href="/ar/news-info/@urlKey">
+                                <div class="newsimage">
+                                    <img src="@row["NWS_BannerImage"]">
+                                </div>
+                            </a>
+                            <div class="newsdetails" data-hover="">
+                                <h4>@Html.Raw(row["NWS_Branch_Name_Arabic"])</h4>
+                                <h5>@day @newmonth, @year</h5>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+
+        </ul>
+        <nav aria-label="Page navigation" style="display:none;">
+            <ul class="pagination pg-blue justify-content-center">
+                <li class="page-item disabled">
+                    <a href="#" class="page-link prev" tabindex="-1"><img class="card-img" src="/web_assets/images/arrow_left.svg" alt="prev"></a>
+                </li>
+                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link active">4</a></li>
+                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                <li class="page-item"><a href="#" class="page-link">6</a></li>
+                <li class="page-item"><a href="#" class="page-link">7</a></li>
+                <li class="page-item"><a href="#" class="page-link">8</a></li>
+                <li class="page-item">....</li>
+                <li class="page-item"><a href="#" class="page-link">281</a></li>
+                <li class="page-item">
+                    <a href="#" class="page-link next"><img class="card-img" src="/web_assets/images/arrow_right.svg" alt="prev"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+
+<style>
+.newsitem{
+    overflow:hidden;
+}
+</style>

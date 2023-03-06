@@ -1,0 +1,170 @@
+﻿@using System.Data;
+@{
+    Layout = null;
+    String docno = Context.Request.Query["docno"];
+
+    bool editMode = false;
+    EzdanLibrary.DocumentSettings docSettings = Model;
+    DataTable? dtData = docSettings.dtData;
+    String SBM_Description = "", SBM_Description_Arabic = "";
+    String SBM_Subtitle = "", SBM_Subtitle_Arabic = "";
+    String SBM_RedirectUrl = "", SBM_BannerImage = "", SBM_RedirectUrl_Arabic = "";
+    String ImageUrl = ""; String SBM_SortNo = "1";
+    if (dtData != null && String.IsNullOrEmpty(docno) == false) // edit-mode..(when docno has data)
+    {
+        editMode = true;
+        SBM_Description = dtData.Rows[0]["SBM_Description"].ToString();
+        SBM_Description_Arabic = dtData.Rows[0]["SBM_Description_Arabic"].ToString();
+        SBM_Subtitle = dtData.Rows[0]["SBM_Subtitle"].ToString();
+        SBM_Subtitle_Arabic = dtData.Rows[0]["SBM_Subtitle_Arabic"].ToString();
+        SBM_RedirectUrl = dtData.Rows[0]["SBM_RedirectUrl"].ToString();
+        ImageUrl = dtData.Rows[0]["SBM_BannerImage"].ToString();
+        SBM_BannerImage = "background-image:url(" + ImageUrl + ")";
+        SBM_RedirectUrl_Arabic = dtData.Rows[0]["SBM_RedirectUrl_Arabic"].ToString();
+
+        SBM_SortNo = dtData.Rows[0]["SBM_SortNo"].ToString();
+    }
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <label for="SBM_Description">Banner title</label>
+            <input type="text" name="SBM_Description" value="@SBM_Description" maxlength="100" placeholder="Banner title in English">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <label for="SBM_Description">Banner title in Arabic</label>
+            <input type="text" name="SBM_Description_Arabic" value="@SBM_Description_Arabic" maxlength="100" placeholder="Banner title in Arabic">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Banner subtitle</label>
+            <input type="text" name="SBM_Subtitle" value="@SBM_Subtitle" maxlength="150" placeholder="Banner subtitle">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Banner subtitle in arabic</label>
+            <input type="text" name="SBM_Subtitle_Arabic" value="@SBM_Subtitle_Arabic" maxlength="150" placeholder="Banner subtitle in arabic">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <label for="">Redirection link to</label>
+            <input type="text" name="SBM_RedirectUrl" value="@SBM_RedirectUrl" maxlength="500" placeholder="Redirection link to">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <label for="">Redirection link to(in Arabic)</label>
+            <input type="text" name="SBM_RedirectUrl_Arabic" value="@SBM_RedirectUrl_Arabic" maxlength="500" placeholder="Redirection link to">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Banner Image(Size :1920x950)</label>
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="imagePreview" style="@SBM_BannerImage"></div>
+                    <button class="btn btn-secondary">Choose</button>
+                    <div class="file-select-name">No File Chosen</div>
+                    <input type="file" id="SBM_BannerImage" name="SBM_BannerImage" class="profileimg">
+                    <input type="hidden" id="SBM_BannerImage1" value="@ImageUrl">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-wrap half-field">
+            <label for="">Banner Position</label>
+            <input type="text" name="SBM_SortNo" value="@SBM_SortNo" maxlength="500" placeholder="Banner Position/Sort No">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-wrap half-field">
+            <input type="submit" value="submit" class="submit">
+        </div>
+    </div>
+</div>
+
+
+<script>
+     $(document).ready(function () {
+
+         var editMode = '@editMode    '.toLowerCase();
+    $("#form").validate({
+        rules: {
+            SBM_Description: {
+                required: true,
+            },
+            SBM_Description_Arabic: {
+                required: true,
+            },
+            SBM_Subtitle: {
+                required: true,
+            },
+            SBM_Subtitle_Arabic: {
+                required: true,
+            },
+            SBM_RedirectUrl: {
+                required: true,
+                url: true
+            },
+                SBM_RedirectUrl_Arabic: {
+                    required: true,
+                    url: true
+                },
+            SBM_BannerImage: {
+                required: editMode=="true"?false:true,
+                extension: "jpg|jpeg|png|bmp"
+            },SBM_SortNo:{
+                 required: true,digit:true
+            }
+        },
+        messages: {
+            SBM_Description: {
+                required: "<b>Title</b> required.!",
+            },
+            SBM_Description_Arabic: {
+                required: "<b>Arabic Title</b> required.!",
+            },
+            SBM_Subtitle: {
+                required: "<b>Subtitle</b> required.!",
+            },
+            SBM_Subtitle_Arabic: {
+                required: "<b>Arabic Subtitle</b> required.!",
+            },
+            SBM_RedirectUrl: {
+                 required: "<b>URL</b> required.!",
+                 url: "Invalid URL format.!"
+            },
+        SBM_RedirectUrl_Arabic: {
+                    required: "<b>Arabic URL</b> required.!",
+                    url: "Invalid URL format.!"
+         },
+            SBM_BannerImage: {
+                required: "<b>Image</b> required.!",
+                extension: "Image Type <b>(jpg/png/bmp)</b>"
+            }
+            ,SBM_SortNo:{
+                 required: "<b>Enter Positon</b>",digit:"Number required"
+            }
+        },
+        submitHandler: function(form) {
+
+            if(editMode=="true"){
+                if($("#SBM_BannerImage").val().length==0) {
+                    $("#SBM_BannerImage1").attr("name","SBM_BannerImage");
+                    $("#SBM_BannerImage").removeAttr("name");
+                    $("#SBM_BannerImage").remove();
+                }
+            }
+            $("#form button[type=submit]").attr("disabled", "disabled");
+            form.submit();
+        }
+    });
+      });
+</script>
